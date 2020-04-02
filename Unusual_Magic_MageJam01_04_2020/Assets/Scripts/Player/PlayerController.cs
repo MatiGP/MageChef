@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         canJump = Physics2D.OverlapCircle(legsPosition.position, 0.4f, groundMask);
-        Debug.Log(canJump);
+
         rb2d.velocity = new Vector2(horizontal * speed, rb2d.velocity.y);
     }
 
