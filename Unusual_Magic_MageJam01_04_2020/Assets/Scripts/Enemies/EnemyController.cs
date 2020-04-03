@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [Header("Base Stats")]
-    [SerializeField] int health = 2;
+    [SerializeField] int pointsReward = 100;
     [SerializeField] float wanderSpeed = 3f;
     [Header("Combat Stats")]
     [SerializeField] float tauntRange = 5;
@@ -76,7 +76,7 @@ public class EnemyController : MonoBehaviour
       
         if (!canWalkOnPlatform)
         {
-            transform.localScale = new Vector3(1 * -1, 1, 1);
+            transform.localScale = new Vector3(transform.localScale.x * -1, 1, 1);
         }
         
     }
@@ -109,4 +109,10 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(timeBetweenAttacks);
         canAttack = true;
     }
+
+    public int GetPointsReward()
+    {
+        return pointsReward;
+    }
+    
 }

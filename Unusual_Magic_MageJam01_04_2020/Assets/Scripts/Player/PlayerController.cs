@@ -9,7 +9,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] Transform legsPosition;
     [SerializeField] LayerMask groundMask;
+    [SerializeField] int bounceAddForce = 2;
 
+    int bounceForce = 3;
     bool canJump;
     float horizontal;
     Rigidbody2D rb2d;
@@ -31,16 +33,14 @@ public class PlayerController : MonoBehaviour
         ChangeScale();
         UpdateAnimator();
 
+        if (canJump) bounceForce = 3;
+
         if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
             Jump();
             animator.SetTrigger("jump");
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            animator.SetTrigger("shoot");
-        }
-
+        
     }
 
     void Jump()
@@ -75,5 +75,11 @@ public class PlayerController : MonoBehaviour
         }
 
         
+    }
+
+    public void Bounce()
+    {        
+        rb2d.velocity = new Vector2(rb2d.velocity.x, bounceForce);
+        bounceForce += bounceAddForce;
     }
 }
