@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(Health), typeof(Rigidbody2D), typeof(CapsuleCollider2D))]
 public class EnemyController : MonoBehaviour
 {
     [Header("Base Stats")]

@@ -1,17 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class PointPickUp : MonoBehaviour
+public class ExitLevel : MonoBehaviour
 {
-    [SerializeField] int points;
+    [SerializeField] int levelIndexToLoad;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
-            PlayerPoints.instance.IncreasePoints(points);
-            Destroy(gameObject);
+            SceneManager.LoadScene(levelIndexToLoad);
         }
     }
 }
