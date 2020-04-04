@@ -10,14 +10,18 @@ public class HealthPickUp : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            Health playerHealth = collision.GetComponent<Health>();
-            if(playerHealth.GetHealthAmmount() < 4)
+            if(collision.GetComponent<Health>().GetHealthAmmount() < 4)
             {
-                playerHealth.RestoreHealth();
+                collision.GetComponent<Health>().RestoreHealth();
                 hpPickUpSource.Play();
-                Destroy(gameObject);
+                StartCoroutine(Disable());
             }
             
         }
+    }
+    IEnumerator Disable()
+    {
+        yield return new WaitForSeconds(0.2f);
+        Destroy(gameObject);
     }
 }

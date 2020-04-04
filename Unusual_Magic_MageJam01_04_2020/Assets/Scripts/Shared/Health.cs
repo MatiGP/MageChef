@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage()
     {
+        hurtSource.Play();
         health--;
         
         if(health <= 0)
@@ -29,6 +30,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int dmgAmmount)
     {
+        hurtSource.Play();
         health = Mathf.Max(health, 0, health - dmgAmmount);
         if (health <= 0)
         {            
@@ -47,6 +49,7 @@ public class Health : MonoBehaviour
 
     public void RestoreHealth()
     {
-        health = Mathf.Min(4, health++);
+        health++;
+        Mathf.Clamp(health, 0, 4);
     }
 }

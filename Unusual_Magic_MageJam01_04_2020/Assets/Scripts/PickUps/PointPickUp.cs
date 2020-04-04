@@ -13,7 +13,14 @@ public class PointPickUp : MonoBehaviour
         {
             PlayerPoints.instance.IncreasePoints(points);
             source.Play();
-            Destroy(gameObject);
+            GetComponent<BoxCollider2D>().enabled = false;
+            StartCoroutine(Disable());
         }
+    }
+
+    IEnumerator Disable()
+    {
+        yield return new WaitForSeconds(0.4f);
+        Destroy(gameObject);
     }
 }
