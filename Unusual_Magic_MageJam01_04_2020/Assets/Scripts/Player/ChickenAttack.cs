@@ -19,7 +19,14 @@ public class ChickenAttack : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb2d.velocity = new Vector2(chickenSpeed, rb2d.velocity.y);
+        if (transform.rotation.y > 0)
+        {
+            rb2d.velocity = new Vector2(-chickenSpeed, rb2d.velocity.y);
+        }
+        else
+        {
+            rb2d.velocity = new Vector2(chickenSpeed, rb2d.velocity.y);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

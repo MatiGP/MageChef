@@ -19,7 +19,15 @@ public class BasicAttack : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb2d.velocity = new Vector2(cookieTravelSpeed, rb2d.velocity.y);
+        if(transform.rotation.y > 0)
+        {
+            rb2d.velocity = new Vector2(-cookieTravelSpeed, rb2d.velocity.y);
+        }
+        else
+        {
+            rb2d.velocity = new Vector2(cookieTravelSpeed, rb2d.velocity.y);
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

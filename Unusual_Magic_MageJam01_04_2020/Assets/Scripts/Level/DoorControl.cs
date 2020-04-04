@@ -8,6 +8,9 @@ public class DoorControl : MonoBehaviour
 
     private void OnDestroy()
     {
-        Destroy(bars);
+        if(bars != null)
+        {
+            Destroy(bars);
+        }
     }
 }

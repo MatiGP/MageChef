@@ -35,9 +35,9 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerSpotted = CheckForPlayerInTauntRange();
         isInAttackRange = CheckInRange();
         canWalkOnPlatform = Physics2D.Raycast(legs.position, Vector2.down, 0.5f, groundLayer);
+        
         if (!playerSpotted && target == null)
         {
             Wander();
@@ -71,6 +71,7 @@ public class EnemyController : MonoBehaviour
 
     void Wander()
     {
+        playerSpotted = CheckForPlayerInTauntRange();
         animator.SetBool("isRunning", true);
         rb2d.velocity = new Vector2(wanderSpeed * transform.localScale.x, rb2d.velocity.y);
       
@@ -78,6 +79,7 @@ public class EnemyController : MonoBehaviour
         {
             transform.localScale = new Vector3(transform.localScale.x * -1, 1, 1);
         }
+        
         
     }
 
@@ -87,6 +89,8 @@ public class EnemyController : MonoBehaviour
         if (!canWalkOnPlatform)
         {
             target = null;
+            playerSpotted = false;
+            transform.localScale = new Vector3(transform.localScale.x * -1, 1, 1);
             return;
         }
 
@@ -114,5 +118,7 @@ public class EnemyController : MonoBehaviour
     {
         return pointsReward;
     }
+
+    
     
 }

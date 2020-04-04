@@ -46,21 +46,21 @@ public class PlayerAbilities : MonoBehaviour
         {
             GetComponent<Animator>().SetTrigger("shoot");
             currentTimeBasicAttack = basicAttackCooldown;
-            Instantiate(basicAttackCookie, castPlace.position, Quaternion.identity);
+            Instantiate(basicAttackCookie, castPlace.position, Quaternion.Euler(0, 180 * transform.localScale.x, 0));
         }
         if (Input.GetKeyDown(KeyCode.Mouse1) && currentTimeChicken <= 0)
         {
             GetComponent<Animator>().SetTrigger("shoot");
             chickenCD.gameObject.SetActive(true);
             currentTimeChicken = chickenCooldown;
-            Instantiate(additionalAttackChicken, castPlace.position, Quaternion.identity);
+            Instantiate(additionalAttackChicken, castPlace.position, Quaternion.Euler(0,180 * transform.localScale.x, 0));
         }
         if (Input.GetKeyDown(KeyCode.E) && currentTimeJelly <= 0)
         {
             GetComponent<Animator>().SetTrigger("shoot");
             jellyCD.gameObject.SetActive(true);
             currentTimeJelly = jellyCooldown;
-            Instantiate(jelly, castPlace.position, Quaternion.identity);
+            Instantiate(jelly, castPlace.position, Quaternion.Euler(0, 180 * transform.localScale.x, 0));
         }
         currentTimeBasicAttack -= Time.deltaTime;
         currentTimeChicken -= Time.deltaTime;
