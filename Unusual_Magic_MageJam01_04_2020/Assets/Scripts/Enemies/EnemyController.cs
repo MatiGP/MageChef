@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] LayerMask playerLayer;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform legs;
+    [SerializeField] AudioSource attackSource;
 
     Rigidbody2D rb2d;
     Animator animator;
@@ -110,6 +111,7 @@ public class EnemyController : MonoBehaviour
         rb2d.velocity = Vector2.zero;
         animator.SetTrigger("attack");       
         target.GetComponent<Health>().TakeDamage();
+        attackSource.Play();
         yield return new WaitForSeconds(timeBetweenAttacks);
         canAttack = true;
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Jelly : MonoBehaviour
 {
     [SerializeField] float jellyUpTime = 6f;
+    [SerializeField] AudioSource audioSource;
     Animator anim;
 
     // Start is called before the first frame update
@@ -18,6 +19,7 @@ public class Jelly : MonoBehaviour
         if(collision.collider.tag == "Player")
         {
             anim.SetTrigger("bounce");
+            audioSource.Play();
             collision.collider.GetComponent<PlayerController>().Bounce();
 
         }

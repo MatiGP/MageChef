@@ -18,7 +18,8 @@ public class PlayerAbilities : MonoBehaviour
     [SerializeField] GameObject jelly;
     [SerializeField] GameObject additionalAttackChicken;
     [SerializeField] GameObject basicAttackCookie;
-
+    [Header("AudioSources")]
+    [SerializeField] AudioSource castSource;
     float currentTimeBasicAttack = 0f;
     float currentTimeChicken = 0f;
     float currentTimeJelly = 0f;
@@ -44,12 +45,14 @@ public class PlayerAbilities : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && currentTimeBasicAttack <=0)
         {
+            castSource.Play();
             GetComponent<Animator>().SetTrigger("shoot");
             currentTimeBasicAttack = basicAttackCooldown;
             Instantiate(basicAttackCookie, castPlace.position, Quaternion.Euler(0, 180 * transform.localScale.x, 0));
         }
         if (Input.GetKeyDown(KeyCode.Mouse1) && currentTimeChicken <= 0)
         {
+            castSource.Play();
             GetComponent<Animator>().SetTrigger("shoot");
             chickenCD.gameObject.SetActive(true);
             currentTimeChicken = chickenCooldown;
@@ -57,6 +60,7 @@ public class PlayerAbilities : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E) && currentTimeJelly <= 0)
         {
+            castSource.Play();
             GetComponent<Animator>().SetTrigger("shoot");
             jellyCD.gameObject.SetActive(true);
             currentTimeJelly = jellyCooldown;

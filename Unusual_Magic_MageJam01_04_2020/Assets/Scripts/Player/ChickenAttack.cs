@@ -7,6 +7,7 @@ public class ChickenAttack : MonoBehaviour
     [SerializeField] int chickenDamage = 2;
     [SerializeField] float chickenSpeed;
     [SerializeField] float chickenDetonationTime;
+    [SerializeField] AudioSource source;
 
     Rigidbody2D rb2d;
     // Start is called before the first frame update
@@ -40,6 +41,7 @@ public class ChickenAttack : MonoBehaviour
 
     void Detonate()
     {
+        source.Play();
         Destroy(gameObject);
     }
 }

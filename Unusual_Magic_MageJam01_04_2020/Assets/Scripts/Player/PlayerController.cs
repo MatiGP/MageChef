@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform legsPosition;
     [SerializeField] LayerMask groundMask;
     [SerializeField] int bounceAddForce = 2;
+    [SerializeField] AudioSource jumpSource;
 
     int bounceForce = 3;
     bool canJump;
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
             animator.SetTrigger("jump");
+            jumpSource.Play();
         }
         
     }

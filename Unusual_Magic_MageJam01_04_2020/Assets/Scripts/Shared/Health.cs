@@ -5,6 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] int health = 1;
+    [SerializeField] AudioSource hurtSource;
     Animator anim;
 
     private void Start()
