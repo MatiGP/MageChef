@@ -7,5 +7,13 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LightCookie_animController
-  m_Controller: {fileID: 0}
-  m_Clips: []
+  m_Controller: {fileID: 9100000, guid: 5e2e47e61be7a6140981d37c103ebab1, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 136a919c86c1f904fb9011ec897d3532, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8beb1c5e419e05748973890f714c87ce, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 224f358e308047c4cb10a8496ebdd05d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 959e576130590f14282abd46835f2f8b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 52bb480710847434b9d13aa89a5d2048, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 64b75fe1ec3aed445b5fcd0a78be48e9, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d06bc6497c263ee4ea7804039c58e942, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e81c0e8ce0eeaba488019b36a09e0a55, type: 2}
