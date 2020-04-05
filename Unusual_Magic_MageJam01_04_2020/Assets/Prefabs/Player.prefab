@@ -742,7 +742,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -916,7 +916,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: 798eccaa67f978b4bbc94220680942b3, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &4569860366788483129
 MonoBehaviour:
@@ -976,6 +976,12 @@ MonoBehaviour:
   basicAttackCookie: {fileID: 2631200237965329000, guid: 8d0ad3e5a241221409cbc0e4fd696ff9,
     type: 3}
   castSource: {fileID: 8648319330932266509}
+  basicCastParticle: {fileID: 8700523364310486052, guid: d6c61164f0a42074b96f877965d1a95c,
+    type: 3}
+  chickenCastParticle: {fileID: 4510915899879155075, guid: 4a590a20d4088d549b6ae3937c5f8b98,
+    type: 3}
+  jellyCastParticle: {fileID: 4119547061949678724, guid: 0295aa08ea9cfb149a0a044dc4cc7ecf,
+    type: 3}
 --- !u!114 &1834585289607688736
 MonoBehaviour:
   m_ObjectHideFlags: 0

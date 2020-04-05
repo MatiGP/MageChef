@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask groundMask;
     [SerializeField] int bounceAddForce = 2;
     [SerializeField] AudioSource jumpSource;
+    
 
     int bounceForce = 3;
     bool canJump;

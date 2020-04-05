@@ -41,7 +41,14 @@ public class ChickenAttack : MonoBehaviour
 
     void Detonate()
     {
+        StartCoroutine(Detonation());
+    }
+
+    IEnumerator Detonation()
+    {
         source.Play();
+        GetComponent<CircleCollider2D>().enabled = false;
+        yield return new WaitForSeconds(0.3f);
         Destroy(gameObject);
     }
 }
