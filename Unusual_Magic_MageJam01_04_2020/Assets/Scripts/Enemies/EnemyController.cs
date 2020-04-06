@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] LayerMask playerLayer;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform legs;
+    [SerializeField] Transform attackPoint;
     [SerializeField] AudioSource attackSource;
 
     Rigidbody2D rb2d;
@@ -58,7 +59,7 @@ public class EnemyController : MonoBehaviour
     }
     private RaycastHit2D CheckForPlayerInTauntRange()
     {
-        return Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, tauntRange, playerLayer);
+        return Physics2D.Raycast(attackPoint.position, Vector2.right * transform.localScale.x, tauntRange, playerLayer);
     }
 
     private bool CheckInRange()
