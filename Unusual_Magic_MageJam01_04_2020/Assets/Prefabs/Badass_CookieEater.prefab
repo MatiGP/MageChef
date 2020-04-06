@@ -158,7 +158,7 @@ MonoBehaviour:
   pointsReward: 700
   wanderSpeed: 1
   tauntRange: 5
-  chaseSpeed: 2
+  chaseSpeed: 3
   attackRange: 1.2
   timeBetweenAttacks: 0.5
   playerLayer:

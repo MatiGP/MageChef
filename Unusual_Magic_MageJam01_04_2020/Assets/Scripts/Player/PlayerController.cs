@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask groundMask;
     [SerializeField] int bounceAddForce = 2;
     [SerializeField] AudioSource jumpSource;
+    [SerializeField] GameObject deathMenu;
     
 
     int bounceForce = 3;
@@ -84,5 +85,10 @@ public class PlayerController : MonoBehaviour
     {        
         rb2d.velocity = new Vector2(rb2d.velocity.x, bounceForce);
         bounceForce += bounceAddForce;
+    }
+
+    private void OnDestroy()
+    {
+        deathMenu.SetActive(true);
     }
 }
