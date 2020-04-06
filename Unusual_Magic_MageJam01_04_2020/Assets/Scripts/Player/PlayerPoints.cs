@@ -13,6 +13,15 @@ public class PlayerPoints : MonoBehaviour
     {
         instance = this;
     }
+    private void Start()
+    {
+        IncreasePoints(PlayerPrefs.GetInt("score"));
+    }
+
+    public int GetScore()
+    {
+        return points;
+    }
 
     public void IncreasePoints(int pointsIncrease)
     {

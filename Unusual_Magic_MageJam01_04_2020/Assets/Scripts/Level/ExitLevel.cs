@@ -11,6 +11,7 @@ public class ExitLevel : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
+            PlayerPrefs.SetInt("score", PlayerPoints.instance.GetScore());
             SceneManager.LoadScene(levelIndexToLoad);
         }
     }

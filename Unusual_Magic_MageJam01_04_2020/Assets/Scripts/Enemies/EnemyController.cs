@@ -78,7 +78,7 @@ public class EnemyController : MonoBehaviour
       
         if (!canWalkOnPlatform)
         {
-            transform.localScale = new Vector3(transform.localScale.x * -1, 1, 1);
+            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, 1);
         }
         
         
@@ -91,12 +91,18 @@ public class EnemyController : MonoBehaviour
         {
             target = null;
             playerSpotted = false;
-            transform.localScale = new Vector3(transform.localScale.x * -1, 1, 1);
+            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, 1);
             return;
         }
-
-        rb2d.velocity = new Vector2(chaseSpeed * transform.localScale.x, rb2d.velocity.y);
-      
+        if (target.transform.position.x > transform.position.x)
+        {
+            rb2d.velocity = new Vector2(chaseSpeed, rb2d.velocity.y);
+        }
+        else
+        {           
+            rb2d.velocity = new Vector2(-chaseSpeed, rb2d.velocity.y);
+        }
+            
     }
 
     void StartAttack()

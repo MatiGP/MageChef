@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58d2a9cce96f1314d92365c37e781e72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 15
   hurtSource: {fileID: 5698827425801589904}
 --- !u!50 &3223016948185312718
 Rigidbody2D:
@@ -155,9 +155,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsReward: 700
-  wanderSpeed: 3
+  wanderSpeed: 1
   tauntRange: 5
-  chaseSpeed: 4
+  chaseSpeed: 2
   attackRange: 1.2
   timeBetweenAttacks: 0.5
   playerLayer:
@@ -212,7 +212,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4413186dcd404684db21ac904d67c97e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -308,7 +308,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 36afaeac36caaa242834df8a32efd3a3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
