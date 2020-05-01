@@ -292,10 +292,10 @@ RectTransform:
   m_Father: {fileID: 7186591801198179203}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 426.8, y: -80}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8455952018879931891
 CanvasRenderer:
@@ -522,10 +522,10 @@ RectTransform:
   m_Father: {fileID: 7186591801198179203}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 81.8, y: -80}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4213870596087329516
 CanvasRenderer:
@@ -939,6 +939,7 @@ MonoBehaviour:
     m_Bits: 256
   bounceAddForce: 2
   jumpSource: {fileID: 5841304351954283112}
+  deathMenu: {fileID: 0}
 --- !u!114 &4569860366788483131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -965,24 +966,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8602601fe316a1740b0db8d1b5772443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unlockedRecipes:
+  - {fileID: 11400000, guid: ba15858a75359db4cb105a94b473afd5, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   basicAttackCooldown: 0.5
-  chickenCooldown: 6
-  jellyCooldown: 12
-  chickenCD: {fileID: 3049059082839872640}
-  jellyCD: {fileID: 484853498395431450}
+  ability1Cooldown: 6
+  ability2Cooldown: 3
+  ability1CD: {fileID: 0}
+  ability2CD: {fileID: 0}
   castPlace: {fileID: 2541911865809840279}
-  jelly: {fileID: 457552053704307678, guid: 972d5fcd84cd5d44091090e6e14d5d34, type: 3}
-  additionalAttackChicken: {fileID: 3525544443221082366, guid: 8c1a8e4b8f7a25b4683f3d736d1e53d2,
-    type: 3}
-  basicAttackCookie: {fileID: 2631200237965329000, guid: 8d0ad3e5a241221409cbc0e4fd696ff9,
-    type: 3}
+  ability2GameObject: {fileID: 0}
+  ability1GameObject: {fileID: 0}
+  basicAbilityGameObject: {fileID: 0}
   castSource: {fileID: 8648319330932266509}
-  basicCastParticle: {fileID: 8700523364310486052, guid: d6c61164f0a42074b96f877965d1a95c,
-    type: 3}
-  chickenCastParticle: {fileID: 4510915899879155075, guid: 4a590a20d4088d549b6ae3937c5f8b98,
-    type: 3}
-  jellyCastParticle: {fileID: 4119547061949678724, guid: 0295aa08ea9cfb149a0a044dc4cc7ecf,
-    type: 3}
+  basicAbilityCastParticle: {fileID: 0}
+  ability1CastParticle: {fileID: 0}
+  ability2CastParticle: {fileID: 0}
 --- !u!114 &1834585289607688736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1546,10 +1551,10 @@ RectTransform:
   m_Father: {fileID: 7313732716600878483}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 185.5, y: -60}
+  m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2343331188422565921
 CanvasRenderer:
@@ -1776,10 +1781,10 @@ RectTransform:
   m_Father: {fileID: 7186591801198179203}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 196.8, y: -80}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4253919791486501866
 CanvasRenderer:
@@ -1850,10 +1855,10 @@ RectTransform:
   m_Father: {fileID: 7186591801198179203}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 311.8, y: -80}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8736427742373963440
 CanvasRenderer:
@@ -1925,10 +1930,10 @@ RectTransform:
   m_Father: {fileID: 7313732716600878483}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 65.50006, y: -59.999985}
+  m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5000005, y: 0.5000001}
 --- !u!222 &6227510654990437051
 CanvasRenderer:
@@ -2084,6 +2089,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Panel
       objectReference: {fileID: 0}
+    - target: {fileID: 6185383230337875110, guid: 44b44fa24fcf9d6428ff36ffac4d0ef0,
+        type: 3}
+      propertyPath: playerAbilities
+      value: 
+      objectReference: {fileID: 5563434197834511903}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44b44fa24fcf9d6428ff36ffac4d0ef0, type: 3}
 --- !u!224 &5152528941973377122 stripped

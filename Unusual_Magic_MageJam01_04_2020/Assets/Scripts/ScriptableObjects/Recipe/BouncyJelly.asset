@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df8f46800db5f8f49be00f23383807cf, type: 3}
+  m_Name: BouncyJelly
+  m_EditorClassIdentifier: 
+  recipeIcon: {fileID: 2670511816965954413, guid: 550dea58bef80974ba7ba6998ab3f2dc,
+    type: 3}
+  ingredients:
+  - requiredSpice: {fileID: 11400000, guid: bbee74b6f474f274abb0336443fff206, type: 2}
+    requiredAmount: 2
+  - requiredSpice: {fileID: 11400000, guid: 212bca95e19247142975aa0605b4c4db, type: 2}
+    requiredAmount: 1
+  - requiredSpice: {fileID: 11400000, guid: e0d1f3b210ae307439ad8d4b081088f9, type: 2}
+    requiredAmount: 1
+  result: {fileID: 457552053704307678, guid: 972d5fcd84cd5d44091090e6e14d5d34, type: 3}
