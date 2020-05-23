@@ -9,7 +9,6 @@ public class SpellcraftingUI : MonoBehaviour
     [SerializeField] Image[] spiceImages = new Image[3];
     [SerializeField] PlayerAbilities playerAbilities;
     int activeSlot;
-    // Start is called before the first frame update
     void Start()
     {
         playerAbilities.OnSpiceChanged += PlayerAbilities_OnSpiceChanged;

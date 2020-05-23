@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Water
   m_EditorClassIdentifier: 
   spiceName: Water
-  spiceIcon: {fileID: 3725837622692319101, guid: 869149cdc85d2124ba2cdf119677223d,
+  spiceIcon: {fileID: 4094809378710188368, guid: 869149cdc85d2124ba2cdf119677223d,
     type: 3}
   spiceDescription: 

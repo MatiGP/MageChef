@@ -9,6 +9,7 @@ public class PlayerAbilities : MonoBehaviour
 {
     public event EventHandler<OnSpiceChangedArgs> OnSpiceChanged;
     public event EventHandler<OnSpiceSlotChangedArgs> OnSpiceSlotChanged;
+    public event EventHandler<OnSpellCraftedArgs> OnSpellCrafted;
     public class OnSpiceChangedArgs : EventArgs
     {   
         public Spice spice;
@@ -16,6 +17,10 @@ public class PlayerAbilities : MonoBehaviour
     public class OnSpiceSlotChangedArgs : EventArgs
     {
         public int spiceSlot;
+    }
+    public class OnSpellCraftedArgs : EventArgs
+    {
+        public Recipe recipe;
     }
 
 
@@ -100,6 +105,7 @@ public class PlayerAbilities : MonoBehaviour
                         spiceIndex += 1;
                     }
                     spellCraftingSpices[spiceSlot] = ownedSpiceList[spiceIndex];
+                    
                 }
 
                 OnSpiceChanged?.Invoke(this, new OnSpiceChangedArgs() { spice = ownedSpiceList[spiceIndex] });
@@ -117,13 +123,50 @@ public class PlayerAbilities : MonoBehaviour
                     {
                         spiceIndex -= 1;
                     }
-                    spellCraftingSpices[spiceSlot] = ownedSpiceList[spiceIndex];
+                    spellCraftingSpices[spiceSlot] = ownedSpiceList[spiceIndex];                  
                 }
 
                 OnSpiceChanged?.Invoke(this, new OnSpiceChangedArgs() { spice = ownedSpiceList[spiceIndex] });
             }
             
-        }   
+        }
+        // sprawdzam czy wszystkie 3 elementy mają wartość. Jeśli tak, zrób spell, jeśli nie, nic nie rób.
+        if (Input.GetKeyDown(KeyCode.R) && isSpellCrafting)
+        {
+            for(int i = 0; i < 3; i++)
+            {
+                if(spellCraftingSpices[i] == null)
+                {
+                    return;
+                }
+            }
+
+            foreach(Recipe recipe in unlockedRecipes)
+            {
+                if(CheckForCorrectRecipe(recipe))
+                {
+                    print("Znalazłem pasującą recepturę!");
+                    OnSpellCrafted?.Invoke(this, new OnSpellCraftedArgs() { recipe = recipe });
+                    print("Pasująca receptura to: " + recipe.name);
+                    break;
+                }
+            }
+
+
+        }
+    }
+
+    private bool CheckForCorrectRecipe(Recipe recipe)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if (recipe.ingredients[i].requiredSpice != spellCraftingSpices[i])
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public bool HasSpice(Spice spice)
