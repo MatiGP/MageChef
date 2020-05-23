@@ -2,11 +2,129 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Cinemachine;
+using System;
 
 public class PlayerAbilities : MonoBehaviour
 {
+    public event EventHandler<OnSpiceChangedArgs> OnSpiceChanged;
+    public event EventHandler<OnSpiceSlotChangedArgs> OnSpiceSlotChanged;
+    public class OnSpiceChangedArgs : EventArgs
+    {   
+        public Spice spice;
+    }
+    public class OnSpiceSlotChangedArgs : EventArgs
+    {
+        public int spiceSlot;
+    }
+
+
     public Recipe[] unlockedRecipes = new Recipe[8];
+    [SerializeField] GameObject spellCraftingUI;
     Dictionary<Spice, int> ownedSpices = new Dictionary<Spice, int>();
+    List<Spice> ownedSpiceList = new List<Spice>();
+    Spice[] spellCraftingSpices;
+    int spiceSlot = 0;
+    int spiceIndex = 0;
+
+    bool isSpellCrafting = false;
+    [SerializeField] CinemachineVirtualCamera spellCraftingCam;
+
+    PlayerController pc;
+
+    private void Start()
+    {
+        pc = GetComponent<PlayerController>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && !isSpellCrafting)
+        {
+            spellCraftingSpices = new Spice[3];
+            isSpellCrafting = true;
+            pc.DisableMovement();
+            spellCraftingCam.gameObject.SetActive(true);
+            GetSpices();
+            spellCraftingUI.SetActive(true);
+
+        }
+        else if(Input.GetKeyDown(KeyCode.E) && isSpellCrafting)
+        {
+            isSpellCrafting = false;
+            pc.EnableMovement();
+            spellCraftingCam.gameObject.SetActive(false);
+            spellCraftingUI.SetActive(false);
+        }
+
+        if (isSpellCrafting)
+        {
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                if (spiceSlot - 1 < 0)
+                {
+                    spiceSlot = 2;
+                }
+                else
+                {
+                    spiceSlot -= 1;
+                }
+
+                OnSpiceSlotChanged?.Invoke(this, new OnSpiceSlotChangedArgs() { spiceSlot = spiceSlot });
+            }
+
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                if (spiceSlot + 1 > 2)
+                {
+                    spiceSlot = 0;
+                }
+                else
+                {
+                    spiceSlot += 1;
+                }
+
+                OnSpiceSlotChanged?.Invoke(this, new OnSpiceSlotChangedArgs() { spiceSlot = spiceSlot });
+            }
+
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                if (ownedSpiceList.Count != 0)
+                {
+                    if (spiceIndex + 1 > ownedSpiceList.Count - 1)
+                    {
+                        spiceIndex = 0;
+                    }
+                    else
+                    {
+                        spiceIndex += 1;
+                    }
+                    spellCraftingSpices[spiceSlot] = ownedSpiceList[spiceIndex];
+                }
+
+                OnSpiceChanged?.Invoke(this, new OnSpiceChangedArgs() { spice = ownedSpiceList[spiceIndex] });
+            }
+
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                if (ownedSpiceList.Count != 0)
+                {
+                    if (spiceIndex - 1 < 0)
+                    {
+                        spiceIndex = ownedSpiceList.Count - 1;
+                    }
+                    else
+                    {
+                        spiceIndex -= 1;
+                    }
+                    spellCraftingSpices[spiceSlot] = ownedSpiceList[spiceIndex];
+                }
+
+                OnSpiceChanged?.Invoke(this, new OnSpiceChangedArgs() { spice = ownedSpiceList[spiceIndex] });
+            }
+            
+        }   
+    }
 
     public bool HasSpice(Spice spice)
     {
@@ -26,4 +144,15 @@ public class PlayerAbilities : MonoBehaviour
         ownedSpices[spice]++;
         Debug.Log("Now, I have " + ownedSpices[spice] + " of " + spice.spiceName);
     }
+
+    void GetSpices()
+    {
+        ownedSpiceList.Clear();
+
+        foreach (Spice spice in ownedSpices.Keys)
+        {
+            ownedSpiceList.Add(spice);
+        }
+    }
 }
+

@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     int bounceForce = 3;
     bool canJump;
+    bool canMove = true;
     float horizontal;
     Rigidbody2D rb2d;
     Animator animator;
@@ -31,7 +32,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
+        if (canMove)
+        {
+            horizontal = Input.GetAxis("Horizontal");
+        }
+        else
+        {
+            horizontal = 0;
+        }
+        
 
         ChangeScale();
         UpdateAnimator();
@@ -43,7 +52,7 @@ public class PlayerController : MonoBehaviour
             Jump();
             animator.SetTrigger("jump");
             jumpSource.Play();
-        }
+        }      
         
     }
 
@@ -85,6 +94,16 @@ public class PlayerController : MonoBehaviour
     {        
         rb2d.velocity = new Vector2(rb2d.velocity.x, bounceForce);
         bounceForce += bounceAddForce;
+    }
+
+    public void DisableMovement()
+    {
+        canMove = false;
+    }
+
+    public void EnableMovement()
+    {
+        canMove = true;
     }
 
     private void OnDestroy()
