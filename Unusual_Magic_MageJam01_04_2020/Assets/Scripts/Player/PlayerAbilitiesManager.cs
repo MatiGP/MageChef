@@ -17,7 +17,7 @@ public class PlayerAbilitiesManager : MonoBehaviour
 
     private void PlayerAbilities_OnSpellCrafted(object sender, PlayerAbilities.OnSpellCraftedArgs e)
     {
-        spellGameObjects[0] = e.recipe.result;
+        spellGameObjects[(int)e.recipe.slot] = e.recipe.result;
     }
 
     // Update is called once per frame
@@ -28,6 +28,22 @@ public class PlayerAbilitiesManager : MonoBehaviour
             if (spellGameObjects[0] != null)
             {
                 Instantiate(spellGameObjects[0], castPlace.position, Quaternion.identity);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            if (spellGameObjects[1] != null)
+            {
+                Instantiate(spellGameObjects[1], castPlace.position, Quaternion.identity);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (spellGameObjects[2] != null)
+            {
+                Instantiate(spellGameObjects[2], castPlace.position, Quaternion.identity);
             }
         }
     }
