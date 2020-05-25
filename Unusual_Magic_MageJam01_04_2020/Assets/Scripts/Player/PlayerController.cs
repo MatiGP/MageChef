@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform legsPosition;
     [SerializeField] LayerMask groundMask;
     [SerializeField] int bounceAddForce = 2;
+    [SerializeField] int bounceMaxForce = 17;
     [SerializeField] AudioSource jumpSource;
     [SerializeField] GameObject deathMenu;
     
@@ -91,9 +92,15 @@ public class PlayerController : MonoBehaviour
     }
 
     public void Bounce()
-    {        
+    {
         rb2d.velocity = new Vector2(rb2d.velocity.x, bounceForce);
-        bounceForce += bounceAddForce;
+
+        if (bounceForce < bounceMaxForce) bounceForce += bounceAddForce;             
+    }
+
+    public void Bounce(float bounceForce)
+    {
+        rb2d.velocity = new Vector2(rb2d.velocity.x, bounceForce);
     }
 
     public void DisableMovement()
@@ -108,6 +115,22 @@ public class PlayerController : MonoBehaviour
 
     private void OnDestroy()
     {
-        deathMenu.SetActive(true);
+       // deathMenu.SetActive(true);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Platform")
+        {
+            transform.parent = collision.gameObject.transform;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.tag == "Platform")
+        {
+            transform.parent = null;
+        }
     }
 }
