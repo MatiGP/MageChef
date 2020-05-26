@@ -94,6 +94,7 @@ public class PlayerAbilities : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.W))
             {
+                print("zmieniam w góre");
                 if (ownedSpiceList.Count != 0)
                 {
                     if (spiceIndex + 1 > ownedSpiceList.Count - 1)

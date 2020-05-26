@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     int bounceForce = 3;
     bool canJump;
     bool canMove = true;
+    bool isClimbing = false;
     float horizontal;
     Rigidbody2D rb2d;
     Animator animator;
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -53,7 +55,8 @@ public class PlayerController : MonoBehaviour
             Jump();
             animator.SetTrigger("jump");
             jumpSource.Play();
-        }      
+        }
+             
         
     }
 
@@ -123,7 +126,7 @@ public class PlayerController : MonoBehaviour
         if(collision.tag == "Platform")
         {
             transform.parent = collision.gameObject.transform;
-        }
+        }      
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -131,6 +134,7 @@ public class PlayerController : MonoBehaviour
         if(collision.tag == "Platform")
         {
             transform.parent = null;
-        }
+        }      
     }
+
 }

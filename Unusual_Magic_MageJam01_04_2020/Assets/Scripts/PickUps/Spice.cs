@@ -6,5 +6,4 @@ public class Spice : ScriptableObject
 {
     public string spiceName;
     public Sprite spiceIcon;
-    public string spiceDescription;
 }
