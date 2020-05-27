@@ -7,7 +7,7 @@ public class Recipe : ScriptableObject
     public Sprite recipeIcon;
     public Ingredient[] ingredients = new Ingredient[3];
     public GameObject result;
-
+    public float spellCooldown;
     public enum SpellSlot { Main, Secondary, Tertiary }
     public SpellSlot slot;
 }

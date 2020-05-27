@@ -2,140 +2,120 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Melee enemies;
 public class GroundEnemyAI : MonoBehaviour
 {
-    [Header("Base Stats")]
-    [SerializeField] int pointsReward = 100;
-    [SerializeField] float wanderSpeed = 3f;
-    [Header("Combat Stats")]
-    [SerializeField] float tauntRange = 5f;
-    [SerializeField] float chaseSpeed = 6f;
-    [SerializeField] float attackRange = 1.2f;
-    [Header("Settings")]
-    [SerializeField] float timeBetweenAttacks = 0.5f;
+    [SerializeField] float groundEnemyMoveSpeed;
+    [SerializeField] float groundEnemyTauntRange;
+    [SerializeField] float groundEnemyChaseSpeed;
+    [SerializeField] float groundEnemyAttackRange;
+
     [SerializeField] LayerMask playerLayer;
     [SerializeField] LayerMask groundLayer;
-    [SerializeField] Transform legs;
+
+    [SerializeField] Transform groundCheck;
     [SerializeField] Transform attackPoint;
-    [SerializeField] AudioSource attackSource;
 
-    Rigidbody2D rb2d;
+    [SerializeField] List<Ability> abilities;
+
+
+    Rigidbody2D rb;
     Animator animator;
-
     GameObject target;
-    bool isInAttackRange = false;
-    bool playerSpotted = false;
-    bool canWalkOnPlatform = true;
-    bool hasTouchedTheWall = false;
-    bool canAttack = true;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+
     }
 
     private void Update()
     {
-        isInAttackRange = CheckInRange();
-        canWalkOnPlatform = Physics2D.Raycast(legs.position, Vector2.down, 0.5f, groundLayer);
-        hasTouchedTheWall = Physics2D.Raycast(legs.position, Vector2.right * transform.localScale.x, 0.25f, groundLayer);
+        target = CheckForTargetInTauntRange();
 
-        if (!playerSpotted && target == null)
+        if (target == null)
         {
             Wander();
         }
-
-        if (playerSpotted && !isInAttackRange)
+        else
         {
-            Chase();
-        }
-
-        if (isInAttackRange && canAttack)
-        {
-            StartAttack();
-        }
+            if (IsTargetInAttackRange() || IsTargetInGapCloseRange())
+            {
+                Attack();
+            }
+            else
+            {
+                Chase();
+            }                     
+        }     
     }
 
     void Wander()
     {
-        playerSpotted = CheckForPlayerInTauntRange();
-
-        animator.SetBool("isRunning", true);
-        rb2d.velocity = new Vector2(wanderSpeed * transform.localScale.x, rb2d.velocity.y);
-
-        if (!canWalkOnPlatform || hasTouchedTheWall)
+        if (!HasReachedEndPath())
         {
             transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, 1);
         }
 
-        if (playerSpotted)
-        {
-            target = CheckForPlayerInTauntRange().transform.gameObject;
-        }
-        
+        rb.velocity = new Vector2(groundEnemyMoveSpeed * transform.localScale.x, rb.velocity.y);
 
-    }
-
-    private RaycastHit2D CheckForPlayerInTauntRange()
-    {
-        return Physics2D.Raycast(attackPoint.position, Vector2.right * transform.localScale.x, tauntRange, playerLayer);
-    }
-
-    private bool CheckInRange()
-    {
-        if (target == null) return false;
-
-        return Vector2.Distance(transform.position, target.transform.position) <= attackRange;
     }
 
     void Chase()
     {
-        animator.SetBool("isRunning", true);
-
-        if (!canWalkOnPlatform)
+        if (HasReachedEndPath())
         {
             target = null;
-            playerSpotted = false;
-            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, 1);
             return;
         }
 
-        if (target == null) return;
-
-        if (target.transform.position.x > transform.position.x)
+        if(target.transform.position.x > transform.position.x && (!IsTargetInAttackRange() || !IsTargetInGapCloseRange()))
         {
-            rb2d.velocity = new Vector2(chaseSpeed, rb2d.velocity.y);
+            rb.velocity = new Vector2(groundEnemyChaseSpeed, rb.velocity.y);
             transform.localScale = new Vector3(1, transform.localScale.y, 1);
         }
-        else
+        else if (target.transform.position.x < transform.position.x && (!IsTargetInAttackRange() || !IsTargetInGapCloseRange()))
         {
-            rb2d.velocity = new Vector2(-chaseSpeed, rb2d.velocity.y);
+            rb.velocity = new Vector2(-groundEnemyChaseSpeed, rb.velocity.y);
             transform.localScale = new Vector3(-1, transform.localScale.y, 1);
         }
 
+        abilities[2].UseAbility();
     }
 
-    void StartAttack()
+    void Attack()
     {
-        canAttack = false;
-        StartCoroutine(Attack());
+        if (IsTargetInAttackRange())
+        {
+            abilities[0].UseAbility();
+        }else if (IsTargetInGapCloseRange())
+        {
+            abilities[1].UseAbility();
+        }
     }
 
-    IEnumerator Attack()
+    GameObject CheckForTargetInTauntRange()
     {
-        animator.SetBool("isRunning", false);
-        rb2d.velocity = Vector2.zero;
-        animator.SetTrigger("attack");
-        target.GetComponent<Health>().TakeDamage();
-        attackSource.Play();
-        yield return new WaitForSeconds(timeBetweenAttacks);
-        canAttack = true;
+        return Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, groundEnemyTauntRange, playerLayer).transform.gameObject;
     }
 
-    public int GetPointsReward()
+    bool IsTargetInAttackRange()
     {
-        return pointsReward;
+        return Vector2.Distance(transform.position, target.transform.position) <= groundEnemyAttackRange;
     }
+
+    bool HasReachedEndPath()
+    {
+        return Physics2D.Raycast(groundCheck.position, Vector2.down, 4f, groundLayer);
+    }
+
+    bool IsTargetInGapCloseRange()
+    {
+        return Vector2.Distance(transform.position, target.transform.position) <= abilities[0].abilityRange;
+    }
+
+
 }

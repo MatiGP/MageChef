@@ -6,7 +6,7 @@ public class BasicAttack : MonoBehaviour
 {
     [SerializeField] float cookieTravelSpeed;
     [SerializeField] float cookieLifeTime;
-
+    [SerializeField] int damage;
     Rigidbody2D rb2d;
 
     // Start is called before the first frame update
@@ -19,7 +19,7 @@ public class BasicAttack : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(transform.rotation.y > 0)
+        if(transform.localScale.x < 0)
         {
             rb2d.velocity = new Vector2(-cookieTravelSpeed, rb2d.velocity.y);
         }
