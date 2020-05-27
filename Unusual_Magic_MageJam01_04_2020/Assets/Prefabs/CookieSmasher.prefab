@@ -46,7 +46,9 @@ GameObject:
   - component: {fileID: 337471164688381000}
   - component: {fileID: 8311465018239479075}
   - component: {fileID: 4820624267391677098}
+  - component: {fileID: 40751225282309906}
   - component: {fileID: 7515119329494512660}
+  - component: {fileID: 195381173}
   m_Layer: 0
   m_Name: CookieSmasher
   m_TagString: Enemy
@@ -383,6 +385,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &40751225282309906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337471164688380995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec125c0743adf0428fcbd2ef823089a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPoint: {fileID: 5111608532465922178}
+  attackSource: {fileID: 4820624267391677098}
+  attackRange: 1.2
+  timeBetweenAttacks: 0.5
 --- !u!114 &7515119329494512660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,19 +413,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b558ddcc5cc7664c939b308f3de97cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundEnemyMoveSpeed: 2
-  groundEnemyTauntRange: 5
-  groundEnemyChaseSpeed: 3
-  groundEnemyAttackRange: 1
+  pointsReward: 100
+  wanderSpeed: 3
+  tauntRange: 5
+  chaseSpeed: 3.75
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
-  groundCheck: {fileID: 337471162625203271}
-  attackPoint: {fileID: 5111608532465922178}
-  abilities: []
+  legs: {fileID: 337471162625203271}
+  enemyAbilities:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: d8e532681f06f8a46b2db3cd4d4cfa4a, type: 2}
+--- !u!114 &195381173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337471164688380995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af20bd96030cd4545b32fed67f09c4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb2d: {fileID: 337471164688381004}
 --- !u!1 &3436940405119865810
 GameObject:
   m_ObjectHideFlags: 0
