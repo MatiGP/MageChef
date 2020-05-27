@@ -83,23 +83,34 @@ public class GroundEnemyAI : MonoBehaviour
             transform.localScale = new Vector3(-1, transform.localScale.y, 1);
         }
 
-        abilities[2].UseAbility();
+        //abilities[2].UseAbility();
     }
 
     void Attack()
     {
         if (IsTargetInAttackRange())
         {
-            abilities[0].UseAbility();
+            target.GetComponent<Health>().TakeDamage();
+            //abilities[0].UseAbility();
         }else if (IsTargetInGapCloseRange())
         {
-            abilities[1].UseAbility();
+            
+            //abilities[1].UseAbility();
         }
     }
 
     GameObject CheckForTargetInTauntRange()
     {
-        return Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, groundEnemyTauntRange, playerLayer).transform.gameObject;
+        GameObject go = Physics2D.Raycast(attackPoint.position, Vector2.right * transform.localScale.x, groundEnemyTauntRange, playerLayer).collider.gameObject;
+
+        if(go == null)
+        {
+            return null;
+        }
+        else
+        {
+            return go;
+        }
     }
 
     bool IsTargetInAttackRange()
