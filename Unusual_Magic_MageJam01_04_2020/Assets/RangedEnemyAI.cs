@@ -2,23 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundEnemyAI : MonoBehaviour
+public class RangedEnemyAI : MonoBehaviour
 {
     [Header("Base Stats")]
-    [SerializeField] int pointsReward = 100;
-    [SerializeField] float wanderSpeed = 3f;
+    [SerializeField] int pointsReward = 200;
+    [SerializeField] float wanderSpeed = 2f;
     [Header("Combat Stats")]
-    [SerializeField] float tauntRange = 5f;
-    [SerializeField] float chaseSpeed = 6f;
-    [SerializeField] float attackRange = 1.2f;
+    [SerializeField] float tauntRange = 12f;
+    [SerializeField] float chaseSpeed = 4f;
+    [SerializeField] float attackRange = 10f;
     [Header("Settings")]
-    [SerializeField] float timeBetweenAttacks = 1f;
+    [SerializeField] float timeBetweenAttacks = 0.75f;
     [SerializeField] bool canMove = true;
     [SerializeField] LayerMask playerLayer;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform legs;
     [SerializeField] Transform attackPoint;
     [SerializeField] AudioSource attackSource;
+    [SerializeField] GameObject projectile;
 
     Rigidbody2D rb2d;
     Animator animator;
@@ -37,17 +38,12 @@ public class GroundEnemyAI : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
         isInAttackRange = CheckInRange();
         canWalkOnPlatform = Physics2D.Raycast(legs.position, Vector2.down, 0.5f, groundLayer);
         hasTouchedTheWall = Physics2D.Raycast(legs.position, Vector2.right * transform.localScale.x, 0.25f, groundLayer);
-        playerSpotted = CheckForPlayerInTauntRange();
-        if (playerSpotted)
-        {
-            target = CheckForPlayerInTauntRange().transform.gameObject;
-        }
-
 
         if (!playerSpotted && target == null && canMove)
         {
@@ -59,21 +55,29 @@ public class GroundEnemyAI : MonoBehaviour
             Chase();
         }
 
-        if (isInAttackRange && canAttack)
+        if (isInAttackRange && canAttack && IsViewClear())
         {
             StartAttack();
         }
     }
 
     void Wander()
-    {     
+    {
+        playerSpotted = CheckForPlayerInTauntRange();
+
         animator.SetBool("isRunning", true);
         rb2d.velocity = new Vector2(wanderSpeed * transform.localScale.x, rb2d.velocity.y);
 
         if (!canWalkOnPlatform || hasTouchedTheWall)
         {
             transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, 1);
-        }     
+        }
+
+        if (playerSpotted)
+        {
+            target = CheckForPlayerInTauntRange().transform.gameObject;
+        }
+
 
     }
 
@@ -127,14 +131,25 @@ public class GroundEnemyAI : MonoBehaviour
         animator.SetBool("isRunning", false);
         rb2d.velocity = Vector2.zero;
         animator.SetTrigger("attack");
-        target.GetComponent<Health>().TakeDamage();
+        InstantiateProjectile();
         attackSource.Play();
         yield return new WaitForSeconds(timeBetweenAttacks);
         canAttack = true;
     }
 
+    private void InstantiateProjectile()
+    {
+        GameObject go = Instantiate(projectile, attackPoint.position, Quaternion.identity);
+        go.transform.localScale = new Vector3(transform.localScale.x * go.transform.localScale.x, go.transform.localScale.y, 1);
+    }
+
     public int GetPointsReward()
     {
         return pointsReward;
+    }
+    
+    bool IsViewClear()
+    {
+        return !Physics2D.Raycast(attackPoint.position, Vector2.right * transform.localScale.x, attackRange, groundLayer);
     }
 }
