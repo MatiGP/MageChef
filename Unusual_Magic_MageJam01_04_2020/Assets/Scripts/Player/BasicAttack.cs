@@ -19,7 +19,7 @@ public class BasicAttack : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(transform.rotation.y > 0)
+        if(transform.localScale.x < 0)
         {
             rb2d.velocity = new Vector2(-cookieTravelSpeed, rb2d.velocity.y);
         }

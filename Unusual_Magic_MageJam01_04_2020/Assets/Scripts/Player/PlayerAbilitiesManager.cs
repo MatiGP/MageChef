@@ -27,7 +27,8 @@ public class PlayerAbilitiesManager : MonoBehaviour
         {
             if (spellGameObjects[0] != null)
             {
-                Instantiate(spellGameObjects[0], castPlace.position, Quaternion.identity);
+                GameObject go = Instantiate(spellGameObjects[0], castPlace.position, Quaternion.identity);
+                go.transform.localScale = new Vector3(transform.localScale.x * go.transform.localScale.x, go.transform.localScale.y, 1);
             }
         }
 

@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 337471164688381000}
   - component: {fileID: 8311465018239479075}
   - component: {fileID: 4820624267391677098}
+  - component: {fileID: 8938723551249377545}
   m_Layer: 0
   m_Name: CookieSmasher
   m_TagString: Enemy
@@ -410,6 +411,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8938723551249377545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337471164688380995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b558ddcc5cc7664c939b308f3de97cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsReward: 100
+  wanderSpeed: 3
+  tauntRange: 5
+  chaseSpeed: 3.75
+  attackRange: 1.2
+  timeBetweenAttacks: 0.5
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  legs: {fileID: 337471162625203271}
+  attackPoint: {fileID: 5111608532465922178}
+  attackSource: {fileID: 8311465018239479075}
 --- !u!1 &3436940405119865810
 GameObject:
   m_ObjectHideFlags: 0
