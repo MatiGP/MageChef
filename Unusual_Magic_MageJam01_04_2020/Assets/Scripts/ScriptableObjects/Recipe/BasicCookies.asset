@@ -22,5 +22,4 @@ MonoBehaviour:
   - requiredSpice: {fileID: 11400000, guid: f7efe2efa880f8c4eaf2e6e1fb99888e, type: 2}
     requiredAmount: 0
   result: {fileID: 2631200237965329000, guid: 8d0ad3e5a241221409cbc0e4fd696ff9, type: 3}
-  spellCooldown: 0.3
   slot: 0

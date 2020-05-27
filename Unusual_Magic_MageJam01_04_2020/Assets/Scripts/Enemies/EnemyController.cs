@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class GroundEnemyAI : MonoBehaviour
+[RequireComponent(typeof(Health), typeof(Rigidbody2D), typeof(CapsuleCollider2D))]
+public class EnemyController : MonoBehaviour
 {
     [Header("Base Stats")]
     [SerializeField] int pointsReward = 100;
     [SerializeField] float wanderSpeed = 3f;
     [Header("Combat Stats")]
-    [SerializeField] float tauntRange = 5f;
+    [SerializeField] float tauntRange = 5;
     [SerializeField] float chaseSpeed = 6f;
     [SerializeField] float attackRange = 1.2f;
     [Header("Settings")]
@@ -26,7 +26,6 @@ public class GroundEnemyAI : MonoBehaviour
     bool isInAttackRange = false;
     bool playerSpotted = false;
     bool canWalkOnPlatform = true;
-    bool hasTouchedTheWall = false;
     bool canAttack = true;
 
     // Start is called before the first frame update
@@ -35,20 +34,19 @@ public class GroundEnemyAI : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
-
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
         isInAttackRange = CheckInRange();
         canWalkOnPlatform = Physics2D.Raycast(legs.position, Vector2.down, 0.5f, groundLayer);
-        hasTouchedTheWall = Physics2D.Raycast(legs.position, Vector2.right * transform.localScale.x, 0.25f, groundLayer);
-
+        
         if (!playerSpotted && target == null)
         {
             Wander();
         }
 
         if (playerSpotted && !isInAttackRange)
-        {
+        {            
             Chase();
         }
 
@@ -57,27 +55,6 @@ public class GroundEnemyAI : MonoBehaviour
             StartAttack();
         }
     }
-
-    void Wander()
-    {
-        playerSpotted = CheckForPlayerInTauntRange();
-
-        animator.SetBool("isRunning", true);
-        rb2d.velocity = new Vector2(wanderSpeed * transform.localScale.x, rb2d.velocity.y);
-
-        if (!canWalkOnPlatform || hasTouchedTheWall)
-        {
-            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, 1);
-        }
-
-        if (playerSpotted)
-        {
-            target = CheckForPlayerInTauntRange().transform.gameObject;
-        }
-        
-
-    }
-
     private RaycastHit2D CheckForPlayerInTauntRange()
     {
         return Physics2D.Raycast(attackPoint.position, Vector2.right * transform.localScale.x, tauntRange, playerLayer);
@@ -90,10 +67,29 @@ public class GroundEnemyAI : MonoBehaviour
         return Vector2.Distance(transform.position, target.transform.position) <= attackRange;
     }
 
+    
+
+    void Wander()
+    {
+        playerSpotted = CheckForPlayerInTauntRange();
+        animator.SetBool("isRunning", true);
+        rb2d.velocity = new Vector2(wanderSpeed * transform.localScale.x, rb2d.velocity.y);
+      
+        if (!canWalkOnPlatform)
+        {
+            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, 1);
+        }
+        
+        
+    }
+
     void Chase()
     {
-        animator.SetBool("isRunning", true);
 
+        target = CheckForPlayerInTauntRange().transform.gameObject;
+
+
+        animator.SetBool("isRunning", true);
         if (!canWalkOnPlatform)
         {
             target = null;
@@ -102,32 +98,34 @@ public class GroundEnemyAI : MonoBehaviour
             return;
         }
 
-        if (target == null) return;
+
+        if(target == null)
+        {
+            return;
+        }
 
         if (target.transform.position.x > transform.position.x)
         {
             rb2d.velocity = new Vector2(chaseSpeed, rb2d.velocity.y);
-            transform.localScale = new Vector3(1, transform.localScale.y, 1);
         }
         else
-        {
+        {           
             rb2d.velocity = new Vector2(-chaseSpeed, rb2d.velocity.y);
-            transform.localScale = new Vector3(-1, transform.localScale.y, 1);
         }
-
+            
     }
 
     void StartAttack()
-    {
+    {      
         canAttack = false;
         StartCoroutine(Attack());
     }
 
     IEnumerator Attack()
     {
-        animator.SetBool("isRunning", false);
+        animator.SetBool("isRunning", false);     
         rb2d.velocity = Vector2.zero;
-        animator.SetTrigger("attack");
+        animator.SetTrigger("attack");       
         target.GetComponent<Health>().TakeDamage();
         attackSource.Play();
         yield return new WaitForSeconds(timeBetweenAttacks);
@@ -138,4 +136,7 @@ public class GroundEnemyAI : MonoBehaviour
     {
         return pointsReward;
     }
+
+    
+    
 }
