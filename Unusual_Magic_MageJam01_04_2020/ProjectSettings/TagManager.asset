@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Platform
   - Climbable
+  - FrozenCookie
   layers:
   - Default
   - TransparentFX

@@ -22,7 +22,7 @@ public class Health : MonoBehaviour
         {
             if (tag == "Enemy")
             {
-                PlayerPoints.instance.IncreasePoints(GetComponent<EnemyController>().GetPointsReward());
+                //PlayerPoints.instance.IncreasePoints(GetComponent<EnemyController>().GetPointsReward());
             }
             Destroy(gameObject);
         }
