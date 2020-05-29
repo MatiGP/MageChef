@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1663b4b1f8805b943840ba41fdc56cd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformMoveSpeed: 4
+  platformMoveSpeed: 3
   pos1: {fileID: 3683490211234862634}
   pos2: {fileID: 3683490210393880701}
   startPosition: {fileID: 3683490211234862634}

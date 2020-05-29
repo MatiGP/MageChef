@@ -1812,6 +1812,7 @@ GameObject:
   - component: {fileID: 5030381925397444504}
   - component: {fileID: 5030381925397444505}
   - component: {fileID: 5030381925397444506}
+  - component: {fileID: 8696620451673882822}
   m_Layer: 2
   m_Name: Spellbook
   m_TagString: Untagged
@@ -1890,6 +1891,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 5030381927048482926}
   spellBook: {fileID: 5030381926829516596}
+--- !u!114 &8696620451673882822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5030381925397444508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd154a768a161849b90a5fa61e7856d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAbilities: {fileID: 4004174587097948001}
+  spellbookRecipes:
+  - {fileID: 5030381926325193295}
+  - {fileID: 5030381927081220420}
+  - {fileID: 5030381926917192337}
+  - {fileID: 5030381926016430119}
+  - {fileID: 5030381927259293069}
+  - {fileID: 5030381925882403058}
+  - {fileID: 5030381925529293299}
+  - {fileID: 5030381926981898101}
 --- !u!1 &5030381925408207335
 GameObject:
   m_ObjectHideFlags: 0
@@ -5380,7 +5403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpForce: 5
+  jumpForce: 6
   legsPosition: {fileID: 5030381927000670406}
   groundMask:
     serializedVersion: 2
@@ -5416,10 +5439,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unlockedRecipes:
-  - {fileID: 11400000, guid: ba15858a75359db4cb105a94b473afd5, type: 2}
-  - {fileID: 11400000, guid: dfc7555c4b7abde46a4014c84428d338, type: 2}
-  - {fileID: 11400000, guid: 223a4f9bdef7eba4896d4aa9e9830a04, type: 2}
-  - {fileID: 11400000, guid: bf935f93535ccc54cb9917050da8f82c, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -6073,7 +6096,6 @@ GameObject:
   - component: {fileID: 5030381926537554611}
   - component: {fileID: 5030381926537554612}
   - component: {fileID: 5030381926537554613}
-  - component: {fileID: 5030381926537554614}
   m_Layer: 2
   m_Name: SpellBook
   m_TagString: Untagged
@@ -6169,28 +6191,6 @@ MonoBehaviour:
   m_Spacing: {x: 600, y: 70}
   m_Constraint: 2
   m_ConstraintCount: 4
---- !u!114 &5030381926537554614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5030381926537554600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd154a768a161849b90a5fa61e7856d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerAbilities: {fileID: 4004174587097948001}
-  spellbookRecipes:
-  - {fileID: 5030381926325193295}
-  - {fileID: 5030381927081220420}
-  - {fileID: 5030381926917192337}
-  - {fileID: 5030381926016430119}
-  - {fileID: 5030381927259293069}
-  - {fileID: 5030381925882403058}
-  - {fileID: 5030381925529293299}
-  - {fileID: 5030381926981898101}
 --- !u!1 &5030381926555613198
 GameObject:
   m_ObjectHideFlags: 0

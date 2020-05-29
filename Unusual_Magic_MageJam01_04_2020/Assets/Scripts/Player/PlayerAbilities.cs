@@ -10,6 +10,7 @@ public class PlayerAbilities : MonoBehaviour
     public event EventHandler<OnSpiceChangedArgs> OnSpiceChanged;
     public event EventHandler<OnSpiceSlotChangedArgs> OnSpiceSlotChanged;
     public event EventHandler<OnSpellCraftedArgs> OnSpellCrafted;
+    public event EventHandler<OnRecipeCollectedArgs> OnRecipeCollected;
     public class OnSpiceChangedArgs : EventArgs
     {   
         public Spice spice;
@@ -22,7 +23,11 @@ public class PlayerAbilities : MonoBehaviour
     {
         public Recipe recipe;
     }
-
+    public class OnRecipeCollectedArgs : EventArgs
+    {
+        public Recipe recipe;
+    }
+    int numOfRecipe = 0;
 
     public Recipe[] unlockedRecipes = new Recipe[8];
     [SerializeField] GameObject spellCraftingUI;
@@ -146,9 +151,9 @@ public class PlayerAbilities : MonoBehaviour
             {
                 if(CheckForCorrectRecipe(recipe))
                 {
-                    print("Znalazłem pasującą recepturę!");
+                    //print("Znalazłem pasującą recepturę!");
                     OnSpellCrafted?.Invoke(this, new OnSpellCraftedArgs() { recipe = recipe });
-                    print("Pasująca receptura to: " + recipe.name);
+                    //print("Pasująca receptura to: " + recipe.name);
                     break;
                 }
             }
@@ -172,21 +177,21 @@ public class PlayerAbilities : MonoBehaviour
 
     public bool HasSpice(Spice spice)
     {
-        Debug.Log("Checking . . .");
+        //Debug.Log("Checking . . .");
         return ownedSpices.ContainsKey(spice);
     }
 
     public void AddNewSpice(Spice spice)
     {
-        Debug.Log("I found " + spice.spiceName);
+        //Debug.Log("I found " + spice.spiceName);
         ownedSpices.Add(spice, 1);
     }
 
     public void AddSpice(Spice spice)
     {
-        Debug.Log("I found " + spice.spiceName + " before I had " + ownedSpices[spice]);
+        //Debug.Log("I found " + spice.spiceName + " before I had " + ownedSpices[spice]);
         ownedSpices[spice]++;
-        Debug.Log("Now, I have " + ownedSpices[spice] + " of " + spice.spiceName);
+        //Debug.Log("Now, I have " + ownedSpices[spice] + " of " + spice.spiceName);
     }
 
     void GetSpices()
@@ -197,6 +202,13 @@ public class PlayerAbilities : MonoBehaviour
         {
             ownedSpiceList.Add(spice);
         }
+    }
+
+    public void AddNewRecipe(Recipe recipe)
+    {
+        unlockedRecipes[numOfRecipe] = recipe;
+        numOfRecipe++;
+        OnRecipeCollected.Invoke(this, new OnRecipeCollectedArgs() { recipe = recipe });
     }
 }
 

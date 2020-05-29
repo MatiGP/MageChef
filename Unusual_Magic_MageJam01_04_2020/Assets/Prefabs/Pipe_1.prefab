@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9a1f8035d5314429fc1ad0ff41b979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freezeDuration: 2
+  freezeDuration: 4
   frozenPipe: {fileID: 6958147056157409064, guid: d39a7c1770e170a4b9831e74bb2708d1,
     type: 3}
   unfrozenPipe: {fileID: 6261180780860757445, guid: d39a7c1770e170a4b9831e74bb2708d1,
@@ -4923,3 +4923,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b15f4b8f83e47943bc9cadd89477b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 2

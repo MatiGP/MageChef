@@ -9,6 +9,7 @@ TagManager:
   - Platform
   - Climbable
   - FrozenCookie
+  - Hazzard
   layers:
   - Default
   - TransparentFX

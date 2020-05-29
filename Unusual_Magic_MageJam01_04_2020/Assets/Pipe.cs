@@ -41,8 +41,10 @@ public class Pipe : MonoBehaviour
     {
         SwapSprites();
         psys.gameObject.SetActive(false);
+        GetComponent<BoxCollider2D>().enabled = false;
         yield return new WaitForSeconds(duration);
         isFrozen = false;
+        GetComponent<BoxCollider2D>().enabled = true;
         psys.gameObject.SetActive(true);
         SwapSprites();
         

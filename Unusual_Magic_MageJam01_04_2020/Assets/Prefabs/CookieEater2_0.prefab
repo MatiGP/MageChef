@@ -43,10 +43,10 @@ GameObject:
   - component: {fileID: 8893717681048578522}
   - component: {fileID: 8893717681048578521}
   - component: {fileID: 8893717681048578520}
-  - component: {fileID: 8893717681048578519}
   - component: {fileID: 8893717681048578525}
   - component: {fileID: 8769948166889586614}
   - component: {fileID: 6442665926672165702}
+  - component: {fileID: 662542248112134255}
   m_Layer: 0
   m_Name: CookieEater2_0
   m_TagString: Enemy
@@ -172,33 +172,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.28, y: 1.28}
   m_Direction: 0
---- !u!114 &8893717681048578519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8893717681048578518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 527b92311a4c3d04b90eb0aea358c7a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointsReward: 200
-  wanderSpeed: 2
-  tauntRange: 7
-  chaseSpeed: 4
-  attackRange: 1.2
-  timeBetweenAttacks: 0.75
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  legs: {fileID: 8893717681586730855}
-  attackPoint: {fileID: 4226550260050995507}
-  attackSource: {fileID: 6442665926672165702}
 --- !u!95 &8893717681048578525
 Animator:
   serializedVersion: 3
@@ -410,6 +383,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &662542248112134255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8893717681048578518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b558ddcc5cc7664c939b308f3de97cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsReward: 100
+  wanderSpeed: 3
+  tauntRange: 5
+  chaseSpeed: 6
+  attackRange: 1.2
+  timeBetweenAttacks: 1
+  canMove: 1
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  legs: {fileID: 8893717681586730855}
+  attackPoint: {fileID: 4226550260050995507}
+  attackSource: {fileID: 6442665926672165702}
 --- !u!1 &8893717681586730854
 GameObject:
   m_ObjectHideFlags: 0

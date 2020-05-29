@@ -9,7 +9,12 @@ public class SpellbookManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < spellbookRecipes.Length; i++)
+        playerAbilities.OnRecipeCollected += PlayerAbilities_OnRecipeCollected;
+    }
+
+    private void PlayerAbilities_OnRecipeCollected(object sender, PlayerAbilities.OnRecipeCollectedArgs e)
+    {
+        for (int i = 0; i < spellbookRecipes.Length; i++)
         {
             if (playerAbilities.unlockedRecipes[i] == null)
             {
@@ -20,9 +25,7 @@ public class SpellbookManager : MonoBehaviour
                 spellbookRecipes[i].gameObject.SetActive(true);
                 spellbookRecipes[i].SetUpRecipe(playerAbilities.unlockedRecipes[i]);
             }
-            
+
         }
     }
-
-    
 }

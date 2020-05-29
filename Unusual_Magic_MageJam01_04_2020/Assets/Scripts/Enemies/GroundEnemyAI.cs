@@ -137,4 +137,13 @@ public class GroundEnemyAI : MonoBehaviour
     {
         return pointsReward;
     }
+
+    IEnumerator SlowDown()
+    {
+        wanderSpeed = 1.5f;
+        chaseSpeed = 2.5f;
+        yield return new WaitForSeconds(1.5f);
+        wanderSpeed = 3f;
+        chaseSpeed = 4f;
+    }
 }

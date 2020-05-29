@@ -45,7 +45,7 @@ public class RangedEnemyAI : MonoBehaviour
         canWalkOnPlatform = Physics2D.Raycast(legs.position, Vector2.down, 0.5f, groundLayer);
         hasTouchedTheWall = Physics2D.Raycast(legs.position, Vector2.right * transform.localScale.x, 0.25f, groundLayer);
 
-        if (!playerSpotted && target == null && canMove && !IsViewClear())
+        if (!playerSpotted && target == null && canMove && IsViewClear())
         {
             Wander();
         }

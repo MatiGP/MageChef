@@ -397,10 +397,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointsReward: 100
   wanderSpeed: 3
-  tauntRange: 5
-  chaseSpeed: 3.75
-  attackRange: 1.2
+  tauntRange: 7
+  chaseSpeed: 4
+  attackRange: 0.7
   timeBetweenAttacks: 0.5
+  canMove: 1
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
