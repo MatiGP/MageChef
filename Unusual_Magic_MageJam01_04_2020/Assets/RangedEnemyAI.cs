@@ -152,4 +152,9 @@ public class RangedEnemyAI : MonoBehaviour
     {
         return !Physics2D.Raycast(attackPoint.position, Vector2.right * transform.localScale.x, attackRange, groundLayer);
     }
+
+    private void OnDestroy()
+    {
+        PlayerPoints.instance.AddPoints(pointsReward);
+    }
 }

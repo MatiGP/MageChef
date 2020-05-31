@@ -146,4 +146,9 @@ public class GroundEnemyAI : MonoBehaviour
         wanderSpeed = 3f;
         chaseSpeed = 4f;
     }
+
+    private void OnDestroy()
+    {
+        PlayerPoints.instance.AddPoints(pointsReward);
+    }
 }

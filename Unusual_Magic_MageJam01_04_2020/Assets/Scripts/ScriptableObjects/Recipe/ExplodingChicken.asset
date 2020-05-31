@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8f46800db5f8f49be00f23383807cf, type: 3}
   m_Name: ExplodingChicken
   m_EditorClassIdentifier: 
-  recipeIcon: {fileID: 21300000, guid: 4b810badde8b86648a58e929b026ad4e, type: 3}
+  recipeIcon: {fileID: -7930421500598255595, guid: d50b34af2126a2646b5d8278389aae08,
+    type: 3}
+  spellbookRecipeIcon: {fileID: 21300000, guid: 4b810badde8b86648a58e929b026ad4e,
+    type: 3}
   ingredients:
   - requiredSpice: {fileID: 11400000, guid: 09c15bf69cffb624ca9eb8f7b8c2dd27, type: 2}
     requiredAmount: 0

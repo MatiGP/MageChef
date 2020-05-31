@@ -5,6 +5,7 @@ using UnityEngine;
 public class Recipe : ScriptableObject
 {
     public Sprite recipeIcon;
+    public Sprite spellbookRecipeIcon;
     public Ingredient[] ingredients = new Ingredient[3];
     public GameObject result;
 

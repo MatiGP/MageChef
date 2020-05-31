@@ -19,10 +19,13 @@ public class MainMenuManager : MonoBehaviour
         {
             spellBook.SetActive(true);
             isSpellBookOpen = true;
-        }else if(Input.GetKeyDown(KeyCode.Q) && isSpellBookOpen)
+
+        }
+        else if(Input.GetKeyDown(KeyCode.Q) && isSpellBookOpen)
         {
             spellBook.SetActive(false);
             isSpellBookOpen = false;
+
         }
 
         

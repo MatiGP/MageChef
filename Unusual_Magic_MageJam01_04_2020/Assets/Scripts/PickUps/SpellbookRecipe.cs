@@ -11,7 +11,7 @@ public class SpellbookRecipe : MonoBehaviour
 
     public void SetUpRecipe(Recipe reci)
     {
-        GetComponent<Image>().sprite = reci.recipeIcon;
+        GetComponent<Image>().sprite = reci.spellbookRecipeIcon;
         for(int i = 0; i < 3; i++)
         {
             recipeElements[i].sprite = reci.ingredients[i].requiredSpice.spiceIcon;

@@ -39,6 +39,7 @@ public class PlayerAbilities : MonoBehaviour
 
     bool isSpellCrafting = false;
     [SerializeField] CinemachineVirtualCamera spellCraftingCam;
+    [SerializeField] GameObject cookingPot;
 
     PlayerController pc;
 
@@ -54,7 +55,9 @@ public class PlayerAbilities : MonoBehaviour
             spellCraftingSpices = new Spice[3];
             isSpellCrafting = true;
             pc.DisableMovement();
+            pc.SpellCraft(true);
             spellCraftingCam.gameObject.SetActive(true);
+            cookingPot.gameObject.SetActive(true);
             GetSpices();
             spellCraftingUI.SetActive(true);
 
@@ -63,7 +66,9 @@ public class PlayerAbilities : MonoBehaviour
         {
             isSpellCrafting = false;
             pc.EnableMovement();
-            spellCraftingCam.gameObject.SetActive(false);
+            cookingPot.gameObject.SetActive(false);
+            pc.SpellCraft(false);
+            spellCraftingCam.gameObject.SetActive(false);            
             spellCraftingUI.SetActive(false);
         }
 
@@ -99,7 +104,6 @@ public class PlayerAbilities : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.W))
             {
-                print("zmieniam w góre");
                 if (ownedSpiceList.Count != 0)
                 {
                     if (spiceIndex + 1 > ownedSpiceList.Count - 1)
@@ -110,8 +114,7 @@ public class PlayerAbilities : MonoBehaviour
                     {
                         spiceIndex += 1;
                     }
-                    spellCraftingSpices[spiceSlot] = ownedSpiceList[spiceIndex];
-                    
+                    spellCraftingSpices[spiceSlot] = ownedSpiceList[spiceIndex];                    
                 }
 
                 OnSpiceChanged?.Invoke(this, new OnSpiceChangedArgs() { spice = ownedSpiceList[spiceIndex] });

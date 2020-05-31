@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5714460961336616411, guid: 7bb718c55a4196544b424f45d87e6de8,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.95
+      objectReference: {fileID: 0}
     - target: {fileID: 6346930538722507085, guid: 7bb718c55a4196544b424f45d87e6de8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20,7 +25,7 @@ PrefabInstance:
     - target: {fileID: 6346930539585035844, guid: 7bb718c55a4196544b424f45d87e6de8,
         type: 3}
       propertyPath: m_Name
-      value: Pipe_3
+      value: Pipe_3 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6346930539585035848, guid: 7bb718c55a4196544b424f45d87e6de8,
         type: 3}

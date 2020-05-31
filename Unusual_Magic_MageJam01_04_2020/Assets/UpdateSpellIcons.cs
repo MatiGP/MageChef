@@ -16,6 +16,6 @@ public class UpdateSpellIcons : MonoBehaviour
     private void Pa_OnSpellCrafted(object sender, PlayerAbilities.OnSpellCraftedArgs e)
     {
         spellIcons[(int)e.recipe.slot].gameObject.SetActive(true);
-        spellIcons[(int)e.recipe.slot].sprite = e.recipe.recipeIcon;
+        spellIcons[(int)e.recipe.slot].sprite = e.recipe.spellbookRecipeIcon;
     }
 }

@@ -2,30 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
+
 public class PlayerPoints : MonoBehaviour
 {
     public static PlayerPoints instance;
-    [SerializeField] TextMeshProUGUI pointsText;
-
+    public event EventHandler<OnPointsAddedArgs> OnPointsAdded;
+    public class OnPointsAddedArgs : EventArgs
+    {
+        public int points;
+    }
     int points;
+
 
     private void Awake()
     {
         instance = this;
     }
-    private void Start()
-    {
-        IncreasePoints(PlayerPrefs.GetInt("score"));
-    }
 
-    public int GetScore()
+    public void AddPoints(int pointsToAdd)
     {
-        return points;
-    }
-
-    public void IncreasePoints(int pointsIncrease)
-    {
-        points += pointsIncrease;
-        pointsText.text = points.ToString();
+        points += pointsToAdd;
+        OnPointsAdded?.Invoke(this, new OnPointsAddedArgs() {points = points});
     }
 }

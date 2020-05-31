@@ -19,11 +19,7 @@ public class Health : MonoBehaviour
         health--;
         
         if(health <= 0)
-        {
-            if (tag == "Enemy")
-            {
-                //PlayerPoints.instance.IncreasePoints(GetComponent<EnemyController>().GetPointsReward());
-            }
+        {           
             Destroy(gameObject);
         }
     }
@@ -31,13 +27,9 @@ public class Health : MonoBehaviour
     public void TakeDamage(int dmgAmmount)
     {
         hurtSource.Play();
-        health = Mathf.Max(health, 0, health - dmgAmmount);
+        health = Mathf.Max(0, health - dmgAmmount);
         if (health <= 0)
-        {            
-            if(tag == "Enemy")
-            {
-                PlayerPoints.instance.IncreasePoints(GetComponent<EnemyController>().GetPointsReward());
-            }
+        {  
             Destroy(gameObject);
         }
     }   

@@ -18,24 +18,25 @@ public class PlayerController : MonoBehaviour
     int bounceForce = 3;
     bool canJump;
     bool canMove = true;
-    bool isClimbing = false;
+    bool isDucking;
+    bool isSpellcrafting;
     float horizontal;
     Rigidbody2D rb2d;
     Animator animator;
-
+    CapsuleCollider2D capsuleCollider;
 
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canMove)
+        if (canMove && !isDucking)
         {
             horizontal = Input.GetAxis("Horizontal");
         }
@@ -46,7 +47,7 @@ public class PlayerController : MonoBehaviour
         
 
         ChangeScale();
-        UpdateAnimator();
+        
 
         if (canJump) bounceForce = 3;
 
@@ -56,8 +57,20 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("jump");
             jumpSource.Play();
         }
+
+        if (Input.GetKeyDown(KeyCode.S) && !isSpellcrafting && !isDucking)
+        {
+            isDucking = true;
+            Duck();
+        }
+
+        if (Input.GetKeyUp(KeyCode.S) && isDucking)
+        {
+            isDucking = false;
+            StopDuck();
+        }
              
-        
+        UpdateAnimator();
     }
 
     void Jump()
@@ -77,6 +90,8 @@ public class PlayerController : MonoBehaviour
         bool isRunning = horizontal != 0 ? true : false;
         animator.SetBool("isRunning", isRunning);
         animator.SetBool("isInAir", !canJump);
+        animator.SetBool("isDucking", isDucking);
+        animator.SetBool("isSpellCrafting", isSpellcrafting);
     }
 
     void ChangeScale()
@@ -137,4 +152,20 @@ public class PlayerController : MonoBehaviour
         }      
     }
 
+    public void SpellCraft(bool value)
+    {
+        isSpellcrafting = value;
+    }
+
+    void Duck()
+    {
+        capsuleCollider.offset = new Vector2(-0.03f, -0.35f);
+        capsuleCollider.size = new Vector2(0.36f, 0.48f);
+    }
+
+    void StopDuck()
+    {
+        capsuleCollider.offset = new Vector2(-0.03f, -0.06f);
+        capsuleCollider.size = new Vector2(0.36f, 1.18f);
+    }
 }

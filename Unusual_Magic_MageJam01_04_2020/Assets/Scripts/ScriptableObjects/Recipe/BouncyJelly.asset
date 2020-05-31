@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8f46800db5f8f49be00f23383807cf, type: 3}
   m_Name: BouncyJelly
   m_EditorClassIdentifier: 
-  recipeIcon: {fileID: 2670511816965954413, guid: 550dea58bef80974ba7ba6998ab3f2dc,
+  recipeIcon: {fileID: -7798039191569234141, guid: d50b34af2126a2646b5d8278389aae08,
+    type: 3}
+  spellbookRecipeIcon: {fileID: 2670511816965954413, guid: 550dea58bef80974ba7ba6998ab3f2dc,
     type: 3}
   ingredients:
   - requiredSpice: {fileID: 11400000, guid: bbee74b6f474f274abb0336443fff206, type: 2}
