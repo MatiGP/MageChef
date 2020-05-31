@@ -1,22 +1,28 @@
 fileFormatVersion: 2
-guid: 3d345a0d29ccc3e49928cbddb56f60a0
+guid: 0903c648b35b4c34f81757de4253d4b9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1714756807398554617
-    second: Signs_0
+      213: 3678207926417688858
+    second: PlatformElements_PT2_0
   - first:
-      213: 8051134168378353487
-    second: Signs_1
+      213: 1285488965684931579
+    second: PlatformElements_PT2_1
   - first:
-      213: -5459743574113085061
-    second: Signs_2
+      213: -3413837936507736431
+    second: PlatformElements_PT2_2
   - first:
-      213: -2742302684088697420
-    second: Signs_3
+      213: -8986717617736277238
+    second: PlatformElements_PT2_3
   - first:
-      213: 8814233360100005479
-    second: Signs_4
+      213: 6470873146322698087
+    second: PlatformElements_PT2_4
+  - first:
+      213: -5941493213102883350
+    second: PlatformElements_PT2_5
+  - first:
+      213: 7955498068140390159
+    second: PlatformElements_PT2_6
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -60,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +119,76 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Signs_0
+      name: PlatformElements_PT2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1907200f9e9b0330800000000000000
+      internalID: 3678207926417688858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformElements_PT2_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfba55a4769f6d110800000000000000
+      internalID: 1285488965684931579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformElements_PT2_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19e24b9eb7c9f90d0800000000000000
+      internalID: -3413837936507736431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlatformElements_PT2_3
       rect:
         serializedVersion: 2
         x: 0
         y: 256
-        width: 128
-        height: 128
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,20 +196,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fb7c2d2b3a0cc710800000000000000
-      internalID: 1714756807398554617
+      spriteID: a03a51ab0f3c84380800000000000000
+      internalID: -8986717617736277238
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Signs_1
+      name: PlatformElements_PT2_4
       rect:
         serializedVersion: 2
-        x: 128
+        x: 256
         y: 256
-        width: 128
-        height: 128
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,20 +217,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f47a3319edf5bbf60800000000000000
-      internalID: 8051134168378353487
+      spriteID: 76fbd29a7d82dc950800000000000000
+      internalID: 6470873146322698087
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Signs_2
+      name: PlatformElements_PT2_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
-        width: 128
-        height: 128
+        x: 512
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,41 +238,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b79944475281b34b0800000000000000
-      internalID: -5459743574113085061
+      spriteID: aedbb9de6639b8da0800000000000000
+      internalID: -5941493213102883350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Signs_3
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4bdfa48fc3261f9d0800000000000000
-      internalID: -2742302684088697420
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Signs_4
+      name: PlatformElements_PT2_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -211,8 +259,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 766982c8a82725a70800000000000000
-      internalID: 8814233360100005479
+      spriteID: f0770dac75b976e60800000000000000
+      internalID: 7955498068140390159
       vertices: []
       indices: 
       edges: []

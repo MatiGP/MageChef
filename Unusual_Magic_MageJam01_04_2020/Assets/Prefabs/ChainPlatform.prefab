@@ -178,15 +178,15 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.5}
-  m_ConnectedAnchor: {x: 0.05263233, y: -0.034999847}
+  m_ConnectedAnchor: {x: 0.05263138, y: -0.034999847}
   m_UseMotor: 0
   m_Motor:
-    m_MotorSpeed: 0
+    m_MotorSpeed: 100
     m_MaximumMotorForce: 10000
   m_UseLimits: 0
   m_AngleLimits:
     m_LowerAngle: 0
-    m_UpperAngle: 359
+    m_UpperAngle: 180
 --- !u!70 &6945936499907095121
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -215,7 +215,6 @@ GameObject:
   - component: {fileID: 8122246346058725858}
   - component: {fileID: 4933020358846173691}
   - component: {fileID: 9107232833614104133}
-  - component: {fileID: 7392077137932566493}
   m_Layer: 0
   m_Name: Tiles_PT1_30 (1)
   m_TagString: Untagged
@@ -332,23 +331,7 @@ HingeJoint2D:
   m_UseLimits: 0
   m_AngleLimits:
     m_LowerAngle: 0
-    m_UpperAngle: 359
---- !u!70 &7392077137932566493
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3362358203667143546}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.25, y: 1}
-  m_Direction: 0
+    m_UpperAngle: 90
 --- !u!1 &5335303885039463337
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +344,6 @@ GameObject:
   - component: {fileID: 5550902737144097290}
   - component: {fileID: 249844911361869304}
   - component: {fileID: 941028299158824977}
-  - component: {fileID: 2899914677384386546}
   m_Layer: 0
   m_Name: Tiles_PT1_30 (2)
   m_TagString: Untagged
@@ -470,7 +452,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.5}
-  m_ConnectedAnchor: {x: 0, y: -0.4630003}
+  m_ConnectedAnchor: {x: 0, y: -0.46299982}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -478,23 +460,7 @@ HingeJoint2D:
   m_UseLimits: 0
   m_AngleLimits:
     m_LowerAngle: 0
-    m_UpperAngle: 359
---- !u!70 &2899914677384386546
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5335303885039463337}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.25, y: 1}
-  m_Direction: 0
+    m_UpperAngle: 90
 --- !u!1 &6212194644889936445
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,7 +581,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.5}
-  m_ConnectedAnchor: {x: 0, y: -0.4659996}
+  m_ConnectedAnchor: {x: 0, y: -0.46600008}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -623,7 +589,7 @@ HingeJoint2D:
   m_UseLimits: 0
   m_AngleLimits:
     m_LowerAngle: 0
-    m_UpperAngle: 359
+    m_UpperAngle: 90
 --- !u!1 &9213205042526765288
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,8 +618,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9213205042526765288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.53, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
+  m_LocalPosition: {x: 0.05, y: -4.69, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 3770996798607209451}
   m_RootOrder: 4
@@ -721,7 +687,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -745,7 +711,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.009061202, y: 0.2506884}
-  m_ConnectedAnchor: {x: -0.075285435, y: -0.47627926}
+  m_ConnectedAnchor: {x: -0.029815674, y: -0.5109348}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -753,7 +719,7 @@ HingeJoint2D:
   m_UseLimits: 0
   m_AngleLimits:
     m_LowerAngle: 0
-    m_UpperAngle: 360
+    m_UpperAngle: 180
 --- !u!61 &851813513053328915
 BoxCollider2D:
   m_ObjectHideFlags: 0

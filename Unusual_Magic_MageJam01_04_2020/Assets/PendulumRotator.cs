@@ -10,12 +10,4 @@ public class PendulumRotator : MonoBehaviour
     {
         transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.collider.tag == "Player")
-        {
-            collision.collider.GetComponent<Health>().TakeDamage();
-        }
-    }
 }

@@ -12,15 +12,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int bounceAddForce = 2;
     [SerializeField] int bounceMaxForce = 17;
     [SerializeField] AudioSource jumpSource;
-    [SerializeField] GameObject deathMenu;
-    
 
     int bounceForce = 3;
+    float horizontal;
+
     bool canJump;
     bool canMove = true;
     bool isDucking;
     bool isSpellcrafting;
-    float horizontal;
+    bool isCarrying = false;
+
+    
     Rigidbody2D rb2d;
     Animator animator;
     CapsuleCollider2D capsuleCollider;
@@ -141,7 +143,8 @@ public class PlayerController : MonoBehaviour
         if(collision.tag == "Platform")
         {
             transform.parent = collision.gameObject.transform;
-        }      
+        }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)

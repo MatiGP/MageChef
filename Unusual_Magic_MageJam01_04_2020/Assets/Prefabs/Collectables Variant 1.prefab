@@ -78,5 +78,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Collectables Variant 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1541318386853015861, guid: bc06a40b6a1a8554abcf36f574bd0710,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541318386853015861, guid: bc06a40b6a1a8554abcf36f574bd0710,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc06a40b6a1a8554abcf36f574bd0710, type: 3}

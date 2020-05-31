@@ -1,19 +1,28 @@
 fileFormatVersion: 2
-guid: 3c892f0a9aabe944aadeab6ad80f43cf
+guid: d452b4502a50c8644b4234d6fe6c0e28
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4146440999111120847
-    second: Collectables2_0
+      213: 2684007652699168230
+    second: SignsFixed_0
   - first:
-      213: 5313856239921052170
-    second: Collectables2_1
+      213: 6815619900467403111
+    second: SignsFixed_1
   - first:
-      213: -6118459697286711676
-    second: Collectables2_2
+      213: -1532315830151727356
+    second: SignsFixed_2
   - first:
-      213: -8784986019269562625
-    second: Collectables2_3
+      213: -8863411446464720822
+    second: SignsFixed_3
+  - first:
+      213: 6201221227370500268
+    second: SignsFixed_4
+  - first:
+      213: -1169844791802047539
+    second: SignsFixed_5
+  - first:
+      213: -3315677955980103967
+    second: SignsFixed_6
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -57,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 325
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Collectables2_0
+      name: SignsFixed_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
-        width: 256
-        height: 256
+        y: 640
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +133,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc75222be1e1b8930800000000000000
-      internalID: 4146440999111120847
+      spriteID: 6ed50995db28f3520800000000000000
+      internalID: 2684007652699168230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collectables2_1
+      name: SignsFixed_1
       rect:
         serializedVersion: 2
-        x: 256
-        y: 256
-        width: 256
-        height: 256
+        x: 320
+        y: 640
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +154,104 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0abcff981c9eb940800000000000000
-      internalID: 5313856239921052170
+      spriteID: 76951735032f59e50800000000000000
+      internalID: 6815619900467403111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collectables2_2
+      name: SignsFixed_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 407391cfede1cbae0800000000000000
+      internalID: -1532315830151727356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SignsFixed_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a40d653ff36def480800000000000000
+      internalID: -8863411446464720822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SignsFixed_4
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca0d70fc9d92f0650800000000000000
+      internalID: 6201221227370500268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SignsFixed_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 320
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc35c462c50e3cfe0800000000000000
+      internalID: -1169844791802047539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SignsFixed_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,29 +259,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4867ea2825dd61ba0800000000000000
-      internalID: -6118459697286711676
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Collectables2_3
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ffe2aa4a2c5751680800000000000000
-      internalID: -8784986019269562625
+      spriteID: 1ee663c57785cf1d0800000000000000
+      internalID: -3315677955980103967
       vertices: []
       indices: 
       edges: []

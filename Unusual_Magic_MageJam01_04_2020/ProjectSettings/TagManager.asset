@@ -10,6 +10,7 @@ TagManager:
   - Climbable
   - FrozenCookie
   - Hazzard
+  - Carriable
   layers:
   - Default
   - TransparentFX
