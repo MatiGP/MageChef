@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     bool isDucking;
     bool isSpellcrafting;
     bool isCarrying = false;
-
+    bool isClimbing = false;
     
     Rigidbody2D rb2d;
     Animator animator;
@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void Jump()
-    {
+    {      
         rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
     }
 
@@ -140,9 +140,17 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Platform")
+        if (collision.tag == "Platform")
         {
             transform.parent = collision.gameObject.transform;
+        }
+
+        if (collision.tag == "Climbable")
+        {
+            isClimbing = true;
+            rb2d.velocity = Vector2.zero;
+            rb2d.isKinematic = true;
+            DisableMovement();
         }
         
     }
@@ -152,7 +160,8 @@ public class PlayerController : MonoBehaviour
         if(collision.tag == "Platform")
         {
             transform.parent = null;
-        }      
+        }
+        
     }
 
     public void SpellCraft(bool value)
@@ -170,5 +179,14 @@ public class PlayerController : MonoBehaviour
     {
         capsuleCollider.offset = new Vector2(-0.03f, -0.06f);
         capsuleCollider.size = new Vector2(0.36f, 1.18f);
+    }
+
+    public void StopSwinging()
+    {
+        transform.parent = null;
+        rb2d.isKinematic = false;
+        EnableMovement();
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        Jump();
     }
 }
