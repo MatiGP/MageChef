@@ -25,4 +25,9 @@ public class PlayerPoints : MonoBehaviour
         points += pointsToAdd;
         OnPointsAdded?.Invoke(this, new OnPointsAddedArgs() {points = points});
     }
+
+    public int GetPoints()
+    {
+        return points;
+    }
 }

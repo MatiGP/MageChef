@@ -44,4 +44,9 @@ public class Health : MonoBehaviour
         health++;
         Mathf.Clamp(health, 0, 4);
     }
+
+    public void SetHealth(int hp)
+    {
+        health = hp;
+    }
 }

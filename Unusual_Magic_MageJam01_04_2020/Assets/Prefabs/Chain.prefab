@@ -210,7 +210,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5223e10d44407ef468d00579cb1371fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingForce: 80
+  swingForce: 2
   rb2d: {fileID: 559274681720238616}
 --- !u!1 &559274681995584604
 GameObject:

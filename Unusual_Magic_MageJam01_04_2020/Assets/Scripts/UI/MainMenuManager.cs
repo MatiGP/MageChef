@@ -7,30 +7,11 @@ using UnityEngine.Audio;
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] GameObject menu;
-    [SerializeField] GameObject spellBook;
     bool isMenuOpen = false;
-    bool isSpellBookOpen = false;
    
     // Update is called once per frame
     void Update()
-    {
-
-        if(Input.GetKeyDown(KeyCode.Q) && !isSpellBookOpen)
-        {
-            spellBook.SetActive(true);
-            isSpellBookOpen = true;
-
-        }
-        else if(Input.GetKeyDown(KeyCode.Q) && isSpellBookOpen)
-        {
-            spellBook.SetActive(false);
-            isSpellBookOpen = false;
-
-        }
-
-        
-
-
+    {          
         if (Input.GetKeyDown(KeyCode.Escape) && !isMenuOpen)
         {
             AudioListener.volume = 0.1f;

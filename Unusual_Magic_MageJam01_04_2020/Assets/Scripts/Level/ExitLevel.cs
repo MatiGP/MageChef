@@ -11,8 +11,8 @@ public class ExitLevel : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            
             SceneManager.LoadScene(levelIndexToLoad);
+            SaveSystem.instance.SaveState();
         }
     }
 }

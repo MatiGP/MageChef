@@ -12,7 +12,7 @@ public class PlayerAbilities : MonoBehaviour
     public event EventHandler<OnSpellCraftedArgs> OnSpellCrafted;
     public event EventHandler<OnRecipeCollectedArgs> OnRecipeCollected;
     public class OnSpiceChangedArgs : EventArgs
-    {   
+    {
         public Spice spice;
     }
     public class OnSpiceSlotChangedArgs : EventArgs
@@ -62,13 +62,13 @@ public class PlayerAbilities : MonoBehaviour
             spellCraftingUI.SetActive(true);
 
         }
-        else if(Input.GetKeyDown(KeyCode.E) && isSpellCrafting)
+        else if (Input.GetKeyDown(KeyCode.E) && isSpellCrafting)
         {
             isSpellCrafting = false;
             pc.EnableMovement();
             cookingPot.gameObject.SetActive(false);
             pc.SpellCraft(false);
-            spellCraftingCam.gameObject.SetActive(false);            
+            spellCraftingCam.gameObject.SetActive(false);
             spellCraftingUI.SetActive(false);
         }
 
@@ -114,7 +114,7 @@ public class PlayerAbilities : MonoBehaviour
                     {
                         spiceIndex += 1;
                     }
-                    spellCraftingSpices[spiceSlot] = ownedSpiceList[spiceIndex];                    
+                    spellCraftingSpices[spiceSlot] = ownedSpiceList[spiceIndex];
                 }
 
                 OnSpiceChanged?.Invoke(this, new OnSpiceChangedArgs() { spice = ownedSpiceList[spiceIndex] });
@@ -132,27 +132,27 @@ public class PlayerAbilities : MonoBehaviour
                     {
                         spiceIndex -= 1;
                     }
-                    spellCraftingSpices[spiceSlot] = ownedSpiceList[spiceIndex];                  
+                    spellCraftingSpices[spiceSlot] = ownedSpiceList[spiceIndex];
                 }
 
                 OnSpiceChanged?.Invoke(this, new OnSpiceChangedArgs() { spice = ownedSpiceList[spiceIndex] });
             }
-            
+
         }
         // sprawdzam czy wszystkie 3 elementy mają wartość. Jeśli tak, zrób spell, jeśli nie, nic nie rób.
         if (Input.GetKeyDown(KeyCode.R) && isSpellCrafting)
         {
-            for(int i = 0; i < 3; i++)
+            for (int i = 0; i < 3; i++)
             {
-                if(spellCraftingSpices[i] == null)
+                if (spellCraftingSpices[i] == null)
                 {
                     return;
                 }
             }
 
-            foreach(Recipe recipe in unlockedRecipes)
+            foreach (Recipe recipe in unlockedRecipes)
             {
-                if(CheckForCorrectRecipe(recipe))
+                if (CheckForCorrectRecipe(recipe))
                 {
                     //print("Znalazłem pasującą recepturę!");
                     OnSpellCrafted?.Invoke(this, new OnSpellCraftedArgs() { recipe = recipe });
@@ -212,6 +212,16 @@ public class PlayerAbilities : MonoBehaviour
         unlockedRecipes[numOfRecipe] = recipe;
         numOfRecipe++;
         OnRecipeCollected.Invoke(this, new OnRecipeCollectedArgs() { recipe = recipe });
+    }
+
+    public Dictionary<Spice, int> GetOwnedSpices()
+    {
+        return ownedSpices;
+    }
+
+    public void SetDict(Dictionary<Spice, int> d)
+    {
+        ownedSpices = d;
     }
 }
 

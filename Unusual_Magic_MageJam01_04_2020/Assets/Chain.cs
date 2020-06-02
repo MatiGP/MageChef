@@ -7,25 +7,19 @@ public class Chain : MonoBehaviour
     [SerializeField] float swingForce;
     [SerializeField] Rigidbody2D rb2d;
 
+
     bool isPlayerAttached;
     bool swingBack = true;
+
+    float horizontal;
+
     PlayerController pc;
 
     private void Update()
     {
         if (!isPlayerAttached) return;
 
-        if (Input.GetKeyDown(KeyCode.A) && swingBack)
-        {
-            swingBack = false;
-            rb2d.AddForce(new Vector2(-swingForce, swingForce));
-        }
-
-        if (Input.GetKeyDown(KeyCode.D) && !swingBack)
-        {
-            swingBack = true;
-            rb2d.AddForce(new Vector2(swingForce, swingForce));
-        }
+        horizontal = Input.GetAxis("Horizontal");
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -34,6 +28,13 @@ public class Chain : MonoBehaviour
             isPlayerAttached = false;
             StartCoroutine(DisableHandle());
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if (horizontal == 0) return;
+
+        rb2d.AddForce(new Vector2(swingForce * horizontal, swingForce));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -1,28 +1,16 @@
 fileFormatVersion: 2
-guid: 40627a25fdce95249a9d149bcaa86096
+guid: 4f8edc5ab7ad1b44faf912a386569e8b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5355280608241619390
-    second: Button_InGame_RED_0
+      213: -8171577274235723477
+    second: BlockedDoors_0
   - first:
-      213: -9015531185490920906
-    second: Button_InGame_RED_1
+      213: -9137669251225619292
+    second: BlockedDoors_1
   - first:
-      213: -2744345179810872243
-    second: Button_InGame_RED_2
-  - first:
-      213: 4222584874007049077
-    second: Button_InGame_RED_3
-  - first:
-      213: -8134113350370543220
-    second: Button_InGame_RED_4
-  - first:
-      213: 6556230227412953276
-    second: Button_InGame_RED_5
-  - first:
-      213: -6233964137748419182
-    second: Button_InGame_RED_6
+      213: 4008911177623775694
+    second: BlockedDoors_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -66,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -119,70 +107,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Button_InGame_RED_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 512
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eb197c6f657c15a40800000000000000
-      internalID: 5355280608241619390
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_InGame_RED_1
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 512
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 63a7b53372662e280800000000000000
-      internalID: -9015531185490920906
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_InGame_RED_2
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 512
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d44415069902ae9d0800000000000000
-      internalID: -2744345179810872243
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_InGame_RED_3
+      name: BlockedDoors_0
       rect:
         serializedVersion: 2
         x: 0
@@ -196,14 +121,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 573b0291292a99a30800000000000000
-      internalID: 4222584874007049077
+      spriteID: b21668293c9b89e80800000000000000
+      internalID: -8171577274235723477
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Button_InGame_RED_4
+      name: BlockedDoors_1
       rect:
         serializedVersion: 2
         x: 256
@@ -217,35 +142,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c89b6641103dd1f80800000000000000
-      internalID: -8134113350370543220
+      spriteID: 4a4ffadba3a703180800000000000000
+      internalID: -9137669251225619292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Button_InGame_RED_5
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 256
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cb8a0aac7a86cfa50800000000000000
-      internalID: 6556230227412953276
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_InGame_RED_6
+      name: BlockedDoors_2
       rect:
         serializedVersion: 2
         x: 0
@@ -259,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29d2bfa45a28c79a0800000000000000
-      internalID: -6233964137748419182
+      spriteID: ec9ab56d97382a730800000000000000
+      internalID: 4008911177623775694
       vertices: []
       indices: 
       edges: []

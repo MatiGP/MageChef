@@ -49,7 +49,7 @@ public class GroundEnemyAI : MonoBehaviour
         }
 
 
-        if (!playerSpotted && target == null && canMove)
+        if (!playerSpotted && canMove)
         {
             Wander();
         }

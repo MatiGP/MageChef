@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] float jumpForce;
+    [SerializeField] float jumpTime;
     [SerializeField] Transform legsPosition;
     [SerializeField] LayerMask groundMask;
     [SerializeField] int bounceAddForce = 2;
@@ -14,10 +15,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioSource jumpSource;
 
     int bounceForce = 3;
+
     float horizontal;
+    float jumpTimeCounter;
+
 
     bool canJump;
     bool canMove = true;
+    bool isJumping = false;
     bool isDucking;
     bool isSpellcrafting;
     bool isCarrying = false;
@@ -55,10 +60,32 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
+            isJumping = true;
+            jumpTimeCounter = jumpTime;
             Jump();
             animator.SetTrigger("jump");
             jumpSource.Play();
         }
+
+        if (Input.GetKey(KeyCode.Space) && isJumping)
+        {
+            if(jumpTimeCounter > 0)
+            {
+                Jump();
+                jumpTimeCounter -= Time.deltaTime;
+            }
+            else
+            {
+                isJumping = false;
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            isJumping = false;
+        }
+
+        print(isJumping);
 
         if (Input.GetKeyDown(KeyCode.S) && !isSpellcrafting && !isDucking)
         {

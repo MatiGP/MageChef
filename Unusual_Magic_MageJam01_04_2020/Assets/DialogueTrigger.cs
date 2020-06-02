@@ -20,7 +20,7 @@ public class DialogueTrigger : MonoBehaviour
         if (collision.tag == "Player")
         {
             DialogueManager.instance.EndDialogue();
-            gameObject.SetActive(false);
+            GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 }
