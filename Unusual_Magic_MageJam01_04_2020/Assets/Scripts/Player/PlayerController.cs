@@ -182,6 +182,8 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.tag == "Platform")
@@ -216,4 +218,6 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, 0);
         Jump();
     }
+
+    
 }

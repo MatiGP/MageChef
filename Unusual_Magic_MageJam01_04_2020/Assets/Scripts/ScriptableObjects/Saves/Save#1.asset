@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPoints: 0
   ownedRecipes: []
-  health: 0
+  health: 4

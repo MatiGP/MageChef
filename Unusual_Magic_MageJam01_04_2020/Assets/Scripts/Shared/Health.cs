@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] int health = 1;
     [SerializeField] AudioSource hurtSource;
+    [SerializeField] GameObject deathPanel;
     Animator anim;
 
     private void Start()
@@ -19,7 +20,7 @@ public class Health : MonoBehaviour
         health--;
         
         if(health <= 0)
-        {           
+        {                     
             Destroy(gameObject);
         }
     }
@@ -48,5 +49,13 @@ public class Health : MonoBehaviour
     public void SetHealth(int hp)
     {
         health = hp;
+    }
+
+    private void OnDestroy()
+    {
+        if (tag == "Player")
+        {
+            deathPanel.SetActive(true);
+        }
     }
 }

@@ -114,17 +114,17 @@ PrefabInstance:
     - target: {fileID: 3589931478404214461, guid: 44b44fa24fcf9d6428ff36ffac4d0ef0,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 9
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3589931478404214461, guid: 44b44fa24fcf9d6428ff36ffac4d0ef0,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3589931478404214461, guid: 44b44fa24fcf9d6428ff36ffac4d0ef0,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3589931478404214461, guid: 44b44fa24fcf9d6428ff36ffac4d0ef0,
         type: 3}
@@ -139,12 +139,12 @@ PrefabInstance:
     - target: {fileID: 3714548147432700259, guid: 44b44fa24fcf9d6428ff36ffac4d0ef0,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3714548147432700259, guid: 44b44fa24fcf9d6428ff36ffac4d0ef0,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3714548147432700259, guid: 44b44fa24fcf9d6428ff36ffac4d0ef0,
         type: 3}
@@ -159,7 +159,12 @@ PrefabInstance:
     - target: {fileID: 3714548147432700259, guid: 44b44fa24fcf9d6428ff36ffac4d0ef0,
         type: 3}
       propertyPath: m_text
-      value: Dead.
+      value: Koniec Gry
+      objectReference: {fileID: 0}
+    - target: {fileID: 3714548147432700259, guid: 44b44fa24fcf9d6428ff36ffac4d0ef0,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4212615433020716543, guid: 44b44fa24fcf9d6428ff36ffac4d0ef0,
         type: 3}
@@ -274,7 +279,7 @@ PrefabInstance:
     - target: {fileID: 5289685164085169884, guid: 44b44fa24fcf9d6428ff36ffac4d0ef0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8266229697824546980, guid: 44b44fa24fcf9d6428ff36ffac4d0ef0,
         type: 3}
