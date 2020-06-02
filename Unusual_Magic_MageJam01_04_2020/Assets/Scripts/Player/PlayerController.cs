@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
 
     bool canJump;
+    bool dialogueOpen = false;
     bool canMove = true;
     bool isJumping = false;
     bool isDucking;
@@ -58,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
         if (canJump) bounceForce = 3;
 
-        if (Input.GetKeyDown(KeyCode.Space) && canJump)
+        if (Input.GetKeyDown(KeyCode.Space) && canJump && !dialogueOpen)
         {
             isJumping = true;
             jumpTimeCounter = jumpTime;
@@ -85,7 +86,6 @@ public class PlayerController : MonoBehaviour
             isJumping = false;
         }
 
-        print(isJumping);
 
         if (Input.GetKeyDown(KeyCode.S) && !isSpellcrafting && !isDucking)
         {
@@ -227,5 +227,15 @@ public class PlayerController : MonoBehaviour
         Jump();
     }
 
-    
+    public void DisableJumpingDialogOpen()
+    {
+        dialogueOpen = true;
+    }
+
+    public void EnableJumpingDialogClose()
+    {
+        dialogueOpen = false;
+    }
+
+
 }

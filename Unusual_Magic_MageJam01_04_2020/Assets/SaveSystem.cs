@@ -14,25 +14,24 @@ public class SaveSystem : MonoBehaviour
         instance = this;
         LoadState();
     }
-
     public void SaveState()
     {
         save.currentPoints = player.GetComponent<PlayerPoints>().GetPoints();
         save.health = player.GetComponent<Health>().GetHealthAmmount();
         save.ownedRecipes = player.GetComponent<PlayerAbilities>().unlockedRecipes;
         save.ownedSpices = player.GetComponent<PlayerAbilities>().GetOwnedSpices();
-    }
-
+    } 
     public void LoadState()
     {
         player.GetComponent<PlayerPoints>().AddPoints(save.currentPoints);
         player.GetComponent<Health>().SetHealth(save.health);
-        
-        foreach(Recipe r in save.ownedRecipes)
+        player.GetComponent<PlayerAbilities>().SetDict(save.ownedSpices);
+        player.GetComponent<PlayerAbilities>().unlockedRecipes = save.ownedRecipes;
+        foreach (Recipe r in save.ownedRecipes)
         {
             player.GetComponent<PlayerAbilities>().AddNewRecipe(r);
         }
 
-        player.GetComponent<PlayerAbilities>().SetDict(save.ownedSpices);
+        
     }
 }

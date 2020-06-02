@@ -6,6 +6,7 @@ public class Chain : MonoBehaviour
 {
     [SerializeField] float swingForce;
     [SerializeField] Rigidbody2D rb2d;
+    [SerializeField] Transform attachPos;
 
 
     bool isPlayerAttached;
@@ -44,6 +45,7 @@ public class Chain : MonoBehaviour
             collision.transform.parent = transform;
             isPlayerAttached = true;
             pc = collision.GetComponent<PlayerController>();
+            collision.transform.position = attachPos.position;
         }
     }
 

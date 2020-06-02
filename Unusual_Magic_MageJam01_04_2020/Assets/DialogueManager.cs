@@ -30,6 +30,7 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("isOpen", true);
         playerController.DisableMovement();
+        playerController.DisableJumpingDialogOpen();
 
         nameText.text = dialogue.name;
 
@@ -71,5 +72,6 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("isOpen", false);
         playerController.EnableMovement();
+        playerController.EnableJumpingDialogClose();
     }
 }

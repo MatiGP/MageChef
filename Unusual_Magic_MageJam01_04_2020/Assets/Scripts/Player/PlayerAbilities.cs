@@ -29,11 +29,13 @@ public class PlayerAbilities : MonoBehaviour
     }
     int numOfRecipe = 0;
 
-    public Recipe[] unlockedRecipes = new Recipe[8];
+    public Recipe[] unlockedRecipes;
     [SerializeField] GameObject spellCraftingUI;
+
     Dictionary<Spice, int> ownedSpices = new Dictionary<Spice, int>();
     List<Spice> ownedSpiceList = new List<Spice>();
     Spice[] spellCraftingSpices;
+
     int spiceSlot = 0;
     int spiceIndex = 0;
 
@@ -209,9 +211,12 @@ public class PlayerAbilities : MonoBehaviour
 
     public void AddNewRecipe(Recipe recipe)
     {
+        if (recipe == null) return;
+        print(numOfRecipe);
         unlockedRecipes[numOfRecipe] = recipe;
         numOfRecipe++;
-        OnRecipeCollected.Invoke(this, new OnRecipeCollectedArgs() { recipe = recipe });
+        
+        OnRecipeCollected?.Invoke(this, new OnRecipeCollectedArgs() { recipe = recipe });
     }
 
     public Dictionary<Spice, int> GetOwnedSpices()
