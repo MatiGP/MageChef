@@ -170,6 +170,14 @@ public class PlayerController : MonoBehaviour
         if (collision.tag == "Platform")
         {
             transform.parent = collision.gameObject.transform;
+            if (horizontal > 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+            else if (horizontal < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
         }
 
         if (collision.tag == "Climbable")

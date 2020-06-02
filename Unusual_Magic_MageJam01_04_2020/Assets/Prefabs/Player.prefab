@@ -5830,7 +5830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpForce: 4
+  jumpForce: 5
   jumpTime: 0.23
   legsPosition: {fileID: 5030381927000670406}
   groundMask:
