@@ -8,11 +8,13 @@ public class SpellcraftingUI : MonoBehaviour
     [SerializeField] GameObject[] arrows = new GameObject[3];
     [SerializeField] Image[] spiceImages = new Image[3];
     [SerializeField] PlayerAbilities playerAbilities;
+    [SerializeField] Sprite blankSprite;
     int activeSlot;
     void Start()
     {
         playerAbilities.OnSpiceChanged += PlayerAbilities_OnSpiceChanged;
         playerAbilities.OnSpiceSlotChanged += PlayerAbilities_OnSpiceSlotChanged;
+        arrows[activeSlot].gameObject.SetActive(true);
     }
 
     private void PlayerAbilities_OnSpiceSlotChanged(object sender, PlayerAbilities.OnSpiceSlotChangedArgs e)
@@ -22,12 +24,10 @@ public class SpellcraftingUI : MonoBehaviour
             if (i == e.spiceSlot)
             {
                 arrows[i].gameObject.SetActive(true);
-                arrows[i].gameObject.SetActive(true);
                 activeSlot = i;
                 continue;
             }
 
-            arrows[i].gameObject.SetActive(false);
             arrows[i].gameObject.SetActive(false);
         }
 
@@ -36,6 +36,13 @@ public class SpellcraftingUI : MonoBehaviour
     private void PlayerAbilities_OnSpiceChanged(object sender, PlayerAbilities.OnSpiceChangedArgs e)
     {
         spiceImages[activeSlot].sprite = e.spice.spiceIcon;
+    }
+
+    private void OnDisable()
+    {
+        spiceImages[0].sprite = blankSprite;
+        spiceImages[1].sprite = blankSprite;
+        spiceImages[2].sprite = blankSprite;
     }
 }
 

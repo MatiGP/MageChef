@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2d: {fileID: 7771845077068179031}
-  swingForce: 5
+  swingForce: 8
 --- !u!1 &4478891405172413525
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,8 +474,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8363a85e8536b344aa214cdad309882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb2d: {fileID: 0}
-  swingForce: 5
+  rb2d: {fileID: 7771845077068179031}
+  swingForce: 8
 --- !u!1 &4923029150176155189
 GameObject:
   m_ObjectHideFlags: 0

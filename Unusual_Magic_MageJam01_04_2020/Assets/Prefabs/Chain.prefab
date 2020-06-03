@@ -384,6 +384,7 @@ MonoBehaviour:
   swingForce: 2
   rb2d: {fileID: 559274681720238616}
   attachPos: {fileID: 561971297218088682}
+  chainRB: {fileID: 559274681720238616}
 --- !u!1 &559274681995584604
 GameObject:
   m_ObjectHideFlags: 0

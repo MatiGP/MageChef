@@ -1306,6 +1306,7 @@ MonoBehaviour:
   - {fileID: 9026525259754971028}
   - {fileID: 7178415781490495379}
   playerAbilities: {fileID: 4004174587097948001}
+  blankSprite: {fileID: 21300000, guid: 32bc340f87d4041409fe630e68d5971e, type: 3}
 --- !u!1 &2831405859879320291
 GameObject:
   m_ObjectHideFlags: 0
@@ -1952,6 +1953,7 @@ MonoBehaviour:
   - {fileID: 8605431116453712776}
   - {fileID: 6413304442751750051}
   - {fileID: 4403290507233692715}
+  pam: {fileID: 3793435348665068444}
 --- !u!1 &5013890569117072139
 GameObject:
   m_ObjectHideFlags: 0

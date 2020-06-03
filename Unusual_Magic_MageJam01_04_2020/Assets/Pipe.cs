@@ -21,7 +21,6 @@ public class Pipe : MonoBehaviour
     {
         if (collision.tag == "FrozenCookie")
         {
-            print("Dostałem Ciastkiem!");
             Freeze();
         }
     }

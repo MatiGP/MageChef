@@ -55,6 +55,7 @@ public class Health : MonoBehaviour
     {
         if (tag == "Player")
         {
+            if (deathPanel == null) return;
             deathPanel.SetActive(true);
         }
     }
