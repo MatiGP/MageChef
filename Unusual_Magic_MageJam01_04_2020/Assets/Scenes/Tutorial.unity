@@ -14655,6 +14655,11 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.x
       value: -0.07528516
       objectReference: {fileID: 0}
+    - target: {fileID: 7531256420210482536, guid: f6d3a2be40d50834c923088ac1cb8e8d,
+        type: 3}
+      propertyPath: swingForce
+      value: -8
+      objectReference: {fileID: 0}
     - target: {fileID: 9107232833614104133, guid: f6d3a2be40d50834c923088ac1cb8e8d,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
@@ -14936,6 +14941,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: -0.07528516
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531256420210482536, guid: f6d3a2be40d50834c923088ac1cb8e8d,
+        type: 3}
+      propertyPath: swingForce
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 9107232833614104133, guid: f6d3a2be40d50834c923088ac1cb8e8d,
         type: 3}

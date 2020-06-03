@@ -191,6 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   hurtSource: {fileID: 8311465018239479075}
+  deathPanel: {fileID: 0}
 --- !u!82 &8311465018239479075
 AudioSource:
   m_ObjectHideFlags: 0
@@ -400,7 +401,7 @@ MonoBehaviour:
   tauntRange: 7
   chaseSpeed: 4
   attackRange: 0.7
-  timeBetweenAttacks: 0.5
+  timeBetweenAttacks: 1.25
   canMove: 1
   playerLayer:
     serializedVersion: 2
