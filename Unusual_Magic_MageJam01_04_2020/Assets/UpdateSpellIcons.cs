@@ -12,18 +12,20 @@ public class UpdateSpellIcons : MonoBehaviour
     private void Start()
     {
         pa.OnSpellCrafted += Pa_OnSpellCrafted;
-        foreach(Recipe rec in pam.GetOwnedSpells())
+        Recipe[] rec = pam.GetOwnedSpells();
+        for(int i = 0; i < 3; i++)
         {
-            if (rec == null)
+            if (rec[i] == null)
             {
-                spellIcons[(int)rec.slot].gameObject.SetActive(false);
+                spellIcons[i].gameObject.SetActive(false);
             }
             else
             {
-                spellIcons[(int)rec.slot].gameObject.SetActive(true);
-                spellIcons[(int)rec.slot].sprite = rec.spellbookRecipeIcon;
+                spellIcons[(int)rec[i].slot].gameObject.SetActive(true);
+                spellIcons[(int)rec[i].slot].sprite = rec[i].spellbookRecipeIcon;
             }
         }
+
     }
 
     private void Pa_OnSpellCrafted(object sender, PlayerAbilities.OnSpellCraftedArgs e)

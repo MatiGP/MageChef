@@ -20,7 +20,20 @@ public class PlayerAbilitiesManager : MonoBehaviour
     void Start()
     {
         playerAbilities = GetComponent<PlayerAbilities>();
-        playerAbilities.OnSpellCrafted += PlayerAbilities_OnSpellCrafted;        
+        playerAbilities.OnSpellCrafted += PlayerAbilities_OnSpellCrafted;
+
+        if (spellGameObjects[0] != null)
+        {
+            cooldownSpell1 = spellGameObjects[0].cooldown;
+        }
+        if (spellGameObjects[1] != null)
+        {
+            cooldownSpell2 = spellGameObjects[1].cooldown;
+        }
+        if (spellGameObjects[2] != null)
+        {
+            cooldownSpell3 = spellGameObjects[2].cooldown;
+        }       
     }
 
     private void PlayerAbilities_OnSpellCrafted(object sender, PlayerAbilities.OnSpellCraftedArgs e)

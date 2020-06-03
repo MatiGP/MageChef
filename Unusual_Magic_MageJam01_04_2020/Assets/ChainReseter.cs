@@ -10,7 +10,7 @@ public class ChainReseter : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            StopCoroutine(Reset());
+            StopAllCoroutines();
         }
         SetAngularDrag(0.05f);
     }
