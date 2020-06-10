@@ -16,6 +16,7 @@ public class BasicAttack : MonoBehaviour
         Invoke("DestroyCookie", cookieLifeTime);
     }
 
+
     // Update is called once per frame
     void FixedUpdate()
     {

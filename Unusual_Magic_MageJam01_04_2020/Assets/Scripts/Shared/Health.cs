@@ -21,7 +21,7 @@ public class Health : MonoBehaviour
         
         if(health <= 0)
         {                     
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
@@ -31,7 +31,7 @@ public class Health : MonoBehaviour
         health = Mathf.Max(0, health - dmgAmmount);
         if (health <= 0)
         {  
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }   
 
@@ -51,7 +51,10 @@ public class Health : MonoBehaviour
         health = hp;
     }
 
-    private void OnDestroy()
+    /// <summary>
+    /// This function is called when the behaviour becomes disabled or inactive.
+    /// </summary>
+    void OnDisable()
     {
         if (tag == "Player")
         {

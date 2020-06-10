@@ -9,4 +9,6 @@ public class Save : ScriptableObject
     public Dictionary<Spice, int> ownedSpices = new Dictionary<Spice, int>();
     public int health = 4;
     public Recipe[] craftedSpells = new Recipe[3];
+
+    public Vector3? checkPoint;
 }

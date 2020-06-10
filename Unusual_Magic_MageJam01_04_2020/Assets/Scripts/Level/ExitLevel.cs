@@ -12,6 +12,7 @@ public class ExitLevel : MonoBehaviour
         if(collision.tag == "Player")
         {
             SaveSystem.instance.SaveState();
+            SaveSystem.instance.ResetCheckpoint();
             SceneManager.LoadScene(levelIndexToLoad);           
         }
     }

@@ -41,6 +41,22 @@ public class SaveSystem : MonoBehaviour
             if (r == null) continue;            
             player.GetComponent<PlayerAbilities>().AddNewRecipe(r);
         }
+
+        if(save.checkPoint.HasValue){
+            player.transform.position = (Vector3)save.checkPoint;
+            player.GetComponent<Health>().SetHealth(save.health);
+            player.gameObject.SetActive(true);
+        }
         
+    }
+
+    public void SaveCheckpoint(Vector3 pos)
+    {
+        save.checkPoint = pos;
+    }
+
+    public void ResetCheckpoint()
+    {
+        save.checkPoint = null;
     }
 }
