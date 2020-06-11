@@ -23,9 +23,9 @@ public class EnemyAI : MonoBehaviour
     Health target;
 
     bool isInAttackRange;
-    bool playerSpotted;
     bool canWalkFurther;
     bool hasTouchedWall;
+
 
 
     // Start is called before the first frame update
@@ -39,8 +39,8 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         canWalkFurther = Physics2D.Raycast(legs.position, Vector2.down, 0.5f, groundLayer);
-        hasTouchedWall = Physics2D.Raycast(legs.position, Vector2.right * transform.localScale.x, 0.25f, groundLayer);      
-        
+        hasTouchedWall = Physics2D.Raycast(legs.position, Vector2.right * transform.localScale.x, 0.25f, groundLayer);
+
         target = CheckForPlayerInSight();
 
         if(target == null && !stationary){

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using TMPro;
 
 public class DialogueManager : MonoBehaviour
@@ -8,6 +9,8 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public float typeTime = 0.04f;
+
+    public EventHandler OnDialogueEnded;
 
     [SerializeField] PlayerController playerController;
     [SerializeField] Animator animator;
@@ -24,6 +27,7 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         sentences = new Queue<string>();
+
     }
 
     public void StartDialogue(Dialogue dialogue)

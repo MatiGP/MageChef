@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 7971404255647569436}
   - component: {fileID: 7971404255647569437}
   - component: {fileID: 7971404255647569426}
-  - component: {fileID: 7971404255647569427}
   - component: {fileID: 7971404255647569424}
   - component: {fileID: 7971404255647569425}
   - component: {fileID: 8948797630782337323}
+  - component: {fileID: 3427564511397404819}
+  - component: {fileID: 240203106588248205}
   m_Layer: 0
   m_Name: Sousage_Red
   m_TagString: Untagged
@@ -104,6 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 2
   hurtSource: {fileID: 0}
+  deathPanel: {fileID: 0}
 --- !u!95 &7971404255647569426
 Animator:
   serializedVersion: 3
@@ -123,35 +125,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7971404255647569427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7971404255647569430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b5b8f767445e0149b6052b52570048b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointsReward: 200
-  wanderSpeed: 2
-  tauntRange: 12
-  chaseSpeed: 4
-  attackRange: 10
-  timeBetweenAttacks: 0.75
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  legs: {fileID: 7971404255685652344}
-  attackPoint: {fileID: 7971404256239558833}
-  attackSource: {fileID: 8948797630782337323}
-  projectile: {fileID: 6497099989306865436, guid: 34386bf1e32f2f74d96f53297d658cf9,
-    type: 3}
 --- !u!50 &7971404255647569424
 Rigidbody2D:
   serializedVersion: 4
@@ -172,7 +145,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &7971404255647569425
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -285,6 +258,52 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3427564511397404819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7971404255647569430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d5ffe665b1dac4f9e025a74a689dc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsReward: 200
+  wanderSpeed: 3
+  chaseSpeed: 3
+  tauntRange: 10
+  stationary: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  legs: {fileID: 7971404255685652344}
+  attack: {fileID: 240203106588248205}
+--- !u!114 &240203106588248205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7971404255647569430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de6d9cbd40c07c541b0efe33fe6171ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackCooldown: 2
+  attackRange: 10
+  damage: 1
+  onAttackAudio: {fileID: 0}
+  projectileSpeed: 2
+  projectileLifeTime: 2
+  projectile: {fileID: 6497099989306865436, guid: 34386bf1e32f2f74d96f53297d658cf9,
+    type: 3}
+  attackPoint: {fileID: 7971404256239558833}
 --- !u!1 &7971404255685652345
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +328,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7971404255685652345}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.31, y: -0.614, z: 0}
+  m_LocalPosition: {x: 0.31, y: -0.563, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7971404255647569439}
