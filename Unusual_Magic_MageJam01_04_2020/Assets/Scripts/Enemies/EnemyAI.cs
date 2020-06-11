@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour
     Rigidbody2D rb2d;
     Animator animator;
 
-    public Health target {get {return target;} private set{}}
+    Health target;
 
     bool isInAttackRange;
     bool playerSpotted;
@@ -93,6 +93,10 @@ public class EnemyAI : MonoBehaviour
         }else{
             return gO.GetComponent<Health>();
         }
+    }
+
+    public Health GetTargetHealth(){
+        return target;
     }
 
     

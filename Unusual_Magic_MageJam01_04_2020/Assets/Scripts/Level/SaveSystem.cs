@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveSystem : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class SaveSystem : MonoBehaviour
 
     private void Start()
     {
-        LoadState();
+        SaveState();
     }
 
     public void SaveState()
@@ -44,8 +45,9 @@ public class SaveSystem : MonoBehaviour
 
         if(save.checkPoint.HasValue){
             player.transform.position = (Vector3)save.checkPoint;
-            player.GetComponent<Health>().SetHealth(save.health);
             player.gameObject.SetActive(true);
+        }else{
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         
     }

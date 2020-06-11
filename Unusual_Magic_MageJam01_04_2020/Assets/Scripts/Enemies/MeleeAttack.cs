@@ -17,8 +17,8 @@ public class MeleeAttack : Attack
      public override void DoAttack()
      {
          if(currentAttackCD <= 0f){
-             
-            ai.target.TakeDamage(damage);
+
+            ai.GetTargetHealth().TakeDamage(damage);
             currentAttackCD = attackCooldown;    
          }
 
