@@ -45,17 +45,22 @@ public class RangedEnemyAI : MonoBehaviour
         canWalkOnPlatform = Physics2D.Raycast(legs.position, Vector2.down, 0.5f, groundLayer);
         hasTouchedTheWall = Physics2D.Raycast(legs.position, Vector2.right * transform.localScale.x, 0.25f, groundLayer);
 
-        if (!playerSpotted && target == null && canMove && IsViewClear())
+        if (playerSpotted)
+        {
+            target = CheckForPlayerInTauntRange().transform.gameObject;
+        }
+
+        if (!playerSpotted && target == null && canMove)
         {
             Wander();
         }
 
-        if (playerSpotted && !isInAttackRange && canMove && IsViewClear())
+        if (playerSpotted && !isInAttackRange && canMove)
         {
             Chase();
         }
 
-        if (isInAttackRange && canAttack && IsViewClear())
+        if (isInAttackRange && canAttack)
         {
             StartAttack();
         }
@@ -63,8 +68,6 @@ public class RangedEnemyAI : MonoBehaviour
 
     void Wander()
     {
-        playerSpotted = CheckForPlayerInTauntRange();
-
         animator.SetBool("isRunning", true);
         rb2d.velocity = new Vector2(wanderSpeed * transform.localScale.x, rb2d.velocity.y);
 
@@ -72,12 +75,6 @@ public class RangedEnemyAI : MonoBehaviour
         {
             transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, 1);
         }
-
-        if (playerSpotted)
-        {
-            target = CheckForPlayerInTauntRange().transform.gameObject;
-        }
-
 
     }
 
@@ -148,10 +145,7 @@ public class RangedEnemyAI : MonoBehaviour
         return pointsReward;
     }
     
-    bool IsViewClear()
-    {
-        return !Physics2D.Raycast(attackPoint.position, Vector2.right * transform.localScale.x, attackRange, groundLayer);
-    }
+    
 
     private void OnDestroy()
     {

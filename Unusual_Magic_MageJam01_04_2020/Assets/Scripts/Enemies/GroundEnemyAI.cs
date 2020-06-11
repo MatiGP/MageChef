@@ -43,6 +43,7 @@ public class GroundEnemyAI : MonoBehaviour
         canWalkOnPlatform = Physics2D.Raycast(legs.position, Vector2.down, 0.5f, groundLayer);
         hasTouchedTheWall = Physics2D.Raycast(legs.position, Vector2.right * transform.localScale.x, 0.25f, groundLayer);
         playerSpotted = CheckForPlayerInTauntRange();
+        
         if (playerSpotted)
         {
             target = CheckForPlayerInTauntRange().transform.gameObject;
