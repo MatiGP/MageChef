@@ -224,7 +224,7 @@ public class PlayerController : MonoBehaviour
         rb2d.isKinematic = false;
         EnableMovement();
         transform.rotation = Quaternion.Euler(0, 0, 0);
-        Jump();
+        rb2d.velocity = new Vector2(rb2d.velocity.x, 7);
     }
 
     public void DisableJumpingDialogOpen()

@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public float typeTime = 0.04f;
 
-    public EventHandler OnDialogueEnded;
+    public event EventHandler OnDialogueEnded;
 
     [SerializeField] PlayerController playerController;
     [SerializeField] Animator animator;
@@ -77,5 +77,6 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("isOpen", false);
         playerController.EnableMovement();
         playerController.EnableJumpingDialogClose();
+        OnDialogueEnded?.Invoke(this, EventArgs.Empty);
     }
 }

@@ -8,26 +8,35 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue dialogue;
 
     bool dialogOpen;
+    bool canTalk;
+
+    private void Start()
+    {
+        DialogueManager.instance.OnDialogueEnded += Instance_OnDialogueEnded;
+    }
+
+    private void Instance_OnDialogueEnded(object sender, System.EventArgs e)
+    {
+        dialogOpen = false;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.W) && !dialogOpen && canTalk)
+        {
+            DialogueManager.instance.StartDialogue(dialogue);
+            dialogOpen = true;
+        }
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
-            dialogueNotification.SetActive(true);           
+            dialogueNotification.SetActive(true);
+            canTalk = true;
         }
-    }
-
-    /// <summary>
-    /// Sent each frame where another object is within a trigger collider
-    /// attached to this object (2D physics only).
-    /// </summary>
-    /// <param name="other">The other Collider2D involved in this collision.</param>
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if(Input.GetKeyDown(KeyCode.W) && !dialogOpen)
-            {
-                DialogueManager.instance.StartDialogue(dialogue);
-                dialogOpen = true;
-            }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -37,6 +46,7 @@ public class DialogueTrigger : MonoBehaviour
             dialogueNotification.SetActive(false);
             DialogueManager.instance.EndDialogue();
             dialogOpen = false;
+            canTalk = false;
         }
     }
 
