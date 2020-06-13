@@ -42,5 +42,9 @@ public class CannonBall : MonoBehaviour
             collision.GetComponent<Health>().TakeDamage();
             DestroyBall();
         }
+        if(collision.tag == "Colliders")
+        {
+            DestroyBall();
+        }
     }
 }

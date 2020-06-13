@@ -4,42 +4,54 @@ using UnityEngine;
 
 public class DuckBossMicrowave : Attack
 {
+    [SerializeField] GameObject microwaveSprite;
+    [SerializeField] GameObject cannons;
+    [SerializeField] GameObject projectile;
     [SerializeField] Transform[] movePoints;
     [SerializeField] float microwaveSpeed;
     [SerializeField] float stayTimeOnPoint;
     [SerializeField] Animator animator;
-    [SerializeField] LineRenderer lineRenderer;
+    [SerializeField] BossAI boss;
+    [SerializeField] Transform shootPoint;
     bool arrived;
     int destinationIndex;
 
-
+    float currentAttackCD = 0f;
 
     private void Start()
     {
+        transform.position = new Vector3(transform.position.x, transform.position.y + 5);
+        microwaveSprite.SetActive(true);
+        cannons.SetActive(false);
         destinationIndex = Random.Range(0, movePoints.Length);
+        GetComponent<CapsuleCollider2D>().isTrigger = true;
     }
 
     private void Update()
     {
-        if(transform.position == movePoints[destinationIndex].position)
-        {           
+        if(Vector2.Distance(transform.position, movePoints[destinationIndex].position) < 1f && !arrived)
+        {
+            arrived = true;
             StartCoroutine(SelectNewDestination());
         }
         Move(destinationIndex);
+
+        if(currentAttackCD >= 0f)
+        {
+            currentAttackCD -= Time.deltaTime;
+        }
     }
 
     IEnumerator SelectNewDestination()
     {
         yield return new WaitForSeconds(stayTimeOnPoint);
-        destinationIndex = Random.Range(0, movePoints.Length);      
+        Debug.Log("Selecting new destination...");
+        destinationIndex = Random.Range(0, movePoints.Length);
+        Debug.Log("New destination index: " + destinationIndex);
+        arrived = false;
     }
 
-    IEnumerator ShootLaser()
-    {
-        animator.SetTrigger("attack");
-        yield return new WaitForSeconds(1f);
-        
-    }
+    
 
     private void Move(int destinationIndex)
     {
@@ -50,6 +62,19 @@ public class DuckBossMicrowave : Attack
 
     public override void DoAttack()
     {
-        StartCoroutine
+        if(currentAttackCD <= 0f && arrived)
+        {
+            GameObject go = Instantiate(projectile, shootPoint.position, Quaternion.identity);
+            go.GetComponent<DuckBossLaserProjectile>().SetTarget(boss.GetTarget());
+            currentAttackCD = attackCooldown;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            collision.GetComponent<Health>().TakeDamage();
+        }
     }
 }
