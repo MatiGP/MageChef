@@ -25,19 +25,19 @@ public class DuckBossLaserProjectile : MonoBehaviour
         destination = target.transform;
     }
 
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.collider.tag == "Player")
         {
-            collision.GetComponent<Health>().TakeDamage();
+            collision.collider.GetComponent<Health>().TakeDamage();
             DestroyProjectile();
         }
         else
         {
             DestroyProjectile();
         }
-    
+
+
     }
 
     void DestroyProjectile()
