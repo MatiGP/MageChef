@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8f46800db5f8f49be00f23383807cf, type: 3}
   m_Name: ExplodingChicken
   m_EditorClassIdentifier: 
-  recipeIcon: {fileID: -7930421500598255595, guid: d50b34af2126a2646b5d8278389aae08,
+  recipeIcon: {fileID: -3118641262101436884, guid: 80dd7cfc3c8366747b58bf20d7b0bdc9,
     type: 3}
-  spellbookRecipeIcon: {fileID: 21300000, guid: 4b810badde8b86648a58e929b026ad4e,
+  spellbookRecipeIcon: {fileID: -3708520828297419582, guid: 80dd7cfc3c8366747b58bf20d7b0bdc9,
     type: 3}
   ingredients:
   - requiredSpice: {fileID: 11400000, guid: 09c15bf69cffb624ca9eb8f7b8c2dd27, type: 2}
     requiredAmount: 0
-  - requiredSpice: {fileID: 11400000, guid: 961bbbb4a1a124f44af059bf896c36dd, type: 2}
-    requiredAmount: 0
   - requiredSpice: {fileID: 11400000, guid: 60cf93fccc1c2ae41b2a55a4c91b125c, type: 2}
     requiredAmount: 0
+  - requiredSpice: {fileID: 11400000, guid: 8a3d3ee14b8dc17418a63c71cc448df8, type: 2}
+    requiredAmount: 0
   result: {fileID: 3525544443221082366, guid: 8c1a8e4b8f7a25b4683f3d736d1e53d2, type: 3}
-  slot: 1
+  cooldown: 6
+  slot: 2
