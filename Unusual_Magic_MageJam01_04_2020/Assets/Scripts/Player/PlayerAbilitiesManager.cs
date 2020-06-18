@@ -8,9 +8,7 @@ public class PlayerAbilitiesManager : MonoBehaviour
     [SerializeField] Transform castPlace;
     PlayerAbilities playerAbilities;
 
-    float cooldownSpell1;
-    float cooldownSpell2;
-    float cooldownSpell3;
+    float[] spellCooldowns = new float[3];
 
     float currentCooldownSpell1;
     float currentCooldownSpell2;
@@ -24,22 +22,22 @@ public class PlayerAbilitiesManager : MonoBehaviour
 
         if (spellGameObjects[0] != null)
         {
-            cooldownSpell1 = spellGameObjects[0].cooldown;
+            spellCooldowns[0] = spellGameObjects[0].cooldown;
         }
         if (spellGameObjects[1] != null)
         {
-            cooldownSpell2 = spellGameObjects[1].cooldown;
+            spellCooldowns[1] = spellGameObjects[1].cooldown;
         }
         if (spellGameObjects[2] != null)
         {
-            cooldownSpell3 = spellGameObjects[2].cooldown;
+            spellCooldowns[2] = spellGameObjects[2].cooldown;
         }       
     }
 
     private void PlayerAbilities_OnSpellCrafted(object sender, PlayerAbilities.OnSpellCraftedArgs e)
     {
         spellGameObjects[(int)e.recipe.slot] = e.recipe;
-        cooldownSpell1 = e.recipe.cooldown;
+        spellCooldowns[(int)e.recipe.slot] = e.recipe.cooldown;
     }
 
     // Update is called once per frame
@@ -51,7 +49,7 @@ public class PlayerAbilitiesManager : MonoBehaviour
             {
                 GameObject go = Instantiate(spellGameObjects[0].result, castPlace.position, Quaternion.identity);
                 go.transform.localScale = new Vector3(transform.localScale.x * go.transform.localScale.x, go.transform.localScale.y, 1);
-                currentCooldownSpell1 = cooldownSpell1;
+                currentCooldownSpell1 = spellCooldowns[0];
             }
         }
 
@@ -59,7 +57,9 @@ public class PlayerAbilitiesManager : MonoBehaviour
         {
             if (spellGameObjects[1] != null )
             {
-                Instantiate(spellGameObjects[1].result, castPlace.position, Quaternion.identity);
+                GameObject go = Instantiate(spellGameObjects[1].result, castPlace.position, Quaternion.identity);
+                go.transform.localScale = new Vector3(transform.localScale.x * go.transform.localScale.x, go.transform.localScale.y, 1);
+                currentCooldownSpell2 = spellCooldowns[1];
             }
         }
 
@@ -68,13 +68,13 @@ public class PlayerAbilitiesManager : MonoBehaviour
             if (spellGameObjects[2] != null)
             {
                 Instantiate(spellGameObjects[2].result, castPlace.position, Quaternion.identity);
-                currentCooldownSpell3 = cooldownSpell3;
+                currentCooldownSpell3 = spellCooldowns[2];
             }
         }
 
         currentCooldownSpell1 -= Time.deltaTime;
-        //currentCooldownSpell2 -= Time.deltaTime;
-        currentCooldownSpell3 -= Time.deltaTime;
+        currentCooldownSpell2 -= Time.deltaTime;
+        //currentCooldownSpell3 -= Time.deltaTime;
     }
 
     public Recipe[] GetOwnedSpells()
