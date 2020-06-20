@@ -11,6 +11,8 @@ TagManager:
   - FrozenCookie
   - Hazzard
   - PlayerProjectile
+  - EnemyArmor
+  - Destructable
   layers:
   - Default
   - TransparentFX
@@ -22,7 +24,7 @@ TagManager:
   - 
   - Ground
   - PlayerLayer
-  - 
+  - DestructableLayer
   - 
   - 
   - 

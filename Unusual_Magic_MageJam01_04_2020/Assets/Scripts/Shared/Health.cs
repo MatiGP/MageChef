@@ -16,7 +16,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage()
     {
-        hurtSource.Play();
+        hurtSource?.Play();
         health--;
         
         if(health <= 0)
@@ -50,10 +50,6 @@ public class Health : MonoBehaviour
     {
         health = hp;
     }
-
-    /// <summary>
-    /// This function is called when the behaviour becomes disabled or inactive.
-    /// </summary>
     void OnDisable()
     {
         if (tag == "Player")

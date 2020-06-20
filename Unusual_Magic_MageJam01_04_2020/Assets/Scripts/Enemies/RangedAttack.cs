@@ -19,7 +19,7 @@ public class RangedAttack : Attack
 
      public override void DoAttack()
      {
-          if(currentAttackCD <=0f){
+          if(currentAttackCD <=0f){            
                GameObject go = Instantiate(projectile, attackPoint.position, Quaternion.identity);
                go.transform.localScale = new Vector3(transform.localScale.x * go.transform.localScale.x, go.transform.localScale.y, 1);
                currentAttackCD = attackCooldown;

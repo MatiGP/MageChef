@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 7562768904504470633, guid: e5de474814f04b64489572970b9dbac7,
     type: 3}
-  offset: {x: -0.25, y: 0, z: 0}
+  offset: {x: -0.35, y: 0, z: 0}
 --- !u!114 &2794681732612761957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2390319296334986553}
   - component: {fileID: 8229703874742275897}
+  - component: {fileID: 2980746101538333214}
   m_Layer: 0
   m_Name: BoomerangSprite
   m_TagString: Untagged
@@ -193,3 +194,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2980746101538333214
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8964290263649871244}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e0965ec22f5e6b340bf454fbb433d217, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

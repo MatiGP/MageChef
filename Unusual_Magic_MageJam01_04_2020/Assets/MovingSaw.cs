@@ -6,14 +6,23 @@ public class MovingSaw : MonoBehaviour
 {
     [SerializeField] Transform[] sawPoints;
     [SerializeField] float sawSpeed;
-    
+    [SerializeField] bool reverse = false;
 
-    int pointIndex = 1;
+    int pointIndex = 0;
+
     bool returnSaw;
 
     private void Start()
     {
-        transform.position = sawPoints[0].position;
+        if (!reverse)
+        {
+            transform.position = sawPoints[0].position;
+        }
+        else
+        {
+            transform.position = sawPoints[sawPoints.Length-1].position;
+        }
+        
     }
 
     // Update is called once per frame
@@ -36,21 +45,10 @@ public class MovingSaw : MonoBehaviour
 
     void GetNewPositionIndex()
     {
-        if (!returnSaw)
+        pointIndex++;
+        if (pointIndex == sawPoints.Length)
         {
-            pointIndex++;
-            if (pointIndex + 1 > sawPoints.Length - 1)
-            {
-                returnSaw = true;
-            }
-        }
-        else
-        {
-            pointIndex--;
-            if(pointIndex - 1 < 0)
-            {
-                returnSaw = false;
-            }
+            pointIndex = 0;
         }
     }
 

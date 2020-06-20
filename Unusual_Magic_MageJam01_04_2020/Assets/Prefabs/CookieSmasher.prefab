@@ -399,6 +399,7 @@ MonoBehaviour:
   pointsReward: 100
   wanderSpeed: 3
   chaseSpeed: 4
+  chaseTime: 5
   tauntRange: 3
   stationary: 0
   groundLayer:
@@ -409,6 +410,12 @@ MonoBehaviour:
     m_Bits: 512
   legs: {fileID: 337471162625203271}
   attack: {fileID: 8893205762308937949}
+  box:
+    serializedVersion: 2
+    x: 0.05
+    y: -0.61
+    width: 2.85
+    height: 2.05
 --- !u!114 &8893205762308937949
 MonoBehaviour:
   m_ObjectHideFlags: 0

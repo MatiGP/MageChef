@@ -10,13 +10,14 @@ public class EnemyAI : MonoBehaviour
     
     [SerializeField] float wanderSpeed = 3f;
     [SerializeField] float chaseSpeed = 3f;
+    [SerializeField] float chaseTime = 5f;
     [SerializeField] float tauntRange = 3f;
     [SerializeField] bool stationary;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] LayerMask playerLayer;
     [SerializeField] Transform legs;
     [SerializeField] Attack attack;
-
+    [SerializeField] Rect box;
     Rigidbody2D rb2d;
     Animator animator;
 
@@ -32,7 +33,8 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();        
+        animator = GetComponent<Animator>();
+        box.width = attack.attackRange;
     }
 
     // Update is called once per frame
@@ -41,7 +43,7 @@ public class EnemyAI : MonoBehaviour
         canWalkFurther = Physics2D.Raycast(legs.position, Vector2.down, 0.5f, groundLayer);
         hasTouchedWall = Physics2D.Raycast(legs.position, Vector2.right * transform.localScale.x, 0.25f, groundLayer);
 
-        target = CheckForPlayerInSight();
+        
 
         if(target == null && !stationary){
             Wander();
@@ -54,7 +56,8 @@ public class EnemyAI : MonoBehaviour
             Chase();
         }else{
             StopMovement();
-            attack.DoAttack();
+            FaceThePlayer();
+            animator.SetTrigger("attack");
         }
     }
 
@@ -66,6 +69,8 @@ public class EnemyAI : MonoBehaviour
         }
         animator.SetBool("isRunning", true);
         rb2d.velocity = new Vector2(wanderSpeed * scaleX, rb2d.velocity.y);
+
+        target = CheckForPlayerInSight();
     }
 
     void Chase(){
@@ -86,18 +91,42 @@ public class EnemyAI : MonoBehaviour
     }
 
     Health CheckForPlayerInSight(){
-        Transform gO = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, tauntRange, playerLayer).transform;
-
-        if(gO == null){
-            return null;
-        }else{
-            return gO.GetComponent<Health>();
+        
+        RaycastHit2D raycastHit = Physics2D.BoxCast((Vector2)transform.position + box.center * transform.localScale.x, box.size, 0f, Vector2.right * transform.localScale.x,0f, playerLayer);
+        if(raycastHit)
+        {
+            return raycastHit.collider.GetComponent<Health>();
         }
+        else
+        {
+            return null;
+        }        
     }
 
     public Health GetTargetHealth(){
         return target;
     }
 
-    
+    void FaceThePlayer()
+    {
+        float scaleX = transform.localScale.x;
+        if(target.transform.position.x < transform.position.x && scaleX > 0)
+        {
+            scaleX *= -1;
+        }
+        if(target.transform.position.x > transform.position.x && scaleX < 0)
+        {
+            scaleX *= -1;
+        }
+        Debug.Log("Facing the player!");
+        transform.localScale = new Vector3(scaleX, transform.localScale.y, 1);
+    }
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawCube((Vector2)transform.position + box.center, box.size);
+    }
+
 }

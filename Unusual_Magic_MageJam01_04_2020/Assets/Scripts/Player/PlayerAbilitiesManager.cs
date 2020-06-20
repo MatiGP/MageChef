@@ -67,14 +67,15 @@ public class PlayerAbilitiesManager : MonoBehaviour
         {
             if (spellGameObjects[2] != null)
             {
-                Instantiate(spellGameObjects[2].result, castPlace.position, Quaternion.identity);
+                GameObject go = Instantiate(spellGameObjects[2].result, castPlace.position, Quaternion.identity);
+                go.transform.localScale = new Vector3(transform.localScale.x * go.transform.localScale.x, go.transform.localScale.y, 1);
                 currentCooldownSpell3 = spellCooldowns[2];
             }
         }
 
         currentCooldownSpell1 -= Time.deltaTime;
         currentCooldownSpell2 -= Time.deltaTime;
-        //currentCooldownSpell3 -= Time.deltaTime;
+        currentCooldownSpell3 -= Time.deltaTime;
     }
 
     public Recipe[] GetOwnedSpells()

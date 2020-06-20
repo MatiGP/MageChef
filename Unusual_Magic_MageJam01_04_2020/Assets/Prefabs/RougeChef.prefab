@@ -238,6 +238,7 @@ MonoBehaviour:
   pointsReward: 100
   wanderSpeed: 2
   chaseSpeed: 3
+  chaseTime: 5
   tauntRange: 12
   stationary: 0
   groundLayer:
@@ -248,6 +249,12 @@ MonoBehaviour:
     m_Bits: 512
   legs: {fileID: 154614617205701390}
   attack: {fileID: 154614616637674106}
+  box:
+    serializedVersion: 2
+    x: 0
+    y: -0.74
+    width: 1
+    height: 2.58
 --- !u!50 &154614616637674108
 Rigidbody2D:
   serializedVersion: 4
