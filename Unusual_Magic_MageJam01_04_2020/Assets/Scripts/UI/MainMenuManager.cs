@@ -40,6 +40,7 @@ public class MainMenuManager : MonoBehaviour
     public void MainMenu()
     {
         AudioListener.volume = 1f;
+        SaveSystem.instance.ResetCheckpoint();
         SceneManager.LoadScene(0);
         isMenuOpen = false;
     }

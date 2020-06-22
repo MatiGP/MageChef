@@ -164,7 +164,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 13.83, y: 16.29}
   m_EdgeRadius: 0
 --- !u!114 &9042737
 MonoBehaviour:
@@ -16635,12 +16635,12 @@ PrefabInstance:
     - target: {fileID: 5044423080364748287, guid: 5477d03b0cbbb064dacef591f800feb8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.17
+      value: 8.17
       objectReference: {fileID: 0}
     - target: {fileID: 5044423080364748287, guid: 5477d03b0cbbb064dacef591f800feb8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.76
+      value: 20.12
       objectReference: {fileID: 0}
     - target: {fileID: 5044423080364748287, guid: 5477d03b0cbbb064dacef591f800feb8,
         type: 3}
@@ -22071,6 +22071,11 @@ PrefabInstance:
       propertyPath: deathPanel
       value: 
       objectReference: {fileID: 996510835}
+    - target: {fileID: 5030381926475723079, guid: 750b9699ba311f649b29e5779973249b,
+        type: 3}
+      propertyPath: lowJumpMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5030381926475723129, guid: 750b9699ba311f649b29e5779973249b,
         type: 3}
       propertyPath: m_LocalPosition.x

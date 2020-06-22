@@ -5,14 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class DeathMenu : MonoBehaviour
 {
-    public void LoadCheckpoit()
+    public void LoadCheckponit()
     {
-        SaveSystem.instance.LoadState();
+        SaveSystem.instance.LoadCheckpoint();
         gameObject.SetActive(false);
     }
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(0);
+        SaveSystem.instance.ResetCheckpoint();
+        SceneManager.LoadScene(0);       
     }
 }

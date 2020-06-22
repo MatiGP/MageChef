@@ -18,7 +18,7 @@ public class SaveSystem : MonoBehaviour
 
     private void Start()
     {
-        SaveState();
+        LoadState();
     }
 
     public void SaveState()
@@ -30,11 +30,13 @@ public class SaveSystem : MonoBehaviour
         save.ownedSpices = player.GetComponent<PlayerAbilities>().GetOwnedSpices();
         save.craftedSpells = player.GetComponent<PlayerAbilitiesManager>().GetOwnedSpells();
     } 
+
     public void LoadState()
     {
         player.GetComponent<PlayerPoints>().AddPoints(save.currentPoints);
         player.GetComponent<Health>().SetHealth(save.health);
         player.GetComponent<PlayerAbilities>().SetDict(save.ownedSpices);
+        player.GetComponent<PlayerAbilities>().ResetRecipeCounter();
         player.GetComponent<PlayerAbilitiesManager>().SetSpells(save.craftedSpells);
 
         foreach (Recipe r in save.ownedRecipes)
@@ -42,14 +44,22 @@ public class SaveSystem : MonoBehaviour
             if (r == null) continue;            
             player.GetComponent<PlayerAbilities>().AddNewRecipe(r);
         }
+        
+    }
 
-        if(save.checkPoint.HasValue){
+    public void LoadCheckpoint()
+    {
+        LoadState();
+
+        if (save.checkPoint.HasValue)
+        {
             player.transform.position = (Vector3)save.checkPoint;
             player.gameObject.SetActive(true);
-        }else{
+        }
+        else
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        
     }
 
     public void SaveCheckpoint(Vector3 pos)

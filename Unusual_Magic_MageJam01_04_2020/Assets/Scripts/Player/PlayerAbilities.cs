@@ -225,5 +225,10 @@ public class PlayerAbilities : MonoBehaviour
     {
         ownedSpices = d;
     }
+
+    public void ResetRecipeCounter()
+    {
+        numOfRecipe = 0;
+    }
 }
 

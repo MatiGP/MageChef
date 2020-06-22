@@ -6,7 +6,7 @@ public class MeleeAttack : Attack
 {
     float currentAttackCD = 0f;
     [SerializeField] EnemyAI ai;
-
+    [SerializeField] AnimationSetUp animationSetter;
 
     private void Update() {
         if(currentAttackCD >= 0f){
@@ -17,7 +17,7 @@ public class MeleeAttack : Attack
      public override void DoAttack()
      {
          if(currentAttackCD <= 0f){
-
+            animationSetter.SetAttackAnim();
             ai.GetTargetHealth().TakeDamage(damage);
             currentAttackCD = attackCooldown;    
          }

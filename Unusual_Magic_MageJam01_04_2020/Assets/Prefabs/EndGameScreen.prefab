@@ -779,7 +779,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4369320698857386139}
-        m_MethodName: LoadCheckpoit
+        m_MethodName: LoadCheckponit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

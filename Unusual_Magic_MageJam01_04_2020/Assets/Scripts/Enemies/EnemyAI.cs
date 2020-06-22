@@ -19,7 +19,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] Attack attack;
     [SerializeField] Rect box;
     Rigidbody2D rb2d;
-    Animator animator;
+    AnimationSetUp animationSetter;
 
     Health target;
 
@@ -33,7 +33,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        animationSetter = GetComponent<AnimationSetUp>();
         box.width = attack.attackRange;
     }
 
@@ -57,7 +57,7 @@ public class EnemyAI : MonoBehaviour
         }else{
             StopMovement();
             FaceThePlayer();
-            animator.SetTrigger("attack");
+            attack.DoAttack();         
         }
     }
 
@@ -67,7 +67,7 @@ public class EnemyAI : MonoBehaviour
         if(hasTouchedWall || !canWalkFurther){
             transform.localScale = new Vector3(scaleX * -1, transform.localScale.y, transform.localScale.z);
         }
-        animator.SetBool("isRunning", true);
+        animationSetter.SetRunAnim(true);
         rb2d.velocity = new Vector2(wanderSpeed * scaleX, rb2d.velocity.y);
 
         target = CheckForPlayerInSight();
@@ -81,13 +81,13 @@ public class EnemyAI : MonoBehaviour
             target = null;
             return;
         }
-        animator.SetBool("isRunning", true);
+        animationSetter.SetRunAnim(true);
         rb2d.velocity = new Vector2(chaseSpeed * scaleX, rb2d.velocity.y);
     }
 
     void StopMovement(){
         rb2d.velocity = Vector2.zero;
-        animator.SetBool("isRunning", false);
+        animationSetter.SetRunAnim(false);
     }
 
     Health CheckForPlayerInSight(){
@@ -118,7 +118,6 @@ public class EnemyAI : MonoBehaviour
         {
             scaleX *= -1;
         }
-        Debug.Log("Facing the player!");
         transform.localScale = new Vector3(scaleX, transform.localScale.y, 1);
     }
 

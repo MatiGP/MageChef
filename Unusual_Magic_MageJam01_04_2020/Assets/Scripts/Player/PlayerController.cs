@@ -98,7 +98,8 @@ public class PlayerController : MonoBehaviour
             isDucking = false;
             StopDuck();
         }
-             
+                  
+
         UpdateAnimator();
     }
 

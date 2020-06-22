@@ -3779,9 +3779,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b48133d270ff55d489f2c9d4e723fc2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 5.5
   jumpForce: 5
   jumpTime: 0.23
+  fallMultiplier: 3
+  lowJumpMultiplier: 1
   legsPosition: {fileID: 5030381927000670406}
   groundMask:
     serializedVersion: 2
