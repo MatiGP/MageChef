@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 154614616637674107}
   - component: {fileID: 154614616637674104}
   - component: {fileID: 154614616637674106}
+  - component: {fileID: 7587019247837264674}
   m_Layer: 0
   m_Name: RougeChef
   m_TagString: Untagged
@@ -352,15 +353,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6eaa137e4d5fa8428d8ffef242d61f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 1
-  attackRange: 10
+  attackCooldown: 1.15
+  attackRange: 8
   damage: 0
   onAttackAudio: {fileID: 0}
   attackPoints:
   - {fileID: 154614616282603389}
   - {fileID: 154614617766339044}
   - {fileID: 154614617563427245}
-  projectile: {fileID: 6497099989306865436, guid: 34386bf1e32f2f74d96f53297d658cf9,
+  projectile: {fileID: 238616634771083276, guid: 8d2905e30f4ce6546b8b83040e48269c,
     type: 3}
   barrierAmmo:
   - {fileID: 154614615985498986}
@@ -368,6 +369,19 @@ MonoBehaviour:
   - {fileID: 154614617853431192}
   - {fileID: 154614616830291729}
   ammoRechargeTime: 0.9
+  animationSetter: {fileID: 7587019247837264674}
+--- !u!114 &7587019247837264674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154614616637674083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05c5f2562320964a91cbeeffc0e3057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &154614616830291729
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class RangedAttack : Attack
     [SerializeField] float projectileLifeTime;
     [SerializeField] GameObject projectile;
     [SerializeField] Transform attackPoint;
-
+    [SerializeField] AnimationSetUp animationSetter;
      float currentAttackCD = 0f;
 
      private void Update() {
@@ -19,7 +19,8 @@ public class RangedAttack : Attack
 
      public override void DoAttack()
      {
-          if(currentAttackCD <=0f){            
+          if(currentAttackCD <=0f){
+               animationSetter.SetAttackAnim();
                GameObject go = Instantiate(projectile, attackPoint.position, Quaternion.identity);
                go.transform.localScale = new Vector3(transform.localScale.x * go.transform.localScale.x, go.transform.localScale.y, 1);
                currentAttackCD = attackCooldown;

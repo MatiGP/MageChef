@@ -187,6 +187,7 @@ public class PlayerController : MonoBehaviour
             rb2d.velocity = Vector2.zero;
             rb2d.isKinematic = true;
             DisableMovement();
+            
         }
         
     }
@@ -221,11 +222,14 @@ public class PlayerController : MonoBehaviour
 
     public void StopSwinging()
     {
+        
         transform.parent = null;
         rb2d.isKinematic = false;
         EnableMovement();
         transform.rotation = Quaternion.Euler(0, 0, 0);
         rb2d.velocity = new Vector2(rb2d.velocity.x, 7);
+        GetComponent<CapsuleCollider2D>().isTrigger = false;
+        Jump();
     }
 
     public void DisableJumpingDialogOpen()
@@ -237,6 +241,17 @@ public class PlayerController : MonoBehaviour
     {
         dialogueOpen = false;
     }
+
+    public void SetSwing()
+    {
+        GetComponent<CapsuleCollider2D>().isTrigger = true;
+        isClimbing = true;
+        rb2d.velocity = Vector2.zero;
+        rb2d.isKinematic = true;
+        DisableMovement();
+    }
+
+    
 
 
 }

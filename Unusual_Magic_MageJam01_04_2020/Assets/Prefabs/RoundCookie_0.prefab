@@ -16,7 +16,11 @@ GameObject:
   - component: {fileID: 3080341708035151032}
   - component: {fileID: 7773606189251201821}
   - component: {fileID: 3771891927359117310}
-  - component: {fileID: 4740102673722751828}
+  - component: {fileID: 1661890443300698046}
+  - component: {fileID: 5994502591309125659}
+  - component: {fileID: 4569368443982338727}
+  - component: {fileID: 6112353209452545808}
+  - component: {fileID: 4166007643740874220}
   m_Layer: 0
   m_Name: RoundCookie_0
   m_TagString: Enemy
@@ -105,6 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   hurtSource: {fileID: 7773606189251201821}
+  deathPanel: {fileID: 0}
 --- !u!50 &3080341708035151035
 Rigidbody2D:
   serializedVersion: 4
@@ -353,7 +358,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4740102673722751828
+--- !u!114 &1661890443300698046
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -362,25 +367,82 @@ MonoBehaviour:
   m_GameObject: {fileID: 3080341708035151029}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b558ddcc5cc7664c939b308f3de97cb, type: 3}
+  m_Script: {fileID: 11500000, guid: c05c5f2562320964a91cbeeffc0e3057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5994502591309125659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3080341708035151029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d5ffe665b1dac4f9e025a74a689dc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pointsReward: 100
   wanderSpeed: 3
-  tauntRange: 5
-  chaseSpeed: 6
-  attackRange: 1.2
-  timeBetweenAttacks: 1
-  canMove: 1
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 512
+  chaseSpeed: 3
+  chaseTime: 5
+  tauntRange: 3
+  stationary: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 512
   legs: {fileID: 2797625641201214779}
-  attackPoint: {fileID: 2503636763991496201}
-  attackSource: {fileID: 3771891927359117310}
+  attack: {fileID: 6112353209452545808}
+  box:
+    serializedVersion: 2
+    x: 0
+    y: -0.32
+    width: 0.22
+    height: 1.84
+--- !u!114 &4569368443982338727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3080341708035151029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05c5f2562320964a91cbeeffc0e3057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6112353209452545808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3080341708035151029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 104fc6c0c996e204d92347ac87c8c63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackCooldown: 0.8
+  attackRange: 0.5
+  onAttackAudio: {fileID: 0}
+  ai: {fileID: 5994502591309125659}
+  animationSetter: {fileID: 4166007643740874220}
+--- !u!114 &4166007643740874220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3080341708035151029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05c5f2562320964a91cbeeffc0e3057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6936173409343771078
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -46,7 +46,9 @@ GameObject:
   - component: {fileID: 8893717681048578525}
   - component: {fileID: 8769948166889586614}
   - component: {fileID: 6442665926672165702}
-  - component: {fileID: 662542248112134255}
+  - component: {fileID: 1121825116241490063}
+  - component: {fileID: 1000784120272187543}
+  - component: {fileID: 2928319393967004440}
   m_Layer: 0
   m_Name: CookieEater2_0
   m_TagString: Enemy
@@ -135,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 4
   hurtSource: {fileID: 8769948166889586614}
+  deathPanel: {fileID: 0}
 --- !u!50 &8893717681048578521
 Rigidbody2D:
   serializedVersion: 4
@@ -383,7 +386,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &662542248112134255
+--- !u!114 &1121825116241490063
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -392,25 +395,58 @@ MonoBehaviour:
   m_GameObject: {fileID: 8893717681048578518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b558ddcc5cc7664c939b308f3de97cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 15d5ffe665b1dac4f9e025a74a689dc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pointsReward: 100
   wanderSpeed: 3
-  tauntRange: 5
-  chaseSpeed: 6
-  attackRange: 1.2
-  timeBetweenAttacks: 1
-  canMove: 1
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 512
+  chaseSpeed: 3
+  chaseTime: 5
+  tauntRange: 3
+  stationary: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 512
   legs: {fileID: 8893717681586730855}
-  attackPoint: {fileID: 4226550260050995507}
-  attackSource: {fileID: 6442665926672165702}
+  attack: {fileID: 1000784120272187543}
+  box:
+    serializedVersion: 2
+    x: 0
+    y: -0.63
+    width: 0.77
+    height: 1.65
+--- !u!114 &1000784120272187543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8893717681048578518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 104fc6c0c996e204d92347ac87c8c63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackCooldown: 1
+  attackRange: 0.8
+  onAttackAudio: {fileID: 0}
+  ai: {fileID: 1121825116241490063}
+  animationSetter: {fileID: 2928319393967004440}
+--- !u!114 &2928319393967004440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8893717681048578518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05c5f2562320964a91cbeeffc0e3057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8893717681586730854
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,7 +459,7 @@ GameObject:
   m_Layer: 0
   m_Name: Legs
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

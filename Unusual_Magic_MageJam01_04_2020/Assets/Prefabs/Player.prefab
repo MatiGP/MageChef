@@ -3782,14 +3782,12 @@ MonoBehaviour:
   speed: 5.5
   jumpForce: 5
   jumpTime: 0.23
-  fallMultiplier: 3
-  lowJumpMultiplier: 1
   legsPosition: {fileID: 5030381927000670406}
   groundMask:
     serializedVersion: 2
     m_Bits: 256
   bounceAddForce: 2
-  bounceMaxForce: 17
+  bounceMaxForce: 13
   jumpSource: {fileID: 3149314814507778838}
 --- !u!114 &5030381926475723077
 MonoBehaviour:

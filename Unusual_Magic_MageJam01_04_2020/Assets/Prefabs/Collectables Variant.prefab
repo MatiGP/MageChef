@@ -10,12 +10,12 @@ PrefabInstance:
     - target: {fileID: 8182265754273606707, guid: 5fdfe4916a5148e409fd85edc23559c7,
         type: 3}
       propertyPath: m_Name
-      value: Collectables
+      value: Collectables Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8182265754273606708, guid: 5fdfe4916a5148e409fd85edc23559c7,
         type: 3}
       propertyPath: points
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8182265754273606709, guid: 5fdfe4916a5148e409fd85edc23559c7,
         type: 3}

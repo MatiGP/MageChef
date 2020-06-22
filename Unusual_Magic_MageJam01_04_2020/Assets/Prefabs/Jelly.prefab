@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aa7b6fa4cc3a1a4cad4f0d76918e984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jellyUpTime: 9
+  jellyUpTime: 6
   audioSource: {fileID: 3164312118589304213}
 --- !u!82 &3164312118589304213
 AudioSource:
