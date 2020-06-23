@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4569368443982338727}
   - component: {fileID: 6112353209452545808}
   - component: {fileID: 4166007643740874220}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RoundCookie_0
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -394,6 +394,9 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
   legs: {fileID: 2797625641201214779}
   attack: {fileID: 6112353209452545808}
   box:

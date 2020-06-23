@@ -12,9 +12,11 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float chaseSpeed = 3f;
     [SerializeField] float chaseTime = 5f;
     [SerializeField] float tauntRange = 3f;
+    [SerializeField] float aiJumpForce = 4f;
     [SerializeField] bool stationary;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] LayerMask playerLayer;
+    [SerializeField] LayerMask enemyLayer;
     [SerializeField] Transform legs;
     [SerializeField] Attack attack;
     [SerializeField] Rect box;
@@ -26,7 +28,7 @@ public class EnemyAI : MonoBehaviour
     bool isInAttackRange;
     bool canWalkFurther;
     bool hasTouchedWall;
-
+    bool hasTouchedOtherEnemy;
 
 
     // Start is called before the first frame update
@@ -34,37 +36,49 @@ public class EnemyAI : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         animationSetter = GetComponent<AnimationSetUp>();
-        box.width = attack.attackRange;
+        box.width = tauntRange;
     }
 
     // Update is called once per frame
     void Update()
     {
-        canWalkFurther = Physics2D.Raycast(legs.position, Vector2.down, 0.5f, groundLayer);
+        canWalkFurther = Physics2D.Raycast(legs.position, Vector2.down, 5f, groundLayer);
         hasTouchedWall = Physics2D.Raycast(legs.position, Vector2.right * transform.localScale.x, 0.25f, groundLayer);
+        hasTouchedOtherEnemy = Physics2D.Raycast(legs.position, Vector2.right * transform.localScale.x, 1f, enemyLayer);
 
         
-
-        if(target == null && !stationary){
+        if (target == null && !stationary){
             Wander();
             return;
+        }
+        else if (stationary)
+        {
+            target = CheckForPlayerInSight();
+            if(target == null)
+            {
+                return;
+            }
         }
 
         isInAttackRange = Vector2.Distance(target.transform.position, transform.position) <= attack.attackRange ? true : false;
 
         if(!isInAttackRange && !stationary){
             Chase();
-        }else{
+            FaceThePlayer();
+        }
+        else{
             StopMovement();
             FaceThePlayer();
             attack.DoAttack();         
         }
+        
     }
 
     void Wander(){
         
         float scaleX = transform.localScale.x;
-        if(hasTouchedWall || !canWalkFurther){
+        if(hasTouchedWall || !canWalkFurther || hasTouchedOtherEnemy)
+        {
             transform.localScale = new Vector3(scaleX * -1, transform.localScale.y, transform.localScale.z);
         }
         animationSetter.SetRunAnim(true);
@@ -76,11 +90,17 @@ public class EnemyAI : MonoBehaviour
     void Chase(){
 
         float scaleX = transform.localScale.x;
-        if(hasTouchedWall || !canWalkFurther){
+        if((hasTouchedWall || !canWalkFurther)){
             transform.localScale = new Vector3(scaleX * -1, transform.localScale.y, transform.localScale.z);
             target = null;
             return;
         }
+
+        if (hasTouchedOtherEnemy)
+        {           
+            Jump();
+        }
+
         animationSetter.SetRunAnim(true);
         rb2d.velocity = new Vector2(chaseSpeed * scaleX, rb2d.velocity.y);
     }
@@ -121,11 +141,17 @@ public class EnemyAI : MonoBehaviour
         transform.localScale = new Vector3(scaleX, transform.localScale.y, 1);
     }
 
-
+    
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawCube((Vector2)transform.position + box.center, box.size);
+    }
+    
+
+    void Jump()
+    {
+        rb2d.velocity = new Vector2(rb2d.velocity.x, aiJumpForce);
     }
 
 }

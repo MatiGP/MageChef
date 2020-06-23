@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 3034977201635202778}
   - component: {fileID: 8893205762308937949}
   - component: {fileID: 1106259192516112265}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CookieSmasher
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -399,9 +399,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointsReward: 100
   wanderSpeed: 3
-  chaseSpeed: 4
+  chaseSpeed: 3.5
   chaseTime: 5
   tauntRange: 3
+  aiJumpForce: 4
   stationary: 0
   groundLayer:
     serializedVersion: 2
@@ -409,6 +410,9 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 4096
   legs: {fileID: 337471162625203271}
   attack: {fileID: 8893205762308937949}
   box:
@@ -431,7 +435,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldown: 1
   attackRange: 1
-  damage: 1
   onAttackAudio: {fileID: 0}
   ai: {fileID: 3034977201635202778}
   animationSetter: {fileID: 1106259192516112265}

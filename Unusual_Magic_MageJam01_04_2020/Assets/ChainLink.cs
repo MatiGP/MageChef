@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChainLink : MonoBehaviour
 {
     [SerializeField] float swingForce;
+    [SerializeField] float playerAttachedStartSwingForce = 500;
     [SerializeField] Rigidbody2D rb2d;
     [SerializeField] Collider2D[] collider2Ds;
 
@@ -52,7 +53,7 @@ public class ChainLink : MonoBehaviour
             playerAttachedToChainLink.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
             playerAttachedToChainLink.transform.localPosition = new Vector3(0f, 0f, 0f);
             isPlayerAttached = true;
-            rb2d.AddForce(new Vector2(500* playerAttachedToChainLink.transform.localScale.x, 1));
+            rb2d.AddForce(new Vector2(playerAttachedStartSwingForce * playerAttachedToChainLink.transform.localScale.x, 1));
         }
     }
 

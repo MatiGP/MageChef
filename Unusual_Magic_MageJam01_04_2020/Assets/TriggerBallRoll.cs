@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hazzards : MonoBehaviour
+public class TriggerBallRoll : MonoBehaviour
 {
-    [SerializeField] int damage = 1;
+    [SerializeField] SurfaceEffector2D surfaceEffector;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
-            collision.GetComponent<Health>().TakeDamage(damage);
+            surfaceEffector.speed = -5.6f;
         }
     }
 }
