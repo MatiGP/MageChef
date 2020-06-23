@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] GameObject dialogueNotification;
+    [SerializeField] CinemachineVirtualCamera dialogueCam;
     public Dialogue dialogue;
 
-    bool dialogOpen;
+    bool dialogueOpen;
     bool canTalk;
 
     private void Start()
@@ -17,15 +19,21 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Instance_OnDialogueEnded(object sender, System.EventArgs e)
     {
-        dialogOpen = false;
+        dialogueOpen = false;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W) && !dialogOpen && canTalk)
+        if (Input.GetKeyDown(KeyCode.W) && !dialogueOpen && canTalk)
         {
             DialogueManager.instance.StartDialogue(dialogue);
-            dialogOpen = true;
+            dialogueCam.gameObject.SetActive(true);
+            dialogueOpen = true;
+        }
+
+        if (!dialogueOpen)
+        {
+            dialogueCam.gameObject.SetActive(false);
         }
     }
 
@@ -45,7 +53,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             dialogueNotification.SetActive(false);
             DialogueManager.instance.EndDialogue();
-            dialogOpen = false;
+            dialogueOpen = false;
             canTalk = false;
         }
     }

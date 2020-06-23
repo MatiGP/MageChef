@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     bool isDucking;
     bool isSpellcrafting;
     bool isCarrying = false;
-    bool isClimbing = false;
+    bool isSwinging = false;
     
     Rigidbody2D rb2d;
     Animator animator;
@@ -122,6 +122,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isInAir", !canJump);
         animator.SetBool("isDucking", isDucking);
         animator.SetBool("isSpellCrafting", isSpellcrafting);
+        animator.SetBool("isSwinging", isSwinging);
     }
 
     void ChangeScale()
@@ -180,29 +181,9 @@ public class PlayerController : MonoBehaviour
                 transform.localScale = new Vector3(-1, 1, 1);
             }
         }
-
-        if (collision.tag == "Climbable")
-        {
-            isClimbing = true;
-            rb2d.velocity = Vector2.zero;
-            rb2d.isKinematic = true;
-            DisableMovement();
-            
-        }
-        
+              
     }
-
-    
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.tag == "Platform")
-        {
-            transform.parent = null;
-        }
-        
-    }
-
+   
     public void SpellCraft(bool value)
     {
         isSpellcrafting = value;
@@ -221,14 +202,14 @@ public class PlayerController : MonoBehaviour
     }
 
     public void StopSwinging()
-    {
-        
+    {        
         transform.parent = null;
         rb2d.isKinematic = false;
         EnableMovement();
         transform.rotation = Quaternion.Euler(0, 0, 0);
         rb2d.velocity = new Vector2(rb2d.velocity.x, 7);
         GetComponent<CapsuleCollider2D>().isTrigger = false;
+        isSwinging = false;
         Jump();
     }
 
@@ -245,7 +226,7 @@ public class PlayerController : MonoBehaviour
     public void SetSwing()
     {
         GetComponent<CapsuleCollider2D>().isTrigger = true;
-        isClimbing = true;
+        isSwinging = true;
         rb2d.velocity = Vector2.zero;
         rb2d.isKinematic = true;
         DisableMovement();

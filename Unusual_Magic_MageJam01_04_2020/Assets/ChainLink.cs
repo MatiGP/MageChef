@@ -29,7 +29,7 @@ public class ChainLink : MonoBehaviour
             
             playerAttachedToChainLink.StopSwinging();
             playerAttachedToChainLink = null;
-            isPlayerAttached = false;
+            isPlayerAttached = false;           
             StartCoroutine(DisableChainLinkCollider());
         }
     }
@@ -52,6 +52,7 @@ public class ChainLink : MonoBehaviour
             playerAttachedToChainLink.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
             playerAttachedToChainLink.transform.localPosition = new Vector3(0f, 0f, 0f);
             isPlayerAttached = true;
+            rb2d.AddForce(new Vector2(500* playerAttachedToChainLink.transform.localScale.x, 1));
         }
     }
 
@@ -69,4 +70,6 @@ public class ChainLink : MonoBehaviour
             c2d.enabled = true;
         }
     }
+
+
 }

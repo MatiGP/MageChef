@@ -19,7 +19,11 @@ public class PlayerAbilitiesManager : MonoBehaviour
     {
         playerAbilities = GetComponent<PlayerAbilities>();
         playerAbilities.OnSpellCrafted += PlayerAbilities_OnSpellCrafted;
+        SetCooldowns();
+    }
 
+    private void SetCooldowns()
+    {
         if (spellGameObjects[0] != null)
         {
             spellCooldowns[0] = spellGameObjects[0].cooldown;
@@ -31,7 +35,7 @@ public class PlayerAbilitiesManager : MonoBehaviour
         if (spellGameObjects[2] != null)
         {
             spellCooldowns[2] = spellGameObjects[2].cooldown;
-        }       
+        }
     }
 
     private void PlayerAbilities_OnSpellCrafted(object sender, PlayerAbilities.OnSpellCraftedArgs e)
@@ -86,5 +90,6 @@ public class PlayerAbilitiesManager : MonoBehaviour
     public void SetSpells(Recipe[] spells)
     {
         spellGameObjects = spells;
+        SetCooldowns();
     }
 }

@@ -33,16 +33,19 @@ public class SaveSystem : MonoBehaviour
 
     public void LoadState()
     {
+        player.GetComponent<PlayerAbilities>().ResetRecipeCounter();
         player.GetComponent<PlayerPoints>().AddPoints(save.currentPoints);
         player.GetComponent<Health>().SetHealth(save.health);
-        player.GetComponent<PlayerAbilities>().SetDict(save.ownedSpices);
-        player.GetComponent<PlayerAbilities>().ResetRecipeCounter();
+        player.GetComponent<PlayerAbilities>().SetDict(save.ownedSpices);       
         player.GetComponent<PlayerAbilitiesManager>().SetSpells(save.craftedSpells);
 
         foreach (Recipe r in save.ownedRecipes)
         {
-            if (r == null) continue;            
-            player.GetComponent<PlayerAbilities>().AddNewRecipe(r);
+            if (r != null)
+            {
+                player.GetComponent<PlayerAbilities>().AddNewRecipe(r);
+            }          
+            
         }
         
     }
