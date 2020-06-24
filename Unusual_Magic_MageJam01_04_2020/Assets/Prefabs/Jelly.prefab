@@ -118,7 +118,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aa7b6fa4cc3a1a4cad4f0d76918e984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jellyUpTime: 6
+  jellyUpTime: 7
   audioSource: {fileID: 3164312118589304213}
 --- !u!82 &3164312118589304213
 AudioSource:
@@ -177,9 +177,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fd93cf3a1b1568b46ad6f852f18b14f2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1b5e90f8a56165144a38bfa383e6127b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -16831,6 +16831,11 @@ PrefabInstance:
       propertyPath: stationary
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8893205762308937949, guid: 1d4410af47531994abe40354fe0bd306,
+        type: 3}
+      propertyPath: attackRange
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 8938723551249377545, guid: 1d4410af47531994abe40354fe0bd306,
         type: 3}
       propertyPath: canMove

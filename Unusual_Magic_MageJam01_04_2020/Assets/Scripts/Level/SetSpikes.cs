@@ -9,7 +9,11 @@ public class SetSpikes : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        StartCoroutine(TriggerSpikes());       
+        if(collision.tag == "Player")
+        {
+            StartCoroutine(TriggerSpikes());
+        }
+               
     }
 
     IEnumerator TriggerSpikes()
