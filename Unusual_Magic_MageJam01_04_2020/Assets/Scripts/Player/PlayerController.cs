@@ -183,7 +183,14 @@ public class PlayerController : MonoBehaviour
         }
               
     }
-   
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Platform")
+        {
+            transform.parent = null;
+        }
+    }
     public void SpellCraft(bool value)
     {
         isSpellcrafting = value;

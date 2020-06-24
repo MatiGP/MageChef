@@ -13,6 +13,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float chaseTime = 5f;
     [SerializeField] float tauntRange = 3f;
     [SerializeField] float aiJumpForce = 4f;
+    [SerializeField] float groundCheckDistance = 5f;
     [SerializeField] bool stationary;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] LayerMask playerLayer;
@@ -42,7 +43,7 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        canWalkFurther = Physics2D.Raycast(legs.position, Vector2.down, 5f, groundLayer);
+        canWalkFurther = Physics2D.Raycast(legs.position, Vector2.down, groundCheckDistance, groundLayer);
         hasTouchedWall = Physics2D.Raycast(legs.position, Vector2.right * transform.localScale.x, 0.25f, groundLayer);
         hasTouchedOtherEnemy = Physics2D.Raycast(legs.position, Vector2.right * transform.localScale.x, 1f, enemyLayer);
 
@@ -63,15 +64,14 @@ public class EnemyAI : MonoBehaviour
         isInAttackRange = Vector2.Distance(target.transform.position, transform.position) <= attack.attackRange ? true : false;
 
         if(!isInAttackRange && !stationary){
-            Chase();
-            FaceThePlayer();
+            Chase();           
         }
         else{
-            StopMovement();
-            FaceThePlayer();
+            StopMovement();           
             attack.DoAttack();         
         }
-        
+
+        FaceThePlayer();
     }
 
     void Wander(){

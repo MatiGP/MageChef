@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueNotification: {fileID: 6158637305367790785}
-  dialogueCam: {fileID: 0}
+  dialogueCam: {fileID: 105882368605141962}
   dialogue:
     name: Marvin
     sentences:

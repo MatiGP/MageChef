@@ -21,7 +21,7 @@ MonoBehaviour:
     requiredAmount: 0
   - requiredSpice: {fileID: 11400000, guid: 212bca95e19247142975aa0605b4c4db, type: 2}
     requiredAmount: 0
-  - requiredSpice: {fileID: 11400000, guid: 61df0e4c06fd12a4695e872eac5cf53a, type: 2}
+  - requiredSpice: {fileID: 11400000, guid: 09c15bf69cffb624ca9eb8f7b8c2dd27, type: 2}
     requiredAmount: 0
   result: {fileID: 1655624092195757768, guid: 92364593965947a4cb559221be3d055a, type: 3}
   cooldown: 1
