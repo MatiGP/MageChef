@@ -19,6 +19,7 @@ public class MeleeAttack : Attack
          if(currentAttackCD <= 0f){
             animationSetter.SetAttackAnim();
             ai.GetTargetHealth().TakeDamage();
+            onAttackAudio?.Play();
             currentAttackCD = attackCooldown;    
          }
 

@@ -64,14 +64,16 @@ public class EnemyAI : MonoBehaviour
         isInAttackRange = Vector2.Distance(target.transform.position, transform.position) <= attack.attackRange ? true : false;
 
         if(!isInAttackRange && !stationary){
-            Chase();           
+            Chase();
+            FaceThePlayer();
         }
         else{
-            StopMovement();           
+            StopMovement();
+            FaceThePlayer();
             attack.DoAttack();         
         }
 
-        FaceThePlayer();
+        
     }
 
     void Wander(){
@@ -88,7 +90,7 @@ public class EnemyAI : MonoBehaviour
     }
 
     void Chase(){
-
+        
         float scaleX = transform.localScale.x;
         if((hasTouchedWall || !canWalkFurther)){
             transform.localScale = new Vector3(scaleX * -1, transform.localScale.y, transform.localScale.z);

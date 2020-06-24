@@ -387,6 +387,8 @@ MonoBehaviour:
   chaseSpeed: 3
   chaseTime: 5
   tauntRange: 3
+  aiJumpForce: 4
+  groundCheckDistance: 5
   stationary: 0
   groundLayer:
     serializedVersion: 2
@@ -431,7 +433,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldown: 0.8
   attackRange: 0.5
-  onAttackAudio: {fileID: 0}
+  onAttackAudio: {fileID: 3771891927359117310}
   ai: {fileID: 5994502591309125659}
   animationSetter: {fileID: 4166007643740874220}
 --- !u!114 &4166007643740874220

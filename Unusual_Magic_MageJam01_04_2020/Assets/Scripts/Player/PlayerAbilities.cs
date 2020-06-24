@@ -42,6 +42,8 @@ public class PlayerAbilities : MonoBehaviour
     bool isSpellCrafting = false;
     [SerializeField] CinemachineVirtualCamera spellCraftingCam;
     [SerializeField] GameObject cookingPot;
+    [SerializeField] AudioSource spellCompletedAudioSource;
+    [SerializeField] AudioSource spiceChangedAudioSource;
 
     PlayerController pc;
 
@@ -88,6 +90,7 @@ public class PlayerAbilities : MonoBehaviour
                 }
 
                 OnSpiceSlotChanged?.Invoke(this, new OnSpiceSlotChangedArgs() { spiceSlot = spiceSlot });
+                spiceChangedAudioSource.Play();
             }
 
             if (Input.GetKeyDown(KeyCode.D))
@@ -102,6 +105,7 @@ public class PlayerAbilities : MonoBehaviour
                 }
 
                 OnSpiceSlotChanged?.Invoke(this, new OnSpiceSlotChangedArgs() { spiceSlot = spiceSlot });
+                spiceChangedAudioSource.Play();
             }
 
             if (Input.GetKeyDown(KeyCode.W))
@@ -120,6 +124,7 @@ public class PlayerAbilities : MonoBehaviour
                 }
 
                 OnSpiceChanged?.Invoke(this, new OnSpiceChangedArgs() { spice = ownedSpiceList[spiceIndex] });
+                spiceChangedAudioSource.Play();
             }
 
             if (Input.GetKeyDown(KeyCode.S))
@@ -138,6 +143,7 @@ public class PlayerAbilities : MonoBehaviour
                 }
 
                 OnSpiceChanged?.Invoke(this, new OnSpiceChangedArgs() { spice = ownedSpiceList[spiceIndex] });
+                spiceChangedAudioSource.Play();
             }
 
         }
@@ -156,9 +162,7 @@ public class PlayerAbilities : MonoBehaviour
             {
                 if (CheckForCorrectRecipe(recipe))
                 {
-                    //print("Znalazłem pasującą recepturę!");
                     OnSpellCrafted?.Invoke(this, new OnSpellCraftedArgs() { recipe = recipe });
-                    //print("Pasująca receptura to: " + recipe.name);
                     break;
                 }
             }
@@ -176,7 +180,7 @@ public class PlayerAbilities : MonoBehaviour
                 return false;
             }
         }
-
+        spellCompletedAudioSource.Play();
         return true;
     }
 

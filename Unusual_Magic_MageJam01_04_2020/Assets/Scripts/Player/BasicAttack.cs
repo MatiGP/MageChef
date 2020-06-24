@@ -6,6 +6,7 @@ public class BasicAttack : MonoBehaviour
 {
     [SerializeField] float cookieTravelSpeed;
     [SerializeField] float cookieLifeTime;
+    [SerializeField] AudioSource onHitSource;
 
     Rigidbody2D rb2d;
 
@@ -42,10 +43,12 @@ public class BasicAttack : MonoBehaviour
         {
             DestroyCookie();
         }
+        
     }
 
     void DestroyCookie()
     {
+        AudioSource.PlayClipAtPoint(onHitSource.clip, transform.position);
         Destroy(gameObject);
     }
 }

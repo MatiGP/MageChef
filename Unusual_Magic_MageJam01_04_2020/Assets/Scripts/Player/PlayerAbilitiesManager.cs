@@ -7,12 +7,14 @@ public class PlayerAbilitiesManager : MonoBehaviour
     [SerializeField] Recipe[] spellGameObjects = new Recipe[3];
     [SerializeField] Transform castPlace;
     PlayerAbilities playerAbilities;
+    
 
     float[] spellCooldowns = new float[3];
 
     float currentCooldownSpell1;
     float currentCooldownSpell2;
     float currentCooldownSpell3;
+    PlayerController playerController;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,7 @@ public class PlayerAbilitiesManager : MonoBehaviour
         playerAbilities = GetComponent<PlayerAbilities>();
         playerAbilities.OnSpellCrafted += PlayerAbilities_OnSpellCrafted;
         SetCooldowns();
+        playerController = GetComponent<PlayerController>();
     }
 
     private void SetCooldowns()
@@ -47,6 +50,8 @@ public class PlayerAbilitiesManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (playerController.GetDialogOpen()) return;
+
         if (Input.GetKeyDown(KeyCode.Mouse0) && currentCooldownSpell1 <= 0)
         {
             if (spellGameObjects[0] != null)

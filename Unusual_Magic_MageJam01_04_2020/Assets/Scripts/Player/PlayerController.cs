@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     bool isSpellcrafting;
     bool isCarrying = false;
     bool isSwinging = false;
-    
+
     Rigidbody2D rb2d;
     Animator animator;
     CapsuleCollider2D capsuleCollider;
@@ -46,16 +46,16 @@ public class PlayerController : MonoBehaviour
     {
         if (canMove && !isDucking)
         {
-            horizontal = Input.GetAxis("Horizontal");
+            horizontal = Input.GetAxis("Horizontal");       
         }
         else
         {
             horizontal = 0;
         }
-        
+
 
         ChangeScale();
-        
+
 
         if (canJump) bounceForce = 3;
 
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space) && isJumping)
         {
-            if(jumpTimeCounter > 0)
+            if (jumpTimeCounter > 0)
             {
                 Jump();
                 jumpTimeCounter -= Time.deltaTime;
@@ -98,13 +98,13 @@ public class PlayerController : MonoBehaviour
             isDucking = false;
             StopDuck();
         }
-                  
+
 
         UpdateAnimator();
     }
 
     void Jump()
-    {      
+    {
         rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
     }
 
@@ -137,14 +137,14 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }
 
-        
+
     }
 
     public void Bounce()
     {
         rb2d.velocity = new Vector2(rb2d.velocity.x, bounceForce);
 
-        if (bounceForce < bounceMaxForce) bounceForce += bounceAddForce;             
+        if (bounceForce < bounceMaxForce) bounceForce += bounceAddForce;
     }
 
     public void Bounce(float bounceForce)
@@ -164,7 +164,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDestroy()
     {
-       // deathMenu.SetActive(true);
+        // deathMenu.SetActive(true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -181,7 +181,7 @@ public class PlayerController : MonoBehaviour
                 transform.localScale = new Vector3(-1, 1, 1);
             }
         }
-              
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -209,7 +209,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void StopSwinging()
-    {        
+    {
         transform.parent = null;
         rb2d.isKinematic = false;
         EnableMovement();
@@ -238,6 +238,13 @@ public class PlayerController : MonoBehaviour
         rb2d.isKinematic = true;
         DisableMovement();
     }
+
+    public bool GetDialogOpen()
+    {
+        return dialogueOpen;
+    }
+
+    
 
     
 

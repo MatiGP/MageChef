@@ -11,9 +11,16 @@ public class UpdateSpellIcons : MonoBehaviour
 
     private void Start()
     {
-        pa.OnSpellCrafted += Pa_OnSpellCrafted;
+        pa.OnSpellCrafted += Pa_OnSpellCrafted;       
+        SetSpellIcons();
+
+    }
+
+    public void SetSpellIcons()
+    {
         Recipe[] rec = pam.GetOwnedSpells();
-        for(int i = 0; i < 3; i++)
+
+        for (int i = 0; i < 3; i++)
         {
             if (rec[i] == null)
             {
@@ -25,7 +32,6 @@ public class UpdateSpellIcons : MonoBehaviour
                 spellIcons[(int)rec[i].slot].sprite = rec[i].spellbookRecipeIcon;
             }
         }
-
     }
 
     private void Pa_OnSpellCrafted(object sender, PlayerAbilities.OnSpellCraftedArgs e)

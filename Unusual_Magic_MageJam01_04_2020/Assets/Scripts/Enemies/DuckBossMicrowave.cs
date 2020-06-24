@@ -13,6 +13,7 @@ public class DuckBossMicrowave : Attack
     [SerializeField] Animator animator;
     [SerializeField] BossAI boss;
     [SerializeField] Transform shootPoint;
+    [SerializeField] AudioSource laserSound;
     bool arrived;
     int destinationIndex;
 
@@ -25,6 +26,7 @@ public class DuckBossMicrowave : Attack
         cannons.SetActive(false);
         destinationIndex = Random.Range(0, movePoints.Length);
         GetComponent<CapsuleCollider2D>().isTrigger = true;
+        
     }
 
     private void Update()
@@ -45,9 +47,7 @@ public class DuckBossMicrowave : Attack
     IEnumerator SelectNewDestination()
     {
         yield return new WaitForSeconds(stayTimeOnPoint);
-        Debug.Log("Selecting new destination...");
         destinationIndex = Random.Range(0, movePoints.Length);
-        Debug.Log("New destination index: " + destinationIndex);
         arrived = false;
     }
 
@@ -64,9 +64,11 @@ public class DuckBossMicrowave : Attack
     {
         if(currentAttackCD <= 0f && arrived)
         {
+            animator.SetTrigger("attack");
             GameObject go = Instantiate(projectile, shootPoint.position, Quaternion.identity);
             go.GetComponent<DuckBossLaserProjectile>().SetTarget(boss.GetTarget());
             currentAttackCD = attackCooldown;
+            laserSound.Play();
         }
     }
 

@@ -33,6 +33,7 @@ public class SaveSystem : MonoBehaviour
 
     public void LoadState()
     {
+        player.gameObject.transform.parent = null;
         player.GetComponent<PlayerAbilities>().ResetRecipeCounter();
         player.GetComponent<PlayerPoints>().AddPoints(save.currentPoints);
         player.GetComponent<Health>().SetHealth(save.health);
@@ -47,6 +48,8 @@ public class SaveSystem : MonoBehaviour
             }          
             
         }
+
+        player.GetComponentInChildren<UpdateSpellIcons>().SetSpellIcons();
         
     }
 

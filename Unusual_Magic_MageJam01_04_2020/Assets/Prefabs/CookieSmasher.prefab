@@ -203,7 +203,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 550e7031f219bf9428b07de258121d88, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 27cbedae450247149883b8ef135ebeb6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
@@ -299,9 +299,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1e27722b86593ff4dadd42b7c0b4b54d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a9d7d14ee925e2940889814088b00d7d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -403,6 +403,7 @@ MonoBehaviour:
   chaseTime: 5
   tauntRange: 3
   aiJumpForce: 4
+  groundCheckDistance: 5
   stationary: 0
   groundLayer:
     serializedVersion: 2
@@ -435,7 +436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldown: 1
   attackRange: 1
-  onAttackAudio: {fileID: 0}
+  onAttackAudio: {fileID: 4820624267391677098}
   ai: {fileID: 3034977201635202778}
   animationSetter: {fileID: 1106259192516112265}
 --- !u!114 &1106259192516112265

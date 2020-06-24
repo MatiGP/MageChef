@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public float typeTime = 0.04f;
+   
 
     public event EventHandler OnDialogueEnded;
 
