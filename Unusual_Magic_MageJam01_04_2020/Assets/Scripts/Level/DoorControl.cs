@@ -6,7 +6,7 @@ public class DoorControl : MonoBehaviour
 {
     [SerializeField] GameObject bars;
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         if(bars != null)
         {

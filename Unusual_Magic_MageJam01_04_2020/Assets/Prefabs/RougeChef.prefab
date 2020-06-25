@@ -244,7 +244,7 @@ MonoBehaviour:
   chaseTime: 5
   tauntRange: 12
   aiJumpForce: 4
-  groundCheckDistance: 5
+  groundCheckDistance: 0.5
   stationary: 0
   groundLayer:
     serializedVersion: 2

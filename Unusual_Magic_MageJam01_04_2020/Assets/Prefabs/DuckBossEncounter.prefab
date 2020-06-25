@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &678227681740322857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3617155572500329056}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3617155572500329056
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678227681740322857}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.45, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2505938996555011897}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2505938996555011898
 GameObject:
   m_ObjectHideFlags: 0
@@ -28,7 +58,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.085, y: -0.751, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 3617155572500329056}
   m_Father: {fileID: 2505938996881021045}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -181,7 +212,7 @@ GameObject:
   - component: {fileID: 2505938996881021000}
   m_Layer: 0
   m_Name: DuckBoss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -282,7 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58d2a9cce96f1314d92365c37e781e72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  health: 14
   hurtSource: {fileID: 0}
   deathPanel: {fileID: 0}
 --- !u!95 &2505938996881021044
@@ -322,11 +353,11 @@ MonoBehaviour:
   - {fileID: 2505938996881021000}
   - {fileID: 2505938996881021001}
   chaseSpeed: 3
-  nextPhaseThreshhold: 15
-  teleportThreshhold: 3
+  nextPhaseThreshhold: 7
+  teleportThreshhold: 2
   tpPositions:
-  - {fileID: 2505938997923671723}
   - {fileID: 2505938996831262526}
+  - {fileID: 2505938997923671723}
   tpParticle: {fileID: 3928035845339775698, guid: 7e36eef76510f6d4f98f641f9cc0d53d,
     type: 3}
 --- !u!114 &2505938996881021001
@@ -342,8 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 2
-  attackRange: 10
-  damage: 1
+  attackRange: 12
   onAttackAudio: {fileID: 0}
   microwaveSprite: {fileID: 2505938996555011898}
   cannons: {fileID: 2505938998479612396}
@@ -356,9 +386,10 @@ MonoBehaviour:
   - {fileID: 2505938997316130416}
   microwaveSpeed: 5
   stayTimeOnPoint: 6
-  animator: {fileID: 0}
+  animator: {fileID: 6178238261008964242}
   boss: {fileID: 2505938996881021003}
-  shootPoint: {fileID: 2505938997162165652}
+  shootPoint: {fileID: 3617155572500329056}
+  laserSound: {fileID: 0}
 --- !u!50 &2505938996881021002
 Rigidbody2D:
   serializedVersion: 4
@@ -394,7 +425,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldown: 1.5
   attackRange: 8
-  damage: 0
   onAttackAudio: {fileID: 0}
   attackPoints:
   - {fileID: 2505938997162165652}

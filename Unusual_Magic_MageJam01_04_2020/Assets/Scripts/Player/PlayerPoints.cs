@@ -30,4 +30,9 @@ public class PlayerPoints : MonoBehaviour
     {
         return points;
     }
+
+    public void ResetPoints()
+    {
+        points = 0;
+    }
 }

@@ -10,9 +10,6 @@ public class BossAI : MonoBehaviour
     [SerializeField] float chaseSpeed = 5f;
 
     [SerializeField] int nextPhaseThreshhold;
-    [SerializeField] float teleportThreshhold = 10f;
-    [SerializeField] Transform[] tpPositions;
-    [SerializeField] GameObject tpParticle;
     int currentPhase = 0;
 
     Rigidbody2D rb2d;
@@ -34,13 +31,7 @@ public class BossAI : MonoBehaviour
             nextPhaseThreshhold = -1;
             GetComponent<DuckBossMicrowave>().enabled = true;
             
-        }
-
-        if (teleportThreshhold >= Vector2.Distance(transform.position, target.transform.position) && currentPhase == 0)
-        {
-            Instantiate(tpParticle, transform.position, Quaternion.identity);
-            Teleport();
-        }
+        }       
 
         if(transform.position.x < target.transform.position.x)
         {
@@ -83,18 +74,6 @@ public class BossAI : MonoBehaviour
         rb2d.velocity = new Vector2(chaseSpeed * transform.localScale.x, rb2d.velocity.y);
         animator.SetBool("isRunning", true);
         
-    }
-
-    void Teleport()
-    {
-        if(transform.localScale.x < 0)
-        {
-            transform.position = tpPositions[1].position;         
-        }
-        else
-        {
-            transform.position = tpPositions[0].position;          
-        }
     }
 
     public Health GetTarget()

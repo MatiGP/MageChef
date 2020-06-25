@@ -168,8 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9252552dfd8a92f46b9870f306038c64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserBeamSpeed: 12
-  lifeTime: 1
+  laserBeamSpeed: 10
+  lifeTime: 2
 --- !u!50 &7877660509519458018
 Rigidbody2D:
   serializedVersion: 4

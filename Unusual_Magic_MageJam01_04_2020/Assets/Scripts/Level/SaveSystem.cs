@@ -35,6 +35,7 @@ public class SaveSystem : MonoBehaviour
     {
         player.gameObject.transform.parent = null;
         player.GetComponent<PlayerAbilities>().ResetRecipeCounter();
+        player.GetComponent<PlayerPoints>().ResetPoints();
         player.GetComponent<PlayerPoints>().AddPoints(save.currentPoints);
         player.GetComponent<Health>().SetHealth(save.health);
         player.GetComponent<PlayerAbilities>().SetDict(save.ownedSpices);       

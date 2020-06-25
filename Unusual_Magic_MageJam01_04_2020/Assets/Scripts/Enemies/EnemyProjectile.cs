@@ -35,6 +35,11 @@ public class EnemyProjectile : MonoBehaviour
             collision.GetComponent<Health>().TakeDamage();
             DestroyProjectile();
         }
+
+        if(collision.tag == "Colliders")
+        {
+            DestroyProjectile();
+        }
     }
 
     void DestroyProjectile()
