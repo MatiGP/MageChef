@@ -18,9 +18,7 @@ GameObject:
   - component: {fileID: 3771891927359117310}
   - component: {fileID: 1661890443300698046}
   - component: {fileID: 5994502591309125659}
-  - component: {fileID: 4569368443982338727}
   - component: {fileID: 6112353209452545808}
-  - component: {fileID: 4166007643740874220}
   m_Layer: 12
   m_Name: RoundCookie_0
   m_TagString: Enemy
@@ -407,18 +405,6 @@ MonoBehaviour:
     y: -0.32
     width: 0.22
     height: 1.84
---- !u!114 &4569368443982338727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3080341708035151029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c05c5f2562320964a91cbeeffc0e3057, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6112353209452545808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,22 +418,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 0.8
-  attackRange: 0.5
+  attackRange: 1
   onAttackAudio: {fileID: 3771891927359117310}
   ai: {fileID: 5994502591309125659}
-  animationSetter: {fileID: 4166007643740874220}
---- !u!114 &4166007643740874220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3080341708035151029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c05c5f2562320964a91cbeeffc0e3057, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  animationSetter: {fileID: 1661890443300698046}
 --- !u!1 &6936173409343771078
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,7 +446,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6936173409343771078}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.381, y: -0.477, z: 0}
+  m_LocalPosition: {x: 0.594, y: -0.477, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3080341708035151031}

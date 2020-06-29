@@ -7,14 +7,17 @@ public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] GameObject dialogueNotification;
     [SerializeField] CinemachineVirtualCamera dialogueCam;
+
     public Dialogue dialogue;
 
     bool dialogueOpen;
     bool canTalk;
-
+    Transform playerPos;
+    SpriteRenderer sr;
     private void Start()
     {
         DialogueManager.instance.OnDialogueEnded += Instance_OnDialogueEnded;
+        sr = GetComponent<SpriteRenderer>();
     }
 
     private void Instance_OnDialogueEnded(object sender, System.EventArgs e)
@@ -29,11 +32,24 @@ public class DialogueTrigger : MonoBehaviour
             DialogueManager.instance.StartDialogue(dialogue);
             dialogueCam.gameObject.SetActive(true);
             dialogueOpen = true;
+
         }
 
         if (!dialogueOpen)
         {
             dialogueCam.gameObject.SetActive(false);
+        }
+
+        if (playerPos != null)
+        {
+            if(playerPos.position.x < transform.position.x)
+            {
+                sr.flipX = true;
+            }
+            else
+            {
+                sr.flipX = false;
+            }
         }
     }
 
@@ -44,6 +60,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             dialogueNotification.SetActive(true);
             canTalk = true;
+            playerPos = collision.transform;
         }
     }
 
@@ -55,8 +72,8 @@ public class DialogueTrigger : MonoBehaviour
             DialogueManager.instance.EndDialogue();
             dialogueOpen = false;
             canTalk = false;
+            playerPos = null;
         }
     }
 
-    
 }

@@ -50,7 +50,7 @@ public class SaveSystem : MonoBehaviour
             
         }
 
-        player.GetComponentInChildren<UpdateSpellIcons>().SetSpellIcons();
+        player.GetComponentInChildren<UpdateSpellIcons>()?.SetSpellIcons();
         
     }
 
@@ -62,6 +62,7 @@ public class SaveSystem : MonoBehaviour
         {
             player.transform.position = (Vector3)save.checkPoint;
             player.gameObject.SetActive(true);
+            Cinemachine.CinemachineCore.Instance.GetVirtualCamera(0).OnTargetObjectWarped(player.transform, -player.transform.position);
         }
         else
         {

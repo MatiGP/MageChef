@@ -132,6 +132,7 @@ public class EnemyAI : MonoBehaviour
     void FaceThePlayer()
     {
         float scaleX = transform.localScale.x;
+        if (target == null) return;
         if(target.transform.position.x < transform.position.x && scaleX > 0)
         {
             scaleX *= -1;

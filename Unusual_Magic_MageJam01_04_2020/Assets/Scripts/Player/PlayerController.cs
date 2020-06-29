@@ -46,7 +46,8 @@ public class PlayerController : MonoBehaviour
     {
         if (canMove && !isDucking)
         {
-            horizontal = Input.GetAxis("Horizontal");       
+            horizontal = Input.GetAxisRaw("Horizontal");       
+    
         }
         else
         {
