@@ -6,6 +6,7 @@ public class FallingSpike : MonoBehaviour
 {
     [SerializeField] float delay;
     [SerializeField] Rigidbody2D spike;
+    [SerializeField] GameObject particleEffect;
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,6 +25,7 @@ public class FallingSpike : MonoBehaviour
 
     IEnumerator Delay()
     {
+        particleEffect.SetActive(true);
         spike.GetComponent<PlatformDestroyer>().enabled = true;
         yield return new WaitForSeconds(delay);
         spike.gravityScale = 1.6f;
