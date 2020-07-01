@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 1177214322037349712}
   - component: {fileID: 1177214322037349715}
   - component: {fileID: 1177214322037349714}
+  - component: {fileID: 5149675774139916972}
   m_Layer: 0
   m_Name: DudeInACookingPot
   m_TagString: Enemy
@@ -204,6 +205,8 @@ MonoBehaviour:
   chaseSpeed: 3
   chaseTime: 5
   tauntRange: 10
+  aiJumpForce: 4
+  groundCheckDistance: 5
   stationary: 0
   groundLayer:
     serializedVersion: 2
@@ -211,6 +214,9 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
   legs: {fileID: 1177214322504549001}
   attack: {fileID: 1177214322037349713}
   box:
@@ -233,13 +239,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldown: 1
   attackRange: 8
-  damage: 0
   onAttackAudio: {fileID: 0}
   projectileSpeed: 12
   projectileLifeTime: 1
   projectile: {fileID: 4103080221121806477, guid: 07276b69a160e3244adc26af75ecd74d,
     type: 3}
   attackPoint: {fileID: 1177214321032723943}
+  animationSetter: {fileID: 5149675774139916972}
 --- !u!114 &1177214322037349712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +261,8 @@ MonoBehaviour:
   health: 20
   hurtSource: {fileID: 0}
   deathPanel: {fileID: 0}
+  damageHighlightDuration: 0.3
+  damageHighlightFallOff: 0.1
 --- !u!50 &1177214322037349715
 Rigidbody2D:
   serializedVersion: 4
@@ -292,6 +300,18 @@ CapsuleCollider2D:
   m_Offset: {x: -0.09, y: -0.14}
   m_Size: {x: 1.14, y: 1.28}
   m_Direction: 0
+--- !u!114 &5149675774139916972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177214322037349679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05c5f2562320964a91cbeeffc0e3057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1177214322504549000
 GameObject:
   m_ObjectHideFlags: 0

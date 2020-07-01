@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform legsPosition;
     [SerializeField] LayerMask groundMask;
     [SerializeField] int bounceAddForce = 2;
-    [SerializeField] int bounceMaxForce = 17;
+    [SerializeField] int bounceMaxForce = 14;
     [SerializeField] AudioSource jumpSource;
 
     int bounceForce = 3;
@@ -143,9 +143,9 @@ public class PlayerController : MonoBehaviour
 
     public void Bounce()
     {
-        rb2d.velocity = new Vector2(rb2d.velocity.x, bounceForce);
-
         if (bounceForce < bounceMaxForce) bounceForce += bounceAddForce;
+
+        rb2d.velocity = new Vector2(rb2d.velocity.x, bounceForce);        
     }
 
     public void Bounce(float bounceForce)

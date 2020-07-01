@@ -50,4 +50,13 @@ public class Boomerang : MonoBehaviour
     {
         returnBoomerang = true;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Enemy")
+        {
+            collision.GetComponent<Health>().TakeDamage();
+            ReturnBoomerang();
+        }
+    }
 }

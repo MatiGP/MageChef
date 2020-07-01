@@ -3806,6 +3806,8 @@ MonoBehaviour:
   health: 4
   hurtSource: {fileID: 5329038285680227875}
   deathPanel: {fileID: 0}
+  damageHighlightDuration: 0.3
+  damageHighlightFallOff: 0.1
 --- !u!114 &4004174587097948001
 MonoBehaviour:
   m_ObjectHideFlags: 0

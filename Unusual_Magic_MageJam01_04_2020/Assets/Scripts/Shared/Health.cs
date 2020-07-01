@@ -41,7 +41,7 @@ public class Health : MonoBehaviour
     {
         hurtSource.Play();
         health = Mathf.Max(0, health - dmgAmmount);
-
+        StartCoroutine(DamageHighlight());
         if (tag == "Player")
         {
             CameraShaker.instance.Shake();

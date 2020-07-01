@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swingForce: 5
-  playerAttachedStartSwingForce: 600
+  playerAttachedStartSwingForce: 700
   rb2d: {fileID: 4903689386353220280}
   collider2Ds:
   - {fileID: 4903689386900294880}
@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swingForce: 5
-  playerAttachedStartSwingForce: 600
+  playerAttachedStartSwingForce: 700
   rb2d: {fileID: 4903689386900294882}
   collider2Ds:
   - {fileID: 4903689386900294880}
@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swingForce: 5
-  playerAttachedStartSwingForce: 600
+  playerAttachedStartSwingForce: 700
   rb2d: {fileID: 4903689387088567806}
   collider2Ds:
   - {fileID: 4903689386900294880}
@@ -796,7 +796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swingForce: 5
-  playerAttachedStartSwingForce: 600
+  playerAttachedStartSwingForce: 700
   rb2d: {fileID: 4903689387656701800}
   collider2Ds:
   - {fileID: 4903689386900294880}

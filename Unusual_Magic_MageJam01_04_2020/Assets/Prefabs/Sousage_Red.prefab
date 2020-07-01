@@ -58,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f062a77b40c034e4bb76179087f9f28c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,6 +106,8 @@ MonoBehaviour:
   health: 2
   hurtSource: {fileID: 0}
   deathPanel: {fileID: 0}
+  damageHighlightDuration: 0.3
+  damageHighlightFallOff: 0.1
 --- !u!95 &7971404255647569426
 Animator:
   serializedVersion: 3
@@ -273,7 +275,10 @@ MonoBehaviour:
   pointsReward: 200
   wanderSpeed: 3
   chaseSpeed: 3
+  chaseTime: 5
   tauntRange: 10
+  aiJumpForce: 4
+  groundCheckDistance: 5
   stationary: 0
   groundLayer:
     serializedVersion: 2
@@ -281,8 +286,17 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
   legs: {fileID: 7971404255685652344}
   attack: {fileID: 240203106588248205}
+  box:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
 --- !u!114 &240203106588248205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,13 +311,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldown: 2
   attackRange: 10
-  damage: 1
   onAttackAudio: {fileID: 0}
   projectileSpeed: 2
   projectileLifeTime: 2
   projectile: {fileID: 6497099989306865436, guid: 34386bf1e32f2f74d96f53297d658cf9,
     type: 3}
   attackPoint: {fileID: 7971404256239558833}
+  animationSetter: {fileID: 0}
 --- !u!1 &7971404255685652345
 GameObject:
   m_ObjectHideFlags: 0
