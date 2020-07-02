@@ -400,6 +400,15 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
+  - first: {x: 3, y: -10, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 127
+      m_TileSpriteIndex: 124
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741824
   - first: {x: -5, y: -9, z: 0}
     second:
       serializedVersion: 2
@@ -1229,6 +1238,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741824
   m_AnimatedTiles:
+  - first: {x: 3, y: -10, z: 0}
+    second:
+      m_AnimatedSprites:
+      - {fileID: -4280961915390742354, guid: 7c3020dee197cf449bc0cc9e1a771368, type: 3}
+      - {fileID: 8949961581013351514, guid: 7c3020dee197cf449bc0cc9e1a771368, type: 3}
+      - {fileID: 6443095157597812347, guid: 7c3020dee197cf449bc0cc9e1a771368, type: 3}
+      - {fileID: 321308987073639361, guid: 7c3020dee197cf449bc0cc9e1a771368, type: 3}
+      m_AnimationSpeed: 8
+      m_AnimationTimeOffset: 0
+      m_IsLooping: 1
   - first: {x: 7, y: 1, z: 0}
     second:
       m_AnimatedSprites:
@@ -1504,6 +1523,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 3835affb2c62af240a08275ccb971cc7, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 45b75dfc2a4265a4b99f5c251624652d, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: cf126bd0bc873b644b8e9b3899263f9c, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
     m_Data: {fileID: 5068151752225477255, guid: 653a5453e72b7e847a10712973e6da3d,
@@ -1869,8 +1890,10 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: -2278374471613163555, guid: 7c3020dee197cf449bc0cc9e1a771368,
       type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 321308987073639361, guid: 7c3020dee197cf449bc0cc9e1a771368, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 127
+  - m_RefCount: 128
     m_Data:
       e00: 1
       e01: 0
@@ -1889,7 +1912,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 43
+  - m_RefCount: 44
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 1
     m_Data: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 1}
