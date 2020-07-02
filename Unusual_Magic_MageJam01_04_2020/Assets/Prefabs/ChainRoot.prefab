@@ -122,7 +122,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.03, y: 0.5}
-  m_ConnectedAnchor: {x: -0.030000687, y: -0.42000008}
+  m_ConnectedAnchor: {x: -0.029999971, y: -0.41999984}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -161,7 +161,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swingForce: 5
   playerAttachedStartSwingForce: 700
+  climbingSpeed: 4
   rb2d: {fileID: 4903689386353220280}
+  upperLink: {fileID: 4903689387088567779}
+  lowerLink: {fileID: 4903689387656701803}
   collider2Ds:
   - {fileID: 4903689386900294880}
   - {fileID: 4903689387088567804}
@@ -289,7 +292,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.03, y: 0.49}
-  m_ConnectedAnchor: {x: -0.001001358, y: -0.20100021}
+  m_ConnectedAnchor: {x: -0.0009999275, y: -0.20099998}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -328,7 +331,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swingForce: 5
   playerAttachedStartSwingForce: 700
+  climbingSpeed: 4
   rb2d: {fileID: 4903689386900294882}
+  upperLink: {fileID: 0}
+  lowerLink: {fileID: 4903689387088567779}
   collider2Ds:
   - {fileID: 4903689386900294880}
   - {fileID: 4903689387088567804}
@@ -456,7 +462,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.03, y: 0.5}
-  m_ConnectedAnchor: {x: -0.030000687, y: -0.4300003}
+  m_ConnectedAnchor: {x: -0.029999971, y: -0.43000007}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -495,7 +501,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swingForce: 5
   playerAttachedStartSwingForce: 700
+  climbingSpeed: 4
   rb2d: {fileID: 4903689387088567806}
+  upperLink: {fileID: 4903689386900294887}
+  lowerLink: {fileID: 4903689386353220286}
   collider2Ds:
   - {fileID: 4903689386900294880}
   - {fileID: 4903689387088567804}
@@ -758,7 +767,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.03, y: 0.5}
-  m_ConnectedAnchor: {x: -0.030000687, y: -0.43599987}
+  m_ConnectedAnchor: {x: -0.029999971, y: -0.4360001}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -797,7 +806,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swingForce: 5
   playerAttachedStartSwingForce: 700
+  climbingSpeed: 4
   rb2d: {fileID: 4903689387656701800}
+  upperLink: {fileID: 4903689386353220286}
+  lowerLink: {fileID: 0}
   collider2Ds:
   - {fileID: 4903689386900294880}
   - {fileID: 4903689387088567804}
