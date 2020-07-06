@@ -191,9 +191,11 @@ MonoBehaviour:
   pillarPoints:
   - {fileID: 6299738711005724020}
   - {fileID: 6299738710512465814}
-  pillarSpeed: 0.05
-  pillarStayMinTime: 1
-  pillarStayMaxTime: 1.5
+  pillarDelay: 0
+  pillarSpeed: 5
+  crushSound: {fileID: 0}
+  particleEffect: {fileID: 0}
+  pillarStayTime: 1
 --- !u!1 &6299738710512465809
 GameObject:
   m_ObjectHideFlags: 0

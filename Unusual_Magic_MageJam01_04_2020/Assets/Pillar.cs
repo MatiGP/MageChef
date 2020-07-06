@@ -13,19 +13,20 @@ public class Pillar : MonoBehaviour
 
     Vector2 nextPos;
     bool hold = false;
+    bool startMoving = false;
 
     // Start is called before the first frame update
     void Start()
-    {
-        StartCoroutine(PillarStartDelay());
-
+    {        
         transform.position = pillarPoints[0].position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (hold) return;
+        if(!startMoving) StartCoroutine(PillarStartDelay());
+
+        if (hold || !startMoving) return;
 
         if(transform.position == pillarPoints[0].position && !hold)
         {
@@ -35,8 +36,8 @@ public class Pillar : MonoBehaviour
         else if (transform.position == pillarPoints[1].position && !hold)
         {
             nextPos = pillarPoints[0].position;
-            crushSound.Play();
-            particleEffect.Play();
+            if(crushSound != null) crushSound.Play();
+            if(particleEffect != null) particleEffect.Play();
             StartCoroutine(PillarMoveStopper());
         }
 
@@ -54,5 +55,6 @@ public class Pillar : MonoBehaviour
     IEnumerator PillarStartDelay()
     {
         yield return new WaitForSeconds(pillarDelay);
+        startMoving = true;
     }
 }

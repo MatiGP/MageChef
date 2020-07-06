@@ -26,7 +26,7 @@ public class ChainLink : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (playerAttachedToChainLink == null) return;
         if (!isPlayerAttached) return;
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
