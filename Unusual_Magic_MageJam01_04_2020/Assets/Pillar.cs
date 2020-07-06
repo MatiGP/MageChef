@@ -5,18 +5,20 @@ using UnityEngine;
 public class Pillar : MonoBehaviour
 {
     [SerializeField] Transform[] pillarPoints;
+    [SerializeField] float pillarDelay = 0f;
     [SerializeField] float pillarSpeed;
-    [SerializeField] float pillarStayMinTime;
-    [SerializeField] float pillarStayMaxTime;
+    [SerializeField] AudioSource crushSound;
+    [SerializeField] ParticleSystem particleEffect;
+    [SerializeField] float pillarStayTime = 1f;
 
-    float pillarStayTime;
     Vector2 nextPos;
     bool hold = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        pillarStayTime = Random.Range(pillarStayMinTime, pillarStayMaxTime);
+        StartCoroutine(PillarStartDelay());
+
         transform.position = pillarPoints[0].position;
     }
 
@@ -33,10 +35,12 @@ public class Pillar : MonoBehaviour
         else if (transform.position == pillarPoints[1].position && !hold)
         {
             nextPos = pillarPoints[0].position;
+            crushSound.Play();
+            particleEffect.Play();
             StartCoroutine(PillarMoveStopper());
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, nextPos, pillarSpeed);     
+        transform.position = Vector2.MoveTowards(transform.position, nextPos, pillarSpeed * Time.deltaTime);     
           
     }
 
@@ -45,5 +49,10 @@ public class Pillar : MonoBehaviour
         hold = true;
         yield return new WaitForSeconds(pillarStayTime);
         hold = false;
+    }
+
+    IEnumerator PillarStartDelay()
+    {
+        yield return new WaitForSeconds(pillarDelay);
     }
 }
