@@ -4825,7 +4825,6 @@ GameObject:
   - component: {fileID: 323940477062903848}
   - component: {fileID: 323940477062903853}
   - component: {fileID: 323940477062903852}
-  - component: {fileID: 7381041306715849807}
   m_Layer: 8
   m_Name: CrumblingPlatform
   m_TagString: Climbable
@@ -4845,6 +4844,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.7, z: 1}
   m_Children:
   - {fileID: 323940476685844815}
+  - {fileID: 7605193598908861092}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5041,13 +5041,44 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.56, y: 0.83}
   m_EdgeRadius: 0
---- !u!58 &7381041306715849807
+--- !u!1 &1339316340237640592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7605193598908861092}
+  - component: {fileID: 6361438806311286165}
+  m_Layer: 0
+  m_Name: ColliderForDestruction
+  m_TagString: Climbable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7605193598908861092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339316340237640592}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 323940477062903854}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &6361438806311286165
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 323940477062903849}
+  m_GameObject: {fileID: 1339316340237640592}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -5056,4 +5087,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.61
+  m_Radius: 1.59
