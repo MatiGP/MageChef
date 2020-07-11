@@ -9,6 +9,8 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject deathPanel;
     [SerializeField] float damageHighlightDuration = 0.3f;
     [SerializeField] float damageHighlightFallOff = 0.1f;
+    public delegate void DamageTakenHandler(int currentHealth);
+    public event DamageTakenHandler damageTakenEvent;
 
     Animator anim;
     Material material;
@@ -29,9 +31,9 @@ public class Health : MonoBehaviour
         {
             CameraShaker.instance.Shake();
         }
+        damageTakenEvent?.Invoke(health);
 
-
-        if(health <= 0)
+        if (health <= 0)
         {                     
             gameObject.SetActive(false);
         }
