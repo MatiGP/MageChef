@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd03900a2290e2740b6dbbd3d1b6e399, type: 3}
   m_Name: Save#1
   m_EditorClassIdentifier: 
+  level: 0
   currentPoints: 0
   ownedRecipes:
   - {fileID: 0}

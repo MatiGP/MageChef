@@ -29,6 +29,7 @@ public class SaveSystem : MonoBehaviour
         save.ownedRecipes = player.GetComponent<PlayerAbilities>().unlockedRecipes;
         save.ownedSpices = player.GetComponent<PlayerAbilities>().GetOwnedSpices();
         save.craftedSpells = player.GetComponent<PlayerAbilitiesManager>().GetOwnedSpells();
+        save.level = SceneManager.GetActiveScene().buildIndex+1;
     } 
 
     public void LoadState()

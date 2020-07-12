@@ -32,6 +32,8 @@ public class WrestlingCookiePillarManager : Attack
 
     IEnumerator Rise()
     {
+        currentCooldown = attackCooldown;
+
         foreach(WrestlingCookiePillar pillar in wrestlingCookiePillars)
         {
             pillar.Rise();
@@ -46,7 +48,7 @@ public class WrestlingCookiePillarManager : Attack
             yield return new WaitForSeconds(1f);
         }
 
-        currentCooldown = attackCooldown;
+        
 
     }
 

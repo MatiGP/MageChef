@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int bounceAddForce = 2;
     [SerializeField] int bounceMaxForce = 14;
     [SerializeField] AudioSource jumpSource;
-
+    [SerializeField] ParticleSystem runningParticle;
+    [SerializeField] ParticleSystem jumpParticle;
     int bounceForce = 3;
 
     float horizontal;
@@ -47,11 +48,19 @@ public class PlayerController : MonoBehaviour
         if (canMove && !isDucking)
         {
             horizontal = Input.GetAxisRaw("Horizontal");       
-    
         }
         else
         {
             horizontal = 0;
+        }
+
+        if(horizontal == 0)
+        {
+            runningParticle.Pause();
+        }
+        else
+        {
+            runningParticle.Play();
         }
 
 
@@ -107,6 +116,7 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
+        jumpParticle.Play();
     }
 
     private void FixedUpdate()

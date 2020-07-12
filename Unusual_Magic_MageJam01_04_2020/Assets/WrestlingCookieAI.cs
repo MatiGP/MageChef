@@ -9,12 +9,14 @@ public class WrestlingCookieAI : MonoBehaviour
     // 1 - DropKick X
     // 3 - BaguetteBottom
     [SerializeField] Health target;
-    [SerializeField] float speed;  
+    [SerializeField] float speed;
+    [SerializeField] int damageToTakeToSwitchAttack = 3;
     Rigidbody2D rb2d;
     Animator animator;
     Health health;
     bool isInAttackRange;
     int attackIndex = -1;
+    bool dropKicking;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +31,7 @@ public class WrestlingCookieAI : MonoBehaviour
 
     private void Health_damageTakenEvent(int currentHealth)
     {
-        if(currentHealth % 3 == 0)
+        if(currentHealth % damageToTakeToSwitchAttack == 0)
         {
             NewAttack();
         }
@@ -38,7 +40,13 @@ public class WrestlingCookieAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        isInAttackRange = Vector2.Distance(transform.position, target.transform.position) < wrestlingAttacks[attackIndex].attackRange;
+
+        if (!dropKicking)
+        {
+            Move();
+        }
+        
         FaceThePlayer();
         if (isInAttackRange)
         {
@@ -49,9 +57,7 @@ public class WrestlingCookieAI : MonoBehaviour
     }
 
     void Move()
-    {
-        isInAttackRange = Vector2.Distance(transform.position, target.transform.position) < wrestlingAttacks[attackIndex].attackRange;
-
+    {       
         if(target.transform.position.x > transform.position.x && !isInAttackRange)
         {
             rb2d.velocity = new Vector2(speed, rb2d.velocity.y);
@@ -70,6 +76,8 @@ public class WrestlingCookieAI : MonoBehaviour
 
     void FaceThePlayer()
     {
+        if (dropKicking) return;
+
         if (target.transform.position.x > transform.position.x)
         {
             transform.localScale = new Vector3(1, 1, 1);
@@ -83,7 +91,7 @@ public class WrestlingCookieAI : MonoBehaviour
 
     void DoAttack()
     {
-        wrestlingAttacks[attackIndex].DoAttack();
+        wrestlingAttacks[attackIndex].DoAttack();        
     }
 
     void NewAttack()
@@ -125,12 +133,15 @@ public class WrestlingCookieAI : MonoBehaviour
 
     public void FreezePositionY()
     {
-        rb2d.constraints = RigidbodyConstraints2D.FreezePositionY & RigidbodyConstraints2D.FreezeRotation;
-        
+        rb2d.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        dropKicking = true;
+        animator.SetBool("isDropKicking", true);
     }
 
     public void UnFreezePositionY()
     {
         rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
+        dropKicking = false;
+        animator.SetBool("isDropKicking", false);
     }
 }

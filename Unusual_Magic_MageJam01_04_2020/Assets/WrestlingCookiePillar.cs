@@ -16,8 +16,8 @@ public class WrestlingCookiePillar : MonoBehaviour
     void Start()
     {
         startPos = transform.position;
-        endPos = startPos;
-        endPos.y -= pillarRiseHeight;
+        endPos = new Vector2(startPos.x, startPos.y);
+        endPos.y += pillarRiseHeight;
     }
 
     private void Update()
@@ -25,7 +25,7 @@ public class WrestlingCookiePillar : MonoBehaviour
         if (rise && transform.position != (Vector3)endPos)
         {
             transform.position = Vector2.MoveTowards(transform.position, endPos, speed * Time.deltaTime);
-        }else if(!rise && transform.position == (Vector3)endPos)
+        }else
         {
             transform.position = Vector2.MoveTowards(transform.position, startPos, speed * Time.deltaTime);
         }

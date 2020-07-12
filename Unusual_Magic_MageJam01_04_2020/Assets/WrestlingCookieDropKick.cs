@@ -6,60 +6,56 @@ public class WrestlingCookieDropKick : Attack
 {
     [SerializeField] float dropKickSpeed = 8f;
     [SerializeField] float dropKickTime = 1.5f;
-    float currentDropKickTime = 0f;
+    [SerializeField] GameObject dropKickCollider;
     WrestlingCookieAI cookieAI;
-    Transform nextPos;
-    bool dKick = false;
+
     bool canAttack = true;
-    bool lockDirection = true;
+
     float xLocalScale;
     float currentCooldown;
+    float currentDropKickTime = 1.5f;
+
     Vector2 colliderSize;
 
     public override void DoAttack()
     {
-        if (canAttack)
+        if (currentCooldown <= 0f)
         {
             Debug.Log("DROP");
             currentDropKickTime = dropKickTime;
             xLocalScale = transform.localScale.x;
-        }
+            GetComponent<CapsuleCollider2D>().size = new Vector2(1.25f, 1.78f);
+        }        
        
     }
 
-    private void Start()
+    private void Awake()
     {
         cookieAI = GetComponent<WrestlingCookieAI>();
         colliderSize = GetComponent<CapsuleCollider2D>().size;
     }
-
+    // Vector2(1.25f, 1.78f)
     // Update is called once per frame
+
     void Update()
     {
-        if(currentDropKickTime <= 0f)
+        if(currentDropKickTime > 0f)
         {
+            cookieAI.Move(dropKickSpeed * xLocalScale);
+            cookieAI.FreezePositionY();
+            cookieAI.TriggerAnimationAttack1();
+            currentDropKickTime -= Time.deltaTime;
+            dropKickCollider.SetActive(true);
             currentCooldown = attackCooldown;
         }
         else
         {
-            currentCooldown -= Time.deltaTime;
-            canAttack = false;
+            cookieAI.UnFreezePositionY();
             GetComponent<CapsuleCollider2D>().size = colliderSize;
-            if (currentCooldown <= 0f)
-            {
-                canAttack = true;
-            }
+            dropKickCollider.SetActive(false);
         }
 
-        if (canAttack && currentDropKickTime > 0f && currentCooldown <= 0f)
-        {
-
-            cookieAI.TriggerAnimationAttack1();
-            cookieAI.Move(dropKickSpeed * xLocalScale);
-            cookieAI.FreezePositionY();
-            GetComponent<CapsuleCollider2D>().size = new Vector2(1.25f, 1.78f);
-            currentDropKickTime -= Time.deltaTime;
-        }
+        currentCooldown -= Time.deltaTime;
     }
 
   
