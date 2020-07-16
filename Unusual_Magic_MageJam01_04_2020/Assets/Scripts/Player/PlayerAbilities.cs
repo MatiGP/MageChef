@@ -11,6 +11,8 @@ public class PlayerAbilities : MonoBehaviour
     public event EventHandler<OnSpiceSlotChangedArgs> OnSpiceSlotChanged;
     public event EventHandler<OnSpellCraftedArgs> OnSpellCrafted;
     public event EventHandler<OnRecipeCollectedArgs> OnRecipeCollected;
+    public event EventHandler<OnSpicePickedUp> OnSpicePicked;
+
     public class OnSpiceChangedArgs : EventArgs
     {
         public Spice spice;
@@ -27,6 +29,12 @@ public class PlayerAbilities : MonoBehaviour
     {
         public Recipe recipe;
     }
+    public class OnSpicePickedUp : EventArgs
+    {
+        public Sprite spiceIcon;
+        public string spiceName;
+    }
+    
     int numOfRecipe = 0;
 
     public Recipe[] unlockedRecipes = new Recipe[8];
@@ -194,6 +202,7 @@ public class PlayerAbilities : MonoBehaviour
     {
         //Debug.Log("I found " + spice.spiceName);
         ownedSpices.Add(spice, 1);
+        OnSpicePicked?.Invoke(this, new OnSpicePickedUp { spiceIcon = spice.spiceIcon, spiceName = spice.spiceName });
     }
 
     public void AddSpice(Spice spice)
