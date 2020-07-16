@@ -56,11 +56,11 @@ public class PlayerController : MonoBehaviour
 
         if(horizontal == 0)
         {
-            runningParticle.Pause();
+            runningParticle.gameObject.SetActive(false);
         }
         else
         {
-            runningParticle.Play();
+            runningParticle.gameObject.SetActive(true);
         }
 
 
