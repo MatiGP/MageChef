@@ -4913,12 +4913,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crumblingEffect: {fileID: 323940476685844813}
   crumbleSprites:
+  - {fileID: -3413837936507736431, guid: 0903c648b35b4c34f81757de4253d4b9, type: 3}
   - {fileID: -8986717617736277238, guid: 0903c648b35b4c34f81757de4253d4b9, type: 3}
   - {fileID: 6470873146322698087, guid: 0903c648b35b4c34f81757de4253d4b9, type: 3}
   - {fileID: -5941493213102883350, guid: 0903c648b35b4c34f81757de4253d4b9, type: 3}
   crumbleDelay: 0.6
+  timeToRebuild: 2
+  platformRebuildDelay: 0.5
   audioSource: {fileID: 323940477062903853}
   spriteRenderer: {fileID: 323940477062903855}
+  platformCollider: {fileID: 323940477062903852}
 --- !u!82 &323940477062903853
 AudioSource:
   m_ObjectHideFlags: 0

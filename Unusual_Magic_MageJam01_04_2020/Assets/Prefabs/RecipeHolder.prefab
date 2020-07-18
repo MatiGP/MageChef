@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5431152328813746393}
   - component: {fileID: 1253790913030277519}
   - component: {fileID: 6248973758838945979}
+  - component: {fileID: 6120756587865968485}
   m_Layer: 0
   m_Name: RecipeHolder
   m_TagString: Untagged
@@ -122,3 +123,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recipe: {fileID: 11400000, guid: bf935f93535ccc54cb9917050da8f82c, type: 2}
+--- !u!114 &6120756587865968485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907909325418603457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd731e2177e82a4cad8b4e9739519a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  height: 0.3
+  speed: 1

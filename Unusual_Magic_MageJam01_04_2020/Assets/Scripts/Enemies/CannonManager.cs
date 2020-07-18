@@ -13,7 +13,7 @@ public class CannonManager : MonoBehaviour
     [SerializeField] float lifeTime;
     bool canShoot = true;
     float currentShootCD = 0;
-    int cannonIndex = 0;
+
     // Update is called once per frame
     void Update()
     {
@@ -22,14 +22,10 @@ public class CannonManager : MonoBehaviour
         if(currentShootCD <= 0)
         {
             
-            GameObject go = Instantiate(projectile, shootingStartPos[cannonIndex].position, Quaternion.identity);
+            GameObject go = Instantiate(projectile, shootingStartPos[Random.Range(0, shootingStartPos.Count - 1)].position, Quaternion.identity);
             go.GetComponent<CannonBall>().SetUpCannon(shootingDirection, ballXSpeed, ballYSpeed, lifeTime);
             currentShootCD = shootingInterval;
-            cannonIndex++;
-            if(cannonIndex > shootingStartPos.Count-1)
-            {
-                cannonIndex = 0;
-            }
+            
         }
         else
         {

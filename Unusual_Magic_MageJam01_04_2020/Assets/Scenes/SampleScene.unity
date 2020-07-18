@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -27548,7 +27548,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1417517111
 PrefabInstance:
@@ -29825,7 +29825,7 @@ PrefabInstance:
     - target: {fileID: 2727071925308990562, guid: f1b3264d1f8b22b4d80e450e92f64efe,
         type: 3}
       propertyPath: m_RootOrder
-      value: 31
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2727071925308990562, guid: f1b3264d1f8b22b4d80e450e92f64efe,
         type: 3}
@@ -29884,6 +29884,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 573128880}
+    - target: {fileID: 5030381925397444508, guid: 750b9699ba311f649b29e5779973249b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5030381926475723077, guid: 750b9699ba311f649b29e5779973249b,
         type: 3}
       propertyPath: deathPanel
@@ -29953,6 +29958,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197907842983291803, guid: 750b9699ba311f649b29e5779973249b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 750b9699ba311f649b29e5779973249b, type: 3}
