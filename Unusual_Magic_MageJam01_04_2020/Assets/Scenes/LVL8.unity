@@ -52392,6 +52392,7 @@ MonoBehaviour:
   ballXSpeed: 12
   ballYSpeed: 0
   lifeTime: 1.1
+  randomShooting: 0
 --- !u!4 &347345438
 Transform:
   m_ObjectHideFlags: 0
@@ -60689,7 +60690,7 @@ PrefabInstance:
     - target: {fileID: 7414057769672113423, guid: 7648ac72c06e50b43a42cc632bedfd0d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 166.85988
+      value: 166.4
       objectReference: {fileID: 0}
     - target: {fileID: 7414057769672113423, guid: 7648ac72c06e50b43a42cc632bedfd0d,
         type: 3}
@@ -62234,6 +62235,7 @@ MonoBehaviour:
   ballXSpeed: 12
   ballYSpeed: 0
   lifeTime: 1.3
+  randomShooting: 0
 --- !u!4 &1119443856
 Transform:
   m_ObjectHideFlags: 0
