@@ -15,7 +15,7 @@ public class Health : MonoBehaviour
     Animator anim;
     Material material;
 
-    private void Start()
+    private void Awake()
     {
         anim = GetComponent<Animator>();
         material = GetComponent<SpriteRenderer>().material;
@@ -76,6 +76,11 @@ public class Health : MonoBehaviour
             if (deathPanel == null) return;
             deathPanel.SetActive(true);
         }
+    }
+
+    private void OnEnable()
+    {
+        material.SetFloat("_multiplier", 0);
     }
 
     IEnumerator DamageHighlight()

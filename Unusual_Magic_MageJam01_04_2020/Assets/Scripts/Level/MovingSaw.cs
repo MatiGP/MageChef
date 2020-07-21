@@ -5,8 +5,9 @@ using UnityEngine;
 public class MovingSaw : MonoBehaviour
 {
     [SerializeField] Transform[] sawPoints;
-    [SerializeField] float sawSpeed;
+    [SerializeField] float sawTravelSpeed;
     [SerializeField] bool reverse = false;
+    [SerializeField] bool stationary = false;
 
     int pointIndex = 0;
 
@@ -14,6 +15,8 @@ public class MovingSaw : MonoBehaviour
 
     private void Start()
     {
+        if (stationary) return;
+
         if (!reverse)
         {
             transform.position = sawPoints[0].position;
@@ -28,7 +31,9 @@ public class MovingSaw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position != sawPoints[pointIndex].position)
+        if (stationary) return;
+
+        if (transform.position != sawPoints[pointIndex].position)
         {
             Move();
         }
@@ -40,7 +45,7 @@ public class MovingSaw : MonoBehaviour
 
     void Move()
     {
-        transform.position = Vector2.MoveTowards(transform.position, sawPoints[pointIndex].position, sawSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, sawPoints[pointIndex].position, sawTravelSpeed * Time.deltaTime);
     }
 
     void GetNewPositionIndex()

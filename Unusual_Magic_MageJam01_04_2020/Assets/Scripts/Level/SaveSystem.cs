@@ -41,7 +41,7 @@ public class SaveSystem : MonoBehaviour
         player.GetComponent<Health>().SetHealth(save.health);
         player.GetComponent<PlayerAbilities>().SetDict(save.ownedSpices);       
         player.GetComponent<PlayerAbilitiesManager>().SetSpells(save.craftedSpells);
-        player.GetComponent<SpriteRenderer>().material.SetFloat("_multiplier", 0);
+
 
         foreach (Recipe r in save.ownedRecipes)
         {
