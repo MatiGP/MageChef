@@ -173,11 +173,6 @@ public class PlayerController : MonoBehaviour
         canMove = true;
     }
 
-    private void OnDestroy()
-    {
-        // deathMenu.SetActive(true);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Platform")
@@ -255,9 +250,17 @@ public class PlayerController : MonoBehaviour
         return dialogueOpen;
     }
 
-    
+    private void OnDisable()
+    {             
+        isJumping = false;
+        isDucking = false;
+        isSpellcrafting = false;
+        StopSwinging();
+        StopDuck();
+    }
 
-    
+
+
 
 
 }

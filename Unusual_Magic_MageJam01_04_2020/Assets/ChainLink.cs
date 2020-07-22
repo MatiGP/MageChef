@@ -33,20 +33,7 @@ public class ChainLink : MonoBehaviour
 
         ChangePlayerLocalScale();
 
-        ClimbUpDown();
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-
-            playerAttachedToChainLink.StopSwinging();
-            playerAttachedToChainLink = null;
-            isPlayerAttached = false;
-            StartCoroutine(DisableChainLinkCollider());
-            foreach (Collider2D c2d in collider2Ds)
-            {
-                c2d.GetComponent<ChainLink>().Detach();
-            }
-        }
+        ClimbUpDown();     
         
         if(playerAttachedToChainLink.transform.localPosition == new Vector3(0, 0.45f) && (upperLink != null))
         {
@@ -62,6 +49,19 @@ public class ChainLink : MonoBehaviour
             playerAttachedToChainLink = null;
             isPlayerAttached = false;
             return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+
+            playerAttachedToChainLink.StopSwinging();
+            playerAttachedToChainLink = null;
+            isPlayerAttached = false;
+            StartCoroutine(DisableChainLinkCollider());
+            foreach (Collider2D c2d in collider2Ds)
+            {
+                c2d.GetComponent<ChainLink>().Detach();
+            }
         }
     }
 
@@ -93,9 +93,12 @@ public class ChainLink : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (horizontal == 0) return;
-
-        rb2d.AddForce(new Vector2(swingForce * horizontal, swingForce));
+        if (isPlayerAttached)
+        {
+            rb2d.AddForce(new Vector2(swingForce * horizontal, swingForce));
+        }
+        
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -117,6 +120,7 @@ public class ChainLink : MonoBehaviour
         playerAttachedToChainLink.SetSwing();
         playerAttachedToChainLink.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
         isPlayerAttached = true;
+       
     }
 
     IEnumerator DisableChainLinkCollider()
@@ -125,7 +129,7 @@ public class ChainLink : MonoBehaviour
         {
             c2d.enabled = false;
         }
-
+        
         yield return new WaitForSeconds(0.6f);
 
         foreach (Collider2D c2d in collider2Ds)
@@ -138,6 +142,8 @@ public class ChainLink : MonoBehaviour
     {
         playerAttachedToChainLink = null;
         isPlayerAttached = false;
+
+        
     }
 
 }

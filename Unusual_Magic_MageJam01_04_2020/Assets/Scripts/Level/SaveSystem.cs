@@ -12,8 +12,7 @@ public class SaveSystem : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
-       
+        instance = this;       
     }
 
     private void Start()
@@ -43,6 +42,7 @@ public class SaveSystem : MonoBehaviour
         player.GetComponent<PlayerAbilitiesManager>().SetSpells(save.craftedSpells);
 
 
+
         foreach (Recipe r in save.ownedRecipes)
         {
             if (r != null)
@@ -64,7 +64,7 @@ public class SaveSystem : MonoBehaviour
         {
             player.transform.position = (Vector3)save.checkPoint;
             player.gameObject.SetActive(true);
-            Cinemachine.CinemachineCore.Instance.GetVirtualCamera(0).OnTargetObjectWarped(player.transform, -player.transform.position);
+            
         }
         else
         {

@@ -159,8 +159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db2af8c8d3cdf51489015fcc30a88639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingForce: 6
-  playerAttachedStartSwingForce: 700
+  swingForce: 9
+  playerAttachedStartSwingForce: 750
   climbingSpeed: 4
   rb2d: {fileID: 4903689386353220280}
   upperLink: {fileID: 4903689387088567779}
@@ -329,8 +329,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db2af8c8d3cdf51489015fcc30a88639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingForce: 6
-  playerAttachedStartSwingForce: 700
+  swingForce: 9
+  playerAttachedStartSwingForce: 750
   climbingSpeed: 4
   rb2d: {fileID: 4903689386900294882}
   upperLink: {fileID: 0}
@@ -499,8 +499,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db2af8c8d3cdf51489015fcc30a88639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingForce: 6
-  playerAttachedStartSwingForce: 700
+  swingForce: 9
+  playerAttachedStartSwingForce: 750
   climbingSpeed: 4
   rb2d: {fileID: 4903689387088567806}
   upperLink: {fileID: 4903689386900294887}
@@ -804,8 +804,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db2af8c8d3cdf51489015fcc30a88639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingForce: 6
-  playerAttachedStartSwingForce: 700
+  swingForce: 9
+  playerAttachedStartSwingForce: 750
   climbingSpeed: 4
   rb2d: {fileID: 4903689387656701800}
   upperLink: {fileID: 4903689386353220286}
