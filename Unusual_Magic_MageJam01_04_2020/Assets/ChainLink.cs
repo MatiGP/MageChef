@@ -142,8 +142,22 @@ public class ChainLink : MonoBehaviour
     {
         playerAttachedToChainLink = null;
         isPlayerAttached = false;
-
+        StartCoroutine(SlowDown());
         
+    }
+
+    IEnumerator SlowDown()
+    {
+        foreach (Collider2D c2d in collider2Ds)
+        {
+            c2d.attachedRigidbody.angularDrag = 99999f;
+        }
+        yield return new WaitForSeconds(1.4f);
+
+        foreach (Collider2D c2d in collider2Ds)
+        {
+            c2d.attachedRigidbody.angularDrag = 0.05f;
+        }
     }
 
 }

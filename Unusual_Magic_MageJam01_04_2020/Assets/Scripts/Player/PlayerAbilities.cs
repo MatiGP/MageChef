@@ -62,7 +62,7 @@ public class PlayerAbilities : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !isSpellCrafting)
+        if (Input.GetKeyDown(KeyCode.E) && !isSpellCrafting && pc.canJump)
         {
             spellCraftingSpices = new Spice[3];
             isSpellCrafting = true;
@@ -74,7 +74,7 @@ public class PlayerAbilities : MonoBehaviour
             spellCraftingUI.SetActive(true);
 
         }
-        else if (Input.GetKeyDown(KeyCode.E) && isSpellCrafting)
+        else if (Input.GetKeyDown(KeyCode.E) && isSpellCrafting && pc.canJump)
         {
             isSpellCrafting = false;
             pc.EnableMovement();

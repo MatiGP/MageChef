@@ -44,4 +44,12 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene(0);
         isMenuOpen = false;
     }
+
+    private void OnDisable()
+    {
+        Time.timeScale = 1f;
+        AudioListener.volume = 1f;
+        menu.SetActive(false);
+        isMenuOpen = false;
+    }
 }

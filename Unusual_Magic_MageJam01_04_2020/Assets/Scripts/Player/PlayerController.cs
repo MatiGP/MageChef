@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     float jumpTimeCounter;
 
 
-    bool canJump;
+    public bool canJump;
     bool dialogueOpen = false;
     bool canMove = true;
     bool isJumping = false;
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
 
         if (canJump) bounceForce = 3;
 
-        if (Input.GetKeyDown(KeyCode.Space) && canJump && !dialogueOpen)
+        if (Input.GetKeyDown(KeyCode.Space) && canJump && !dialogueOpen && !isSpellcrafting)
         {
             isJumping = true;
             jumpTimeCounter = jumpTime;
