@@ -29,6 +29,7 @@ public class SaveSystem : MonoBehaviour
         save.ownedSpices = player.GetComponent<PlayerAbilities>().GetOwnedSpices();
         save.craftedSpells = player.GetComponent<PlayerAbilitiesManager>().GetOwnedSpells();
         save.level = SceneManager.GetActiveScene().buildIndex;
+        save.maxHealth = player.GetComponent<Health>().GetMaxHealth();
     } 
 
     public void LoadState()
@@ -37,6 +38,7 @@ public class SaveSystem : MonoBehaviour
         player.GetComponent<PlayerAbilities>().ResetRecipeCounter();
         player.GetComponent<PlayerPoints>().ResetPoints();
         player.GetComponent<PlayerPoints>().AddPoints(save.currentPoints);
+        player.GetComponent<Health>().SetMaxHP(save.maxHealth);
         player.GetComponent<Health>().SetHealth(save.health);
         player.GetComponent<PlayerAbilities>().SetDict(save.ownedSpices);       
         player.GetComponent<PlayerAbilitiesManager>().SetSpells(save.craftedSpells);

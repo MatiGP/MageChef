@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "Recipe", menuName = "New Recipe")]
-public class Recipe : ScriptableObject
+public class Recipe : ScriptableObject, ISellable
 {
     public Sprite recipeIcon;
     public Sprite spellbookRecipeIcon;
@@ -12,6 +12,11 @@ public class Recipe : ScriptableObject
 
     public enum SpellSlot { Main, Secondary, Tertiary }
     public SpellSlot slot;
+
+    public void Sell(GameObject player)
+    {
+        player.GetComponent<PlayerAbilities>().AddNewRecipe(this);
+    }
 }
 [System.Serializable]
 public class Ingredient

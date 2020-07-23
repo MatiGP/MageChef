@@ -14,6 +14,7 @@ public class Health : MonoBehaviour
 
     Animator anim;
     Material material;
+    int maxHealth = 4;
 
     private void Awake()
     {
@@ -94,5 +95,20 @@ public class Health : MonoBehaviour
         }
         material.SetFloat("_multiplier", 0);
 
+    }
+
+    public void IncreaseMaxHP()
+    {
+        maxHealth++;
+    }
+
+    public int GetMaxHealth()
+    {
+        return maxHealth;
+    }
+
+    public void SetMaxHP(int max)
+    {
+        maxHealth = max;
     }
 }

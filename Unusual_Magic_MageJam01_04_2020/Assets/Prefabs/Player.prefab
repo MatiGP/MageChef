@@ -10971,6 +10971,7 @@ MonoBehaviour:
   jumpSource: {fileID: 3149314814507778838}
   runningParticle: {fileID: 1760012999392150089}
   jumpParticle: {fileID: 8947427024810756500}
+  canJump: 0
 --- !u!114 &5030381926475723077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11038,6 +11039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d2027a3ac632a54e81e1781fc34905a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  remainingLifeHolder: {fileID: 8631067220416152107}
   listOfHPImages:
   - {fileID: 6897888982874061594}
   - {fileID: 1459500180922223157}
@@ -25254,8 +25256,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10.900391, y: 0}
-  m_SizeDelta: {x: 397.7, y: 137.45}
+  m_AnchoredPosition: {x: 11, y: -11}
+  m_SizeDelta: {x: 325.5, y: 66.2}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &3272456135660374250
 CanvasRenderer:
@@ -25307,17 +25309,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
+    m_Left: 30
     m_Right: 0
-    m_Top: 0
+    m_Top: 4
     m_Bottom: 0
-  m_ChildAlignment: 4
+  m_ChildAlignment: 0
   m_StartCorner: 1
   m_StartAxis: 0
-  m_CellSize: {x: 80, y: 80}
-  m_Spacing: {x: 15, y: 0}
-  m_Constraint: 1
-  m_ConstraintCount: 4
+  m_CellSize: {x: 60, y: 60}
+  m_Spacing: {x: 8, y: 0}
+  m_Constraint: 2
+  m_ConstraintCount: 1
 --- !u!1 &8778506309083286406
 GameObject:
   m_ObjectHideFlags: 0
