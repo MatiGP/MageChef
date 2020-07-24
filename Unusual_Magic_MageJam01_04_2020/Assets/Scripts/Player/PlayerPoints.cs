@@ -12,7 +12,7 @@ public class PlayerPoints : MonoBehaviour
     {
         public int points;
     }
-    int points;
+    [SerializeField] int points;
 
 
     private void Awake()

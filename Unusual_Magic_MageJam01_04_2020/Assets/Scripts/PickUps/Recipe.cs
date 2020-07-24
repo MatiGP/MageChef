@@ -16,6 +16,12 @@ public class Recipe : ScriptableObject, ISellable
     public void Sell(GameObject player)
     {
         player.GetComponent<PlayerAbilities>().AddNewRecipe(this);
+        
+    }
+
+    public Sprite GetIcon()
+    {
+        return recipeIcon;
     }
 }
 [System.Serializable]

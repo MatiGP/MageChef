@@ -7,6 +7,11 @@ public class Spice : ScriptableObject, ISellable
     public string spiceName;
     public Sprite spiceIcon;
 
+    public Sprite GetIcon()
+    {
+        return spiceIcon;
+    }
+
     public void Sell(GameObject player)
     {
         player.GetComponent<PlayerAbilities>().AddNewSpice(this);
