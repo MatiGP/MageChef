@@ -197,6 +197,7 @@ public class PlayerController : MonoBehaviour
             transform.parent = null;
         }
     }
+
     public void SpellCraft(bool value)
     {
         isSpellcrafting = value;
@@ -220,7 +221,6 @@ public class PlayerController : MonoBehaviour
         rb2d.isKinematic = false;
         EnableMovement();
         transform.rotation = Quaternion.Euler(0, 0, 0);
-        rb2d.velocity = new Vector2(rb2d.velocity.x, 7);
         GetComponent<CapsuleCollider2D>().isTrigger = false;
         isSwinging = false;
         Jump();
