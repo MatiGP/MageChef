@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicAttack : MonoBehaviour
+public class BasicAttack : MonoBehaviour, IProjectile
 {
     [SerializeField] float cookieTravelSpeed;
     [SerializeField] float cookieLifeTime;
@@ -37,16 +37,17 @@ public class BasicAttack : MonoBehaviour
         if(collision.tag == "Enemy")
         {
             collision.GetComponent<Health>().TakeDamage();
-            DestroyCookie();
+            DestroyProjectile();
 
-        }else if(collision.tag == "Colliders")
+        }
+        else if(collision.tag == "Colliders")
         {
-            DestroyCookie();
+            DestroyProjectile();
         }
         
     }
 
-    void DestroyCookie()
+    public void DestroyProjectile()
     {
         AudioSource.PlayClipAtPoint(onHitSource.clip, transform.position);
         Destroy(gameObject);

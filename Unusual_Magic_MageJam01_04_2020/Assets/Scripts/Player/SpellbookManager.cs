@@ -31,7 +31,7 @@ public class SpellbookManager : MonoBehaviour
         foreach (Spice s in ownedSpices.Keys)
         {
             spellbookSpices[i].gameObject.SetActive(true);
-            spellbookSpices[i].SetUpSpice(s);
+            spellbookSpices[i].SetUpSpice(s, ownedSpices[s]);
             i++;
         }
         for (int j = i; j < spellbookSpices.Length; j++)

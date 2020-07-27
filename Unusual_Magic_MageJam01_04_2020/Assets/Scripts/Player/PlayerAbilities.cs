@@ -52,6 +52,7 @@ public class PlayerAbilities : MonoBehaviour
     [SerializeField] GameObject cookingPot;
     [SerializeField] AudioSource spellCompletedAudioSource;
     [SerializeField] AudioSource spiceChangedAudioSource;
+    [SerializeField] AudioSource spellFailedAudioSource;
 
     PlayerController pc;
 
@@ -155,7 +156,7 @@ public class PlayerAbilities : MonoBehaviour
             }
 
         }
-        // sprawdzam czy wszystkie 3 elementy mają wartość. Jeśli tak, zrób spell, jeśli nie, nic nie rób.
+
         if (Input.GetKeyDown(KeyCode.R) && isSpellCrafting)
         {
             for (int i = 0; i < 3; i++)
@@ -170,8 +171,23 @@ public class PlayerAbilities : MonoBehaviour
             {
                 if (CheckForCorrectRecipe(recipe))
                 {
-                    OnSpellCrafted?.Invoke(this, new OnSpellCraftedArgs() { recipe = recipe });
-                    break;
+
+                    if (CheckForCorrectAmountOfSpices(recipe))
+                    {
+                        OnSpellCrafted?.Invoke(this, new OnSpellCraftedArgs() { recipe = recipe });
+                        foreach(Ingredient ingredient in recipe.ingredients)
+                        {
+                            ownedSpices[ingredient.requiredSpice] -= ingredient.requiredAmount;
+                        }
+
+                        break;
+                    }
+                    else
+                    {
+                        spellFailedAudioSource.Play();
+                        break;
+                    }
+                    
                 }
             }
 
@@ -192,24 +208,35 @@ public class PlayerAbilities : MonoBehaviour
         return true;
     }
 
+    private bool CheckForCorrectAmountOfSpices(Recipe recipe)
+    {
+        foreach(Ingredient ingredient in recipe.ingredients)
+        {
+            if(ownedSpices[ingredient.requiredSpice] < ingredient.requiredAmount)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public bool HasSpice(Spice spice)
     {
-        //Debug.Log("Checking . . .");
         return ownedSpices.ContainsKey(spice);
     }
 
     public void AddNewSpice(Spice spice)
     {
-        //Debug.Log("I found " + spice.spiceName);
         ownedSpices.Add(spice, 1);
         OnSpicePicked?.Invoke(this, new OnSpicePickedUp { spiceIcon = spice.spiceIcon, spiceName = spice.spiceName });
     }
 
     public void AddSpice(Spice spice)
     {
-        //Debug.Log("I found " + spice.spiceName + " before I had " + ownedSpices[spice]);
         ownedSpices[spice]++;
-        //Debug.Log("Now, I have " + ownedSpices[spice] + " of " + spice.spiceName);
+        OnSpicePicked?.Invoke(this, new OnSpicePickedUp { spiceIcon = spice.spiceIcon, spiceName = spice.spiceName });
+
     }
 
     void GetSpices()
