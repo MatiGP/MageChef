@@ -18,11 +18,11 @@ MonoBehaviour:
     type: 3}
   ingredients:
   - requiredSpice: {fileID: 11400000, guid: 60cf93fccc1c2ae41b2a55a4c91b125c, type: 2}
-    requiredAmount: 0
+    requiredAmount: 1
   - requiredSpice: {fileID: 11400000, guid: ee7fe7c23df043744a47f286da8c6531, type: 2}
-    requiredAmount: 0
+    requiredAmount: 1
   - requiredSpice: {fileID: 11400000, guid: e3115765055cc084bb9959a39052441f, type: 2}
-    requiredAmount: 0
+    requiredAmount: 1
   result: {fileID: 7315646364583652439, guid: f415c3f1fb08e91468409a539c4e905f, type: 3}
   cooldown: 0.7
   slot: 2

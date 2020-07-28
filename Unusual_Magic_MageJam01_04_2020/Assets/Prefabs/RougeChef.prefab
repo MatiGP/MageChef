@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 7587019247837264674}
   - component: {fileID: 50344309558585629}
   - component: {fileID: -2346387102966080451}
+  - component: {fileID: 8347277607589039856}
   m_Layer: 12
   m_Name: RougeChef
   m_TagString: Enemy
@@ -595,6 +596,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8347277607589039856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154614616637674083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a3779577baa224b8d58946c7fa17ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spiceToDrop:
+  - {fileID: 11400000, guid: e0d1f3b210ae307439ad8d4b081088f9, type: 2}
+  - {fileID: 11400000, guid: 98f25fabc6ffb414eaaf9184c97bf524, type: 2}
+  - {fileID: 11400000, guid: 961bbbb4a1a124f44af059bf896c36dd, type: 2}
+  - {fileID: 11400000, guid: bbee74b6f474f274abb0336443fff206, type: 2}
+  - {fileID: 11400000, guid: f7efe2efa880f8c4eaf2e6e1fb99888e, type: 2}
+  drop: {fileID: 5960634478871636592, guid: 1b5c47ccd0deebd4d970c3fe677bfc7d, type: 3}
+  particleEffect: {fileID: 377902026002734050, guid: 1127f75a892dd824f86236b2e29a12f6,
+    type: 3}
 --- !u!1 &154614616830291729
 GameObject:
   m_ObjectHideFlags: 0

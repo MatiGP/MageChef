@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ExitLevel : MonoBehaviour
 {
     [SerializeField] int levelIndexToLoad;
+    [SerializeField] Animator levelTransitionAnimator;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,7 +14,17 @@ public class ExitLevel : MonoBehaviour
         {
             SaveSystem.instance.SaveState();
             SaveSystem.instance.ResetCheckpoint();
-            SceneManager.LoadScene(levelIndexToLoad);           
+            StartCoroutine(TransistionToNextLevel());           
         }
     }
+
+    IEnumerator TransistionToNextLevel()
+    {
+        levelTransitionAnimator.SetTrigger("startTransition");
+
+        yield return new WaitForSeconds(2.5f);
+
+        SceneManager.LoadScene(levelIndexToLoad);
+    }
+
 }

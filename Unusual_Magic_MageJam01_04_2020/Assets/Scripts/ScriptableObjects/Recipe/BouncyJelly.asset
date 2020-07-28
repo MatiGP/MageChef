@@ -18,7 +18,7 @@ MonoBehaviour:
     type: 3}
   ingredients:
   - requiredSpice: {fileID: 11400000, guid: bbee74b6f474f274abb0336443fff206, type: 2}
-    requiredAmount: 2
+    requiredAmount: 1
   - requiredSpice: {fileID: 11400000, guid: 212bca95e19247142975aa0605b4c4db, type: 2}
     requiredAmount: 1
   - requiredSpice: {fileID: 11400000, guid: e0d1f3b210ae307439ad8d4b081088f9, type: 2}

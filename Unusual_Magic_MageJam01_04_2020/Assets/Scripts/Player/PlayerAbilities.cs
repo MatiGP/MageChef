@@ -179,7 +179,11 @@ public class PlayerAbilities : MonoBehaviour
                         {
                             ownedSpices[ingredient.requiredSpice] -= ingredient.requiredAmount;
                         }
-
+                        foreach(Spice s in ownedSpices.Keys)
+                        {
+                            OnSpicePicked?.Invoke(this, new OnSpicePickedUp { spiceIcon = s.spiceIcon, spiceName = s.spiceName });
+                        }
+                        spellCompletedAudioSource.Play();
                         break;
                     }
                     else
@@ -204,7 +208,6 @@ public class PlayerAbilities : MonoBehaviour
                 return false;
             }
         }
-        spellCompletedAudioSource.Play();
         return true;
     }
 

@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class SpiceHolder : MonoBehaviour
 {
+
     public Spice spice;
+
+    SpriteRenderer sr;
 
     private void Start()
     {
-        GetComponent<SpriteRenderer>().sprite = spice.spiceIcon;
+        sr = GetComponent<SpriteRenderer>();
+        sr.sprite = spice.spiceIcon;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -28,5 +32,11 @@ public class SpiceHolder : MonoBehaviour
 
             Destroy(gameObject);
         }
+    }
+
+    public void SetUpSpice(Spice spice)
+    {
+        sr.sprite = spice.spiceIcon;
+        this.spice = spice;
     }
 }

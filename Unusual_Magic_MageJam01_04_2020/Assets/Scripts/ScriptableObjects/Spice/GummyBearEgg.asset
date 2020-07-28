@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 113a5a1d5ead21248832d8a3231283b3, type: 3}
   m_Name: GummyBearEgg
   m_EditorClassIdentifier: 
-  spiceName: GummyBearEgg
+  spiceName: Jajko Zelkowego Misia
   spiceIcon: {fileID: -4650653517383196531, guid: 869149cdc85d2124ba2cdf119677223d,
     type: 3}
