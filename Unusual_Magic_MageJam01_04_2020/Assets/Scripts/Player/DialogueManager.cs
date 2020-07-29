@@ -9,16 +9,17 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public float typeTime = 0.04f;
-   
 
-    public event EventHandler OnDialogueEnded;
-
-    [SerializeField] PlayerController playerController;
-    [SerializeField] Animator animator;
+    public event EventHandler OnDialogueEnded;    
 
     public static DialogueManager instance;
 
+    [SerializeField] PlayerController playerController;
+    [SerializeField] Animator animator;
     Queue<string> sentences;
+
+    bool typingSentence;
+    string currentSentence;
 
     private void Awake()
     {
@@ -51,19 +52,32 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        if(sentences.Count == 0)
+        if (sentences.Count == 0 && !typingSentence)
         {
             EndDialogue();
             return;
         }
+        
+        if (!typingSentence)
+        {
+            currentSentence = sentences.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(currentSentence));
+        }
+        else
+        {
+            StopAllCoroutines();
+            dialogueText.text = currentSentence;
+            typingSentence = false;
+        }
 
-        string sentence = sentences.Dequeue();
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        
+        
     }
 
     IEnumerator TypeSentence(string sentence)
     {
+        typingSentence = true;
         dialogueText.text = "";
 
         foreach(char letter in sentence.ToCharArray())
@@ -71,6 +85,7 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text += letter;
             yield return new WaitForSeconds(typeTime);
         }
+        typingSentence = false;
     }
 
     public void EndDialogue()

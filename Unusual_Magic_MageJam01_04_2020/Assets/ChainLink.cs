@@ -152,7 +152,7 @@ public class ChainLink : MonoBehaviour
         {
             c2d.attachedRigidbody.angularDrag = 99999f;
         }
-        yield return new WaitForSeconds(1.4f);
+        yield return new WaitForSeconds(1.8f);
 
         foreach (Collider2D c2d in collider2Ds)
         {

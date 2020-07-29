@@ -254,9 +254,25 @@ public class PlayerAbilities : MonoBehaviour
 
     public void AddNewRecipe(Recipe recipe)
     {
-        unlockedRecipes[numOfRecipe] = recipe;
-        numOfRecipe++;
-        OnRecipeCollected?.Invoke(this, new OnRecipeCollectedArgs() { recipe = recipe });
+        if (!HasRecipe(recipe))
+        {
+            unlockedRecipes[numOfRecipe] = recipe;
+            numOfRecipe++;
+            OnRecipeCollected?.Invoke(this, new OnRecipeCollectedArgs() { recipe = recipe });
+        }
+    }
+
+    bool HasRecipe(Recipe recipe)
+    {
+        foreach(Recipe r in unlockedRecipes)
+        {
+            if(r == recipe)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public Dictionary<Spice, int> GetOwnedSpices()

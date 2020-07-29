@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 8457306579748269430}
   - component: {fileID: -8571435606359916344}
   - component: {fileID: 2708760090098882264}
+  - component: {fileID: 4690687526199661880}
   m_Layer: 12
   m_Name: RougeCupcake
   m_TagString: Enemy
@@ -458,6 +459,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4690687526199661880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8457306579748269439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a3779577baa224b8d58946c7fa17ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spiceToDrop:
+  - {fileID: 11400000, guid: ee7fe7c23df043744a47f286da8c6531, type: 2}
+  - {fileID: 11400000, guid: 98f25fabc6ffb414eaaf9184c97bf524, type: 2}
+  - {fileID: 11400000, guid: b4c7e65a54a3be64481619d5ee89a3ba, type: 2}
+  - {fileID: 11400000, guid: e3115765055cc084bb9959a39052441f, type: 2}
+  - {fileID: 11400000, guid: d94a44d59b5ba714b9134739ae05a24a, type: 2}
+  - {fileID: 11400000, guid: 22f5af1c2c1fff94aa1af37af8eff53a, type: 2}
+  drop: {fileID: 5960634478871636592, guid: 1b5c47ccd0deebd4d970c3fe677bfc7d, type: 3}
+  particleEffect: {fileID: 377902026002734050, guid: 1127f75a892dd824f86236b2e29a12f6,
+    type: 3}
 --- !u!1 &8457306580021701625
 GameObject:
   m_ObjectHideFlags: 0

@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 1121825116241490063}
   - component: {fileID: 1000784120272187543}
   - component: {fileID: 2928319393967004440}
+  - component: {fileID: 2172928702777437262}
   m_Layer: 12
   m_Name: CookieEater2_0
   m_TagString: Enemy
@@ -454,6 +455,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05c5f2562320964a91cbeeffc0e3057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2172928702777437262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8893717681048578518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a3779577baa224b8d58946c7fa17ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spiceToDrop:
+  - {fileID: 11400000, guid: e0d1f3b210ae307439ad8d4b081088f9, type: 2}
+  - {fileID: 11400000, guid: 8a3d3ee14b8dc17418a63c71cc448df8, type: 2}
+  - {fileID: 11400000, guid: 98f25fabc6ffb414eaaf9184c97bf524, type: 2}
+  - {fileID: 11400000, guid: 961bbbb4a1a124f44af059bf896c36dd, type: 2}
+  - {fileID: 11400000, guid: 61df0e4c06fd12a4695e872eac5cf53a, type: 2}
+  - {fileID: 11400000, guid: 09c15bf69cffb624ca9eb8f7b8c2dd27, type: 2}
+  drop: {fileID: 5960634478871636592, guid: 1b5c47ccd0deebd4d970c3fe677bfc7d, type: 3}
+  particleEffect: {fileID: 377902026002734050, guid: 1127f75a892dd824f86236b2e29a12f6,
+    type: 3}
 --- !u!1 &8893717681586730854
 GameObject:
   m_ObjectHideFlags: 0

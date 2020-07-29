@@ -9,7 +9,7 @@ public class SpiceHolder : MonoBehaviour
 
     SpriteRenderer sr;
 
-    private void Start()
+    private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
         sr.sprite = spice.spiceIcon;

@@ -245,7 +245,6 @@ GameObject:
   - component: {fileID: 1011167817837251134}
   - component: {fileID: 1011167817837251133}
   - component: {fileID: 8039661226905154879}
-  - component: {fileID: 7876880429483590844}
   m_Layer: 0
   m_Name: PlayerCam
   m_TagString: Untagged
@@ -319,18 +318,6 @@ MonoBehaviour:
   shakeAmplitude: 1.2
   shakeFrequency: 2
   vcam: {fileID: 1011167817837251133}
---- !u!114 &7876880429483590844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011167817837251135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4252712945181301352
 GameObject:
   m_ObjectHideFlags: 0

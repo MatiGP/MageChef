@@ -1,9 +1,19 @@
 ﻿using UnityEngine.SceneManagement;
 using UnityEngine;
+using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] Save save;
+    [SerializeField] Save[] save;
+    [SerializeField] TextMeshProUGUI startText;
+
+    int currentSave;
+
+    private void Awake()
+    {
+        currentSave = PlayerPrefs.GetInt("selectedLevel");
+
+    }
 
     public void CloseGame()
     {
@@ -12,9 +22,9 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        if(save.level != 0)
+        if(save[currentSave].level != 0)
         {
-            SceneManager.LoadScene(save.level);
+            SceneManager.LoadScene(save[currentSave].level);
         }
         else
         {
