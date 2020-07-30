@@ -6,6 +6,7 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] Save[] save;
     [SerializeField] TextMeshProUGUI startText;
+    [SerializeField] GameObject newGameButton;
 
     int currentSaveIndex;
 
@@ -16,10 +17,12 @@ public class MenuManager : MonoBehaviour
         if(save[currentSaveIndex].level != 0)
         {
             startText.text = "Kontynuuj";
+            newGameButton.SetActive(true);
         }
         else
         {
             startText.text = "Nowa gra";
+            newGameButton.SetActive(false);
         }
 
     }
@@ -39,5 +42,12 @@ public class MenuManager : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }       
+    }
+
+    public void StartNewGame()
+    {
+        save[currentSaveIndex].level = 0;
+        save[currentSaveIndex].SaveFile(currentSaveIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

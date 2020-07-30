@@ -9,9 +9,10 @@ public class PointsUpdater : MonoBehaviour
     [SerializeField]TextMeshProUGUI pointText;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         playerPoints.OnPointsAdded += Points_OnPointsAdded;
+        pointText.text = playerPoints.GetPoints().ToString();
     }
 
     private void Points_OnPointsAdded(object sender, PlayerPoints.OnPointsAddedArgs e)

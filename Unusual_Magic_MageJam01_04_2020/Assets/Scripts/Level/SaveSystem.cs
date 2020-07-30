@@ -30,31 +30,30 @@ public class SaveSystem : MonoBehaviour
 
         save[currentSaveIndex].ownedSpices = player.GetComponent<PlayerAbilities>().GetOwnedSpices();
         save[currentSaveIndex].craftedSpells = player.GetComponent<PlayerAbilitiesManager>().GetOwnedSpells();
-        save[currentSaveIndex].level = SceneManager.GetActiveScene().buildIndex;
+        save[currentSaveIndex].level = SceneManager.GetActiveScene().buildIndex+1;
         save[currentSaveIndex].maxHealth = player.GetComponent<Health>().GetMaxHealth();
-        save[currentSaveIndex].SetListOfSpices();
-        save[currentSaveIndex].SetListOfSpiceAmount();
-
-        string jsonString = JsonUtility.ToJson(save[currentSaveIndex], true);
-        File.WriteAllText(Application.persistentDataPath + "/Save" + currentSaveIndex + ".json", jsonString);
+        save[currentSaveIndex].SaveFile(currentSaveIndex);       
     } 
 
     public void LoadState()
     {
-        Save currentSave = new Save();
-        JsonUtility.FromJsonOverwrite(File.ReadAllText(Application.persistentDataPath + "/Save" + currentSaveIndex + ".json"), currentSave);
+        SaveFile currentSave = new SaveFile();
+        //JsonUtility.FromJsonOverwrite(File.ReadAllText(Application.persistentDataPath + "/Save" + i + ".json"), currentSave);
+        currentSave = JsonUtility.FromJson<SaveFile>(File.ReadAllText(Application.persistentDataPath + "/Save" + currentSaveIndex + ".json"));
+
 
         save[currentSaveIndex].listOfSpiceAmount = currentSave.listOfSpiceAmount;
-        save[currentSaveIndex].listOfSpices = currentSave.listOfSpices;
-        save[currentSaveIndex].CreateDictionary();
         save[currentSaveIndex].currentPoints = currentSave.currentPoints;
         save[currentSaveIndex].health = currentSave.health;
 
         save[currentSaveIndex].ownedRecipes = new Recipe[8];
         save[currentSaveIndex].ownedRecipes = currentSave.ownedRecipes;
-
         save[currentSaveIndex].ownedSpices = currentSave.ownedSpices;
         save[currentSaveIndex].craftedSpells = currentSave.craftedSpells;
+        
+        save[currentSaveIndex].listOfSpices = currentSave.listOfSpices;
+        save[currentSaveIndex].CreateDictionary();
+     
         save[currentSaveIndex].level = currentSave.level;
         save[currentSaveIndex].maxHealth = currentSave.maxHealth;
 
