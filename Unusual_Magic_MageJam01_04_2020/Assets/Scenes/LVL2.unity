@@ -85181,7 +85181,7 @@ PrefabInstance:
     - target: {fileID: 7414057769672113408, guid: 7648ac72c06e50b43a42cc632bedfd0d,
         type: 3}
       propertyPath: barrierRotateSpeed
-      value: 150
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 7414057769672113409, guid: 7648ac72c06e50b43a42cc632bedfd0d,
         type: 3}

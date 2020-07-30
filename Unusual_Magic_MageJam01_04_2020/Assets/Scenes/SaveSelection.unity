@@ -995,7 +995,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1815525980}
-        m_MethodName: SetSlot
+        m_MethodName: SelectSave
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1348,7 +1348,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1815525980}
-        m_MethodName: SetSlot
+        m_MethodName: SelectSave
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1483,6 +1483,7 @@ GameObject:
   - component: {fileID: 1815525977}
   - component: {fileID: 1815525976}
   - component: {fileID: 1815525980}
+  - component: {fileID: 1815525981}
   m_Layer: 5
   m_Name: SaveSelection
   m_TagString: Untagged
@@ -1587,7 +1588,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1615,6 +1616,22 @@ MonoBehaviour:
   - {fileID: 1555266962}
   - {fileID: 1854571953}
   - {fileID: 571159726}
+--- !u!114 &1815525981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815525974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b70217eb8abf45d4a9c7e426e957bac2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saves:
+  - {fileID: 11400000, guid: 92350ab9a1d8c744db86157d4686e0fb, type: 2}
+  - {fileID: 11400000, guid: 104b767a40436fb4eadf47e5adaed6d6, type: 2}
+  - {fileID: 11400000, guid: 68b33eff6c25cec459c1e25c6e13c787, type: 2}
 --- !u!1 &1854571950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1773,7 +1790,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1815525980}
-        m_MethodName: SetSlot
+        m_MethodName: SelectSave
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

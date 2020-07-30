@@ -7,11 +7,20 @@ public class MenuManager : MonoBehaviour
     [SerializeField] Save[] save;
     [SerializeField] TextMeshProUGUI startText;
 
-    int currentSave;
+    int currentSaveIndex;
 
     private void Awake()
     {
-        currentSave = PlayerPrefs.GetInt("selectedLevel");
+        currentSaveIndex = PlayerPrefs.GetInt("selectedLevel");
+
+        if(save[currentSaveIndex].level != 0)
+        {
+            startText.text = "Kontynuuj";
+        }
+        else
+        {
+            startText.text = "Nowa gra";
+        }
 
     }
 
@@ -22,13 +31,13 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        if(save[currentSave].level != 0)
+        if(save[currentSaveIndex].level != 0)
         {
-            SceneManager.LoadScene(save[currentSave].level);
+            SceneManager.LoadScene(save[currentSaveIndex].level);
         }
         else
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }       
     }
 }

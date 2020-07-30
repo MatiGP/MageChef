@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -306,7 +306,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab2980e994060f448934aadf79948922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  save: {fileID: 11400000, guid: 92350ab9a1d8c744db86157d4686e0fb, type: 2}
+  save:
+  - {fileID: 11400000, guid: 92350ab9a1d8c744db86157d4686e0fb, type: 2}
+  - {fileID: 11400000, guid: 104b767a40436fb4eadf47e5adaed6d6, type: 2}
+  - {fileID: 11400000, guid: 68b33eff6c25cec459c1e25c6e13c787, type: 2}
+  startText: {fileID: 1090282949}
 --- !u!4 &196137335
 Transform:
   m_ObjectHideFlags: 0
@@ -653,7 +657,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

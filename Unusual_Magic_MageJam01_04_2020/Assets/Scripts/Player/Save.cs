@@ -13,4 +13,44 @@ public class Save : ScriptableObject
     public Recipe[] craftedSpells = new Recipe[3];
 
     public Vector3? checkPoint;
+
+    public List<Spice> listOfSpices;
+    public List<int> listOfSpiceAmount;
+
+    public void SetListOfSpices()
+    {
+        listOfSpices = new List<Spice>();
+
+        foreach(Spice s in ownedSpices.Keys)
+        {
+            listOfSpices.Add(s);
+        }
+    }
+
+    public void SetListOfSpiceAmount()
+    {
+        listOfSpiceAmount = new List<int>();
+
+        foreach (Spice s in ownedSpices.Keys)
+        {
+            listOfSpiceAmount.Add(ownedSpices[s]);
+        }
+   
+    }
+
+    public void CreateDictionary()
+    {
+        Dictionary<Spice, int> tempDict = new Dictionary<Spice, int>();
+        tempDict.Clear();
+        int tempInt = 0;
+        foreach (Spice s in listOfSpices)
+        {
+            tempDict.Add(s, listOfSpiceAmount[tempInt]);
+            tempInt++;
+        }
+
+        ownedSpices = tempDict;
+    }
+
+
 }
