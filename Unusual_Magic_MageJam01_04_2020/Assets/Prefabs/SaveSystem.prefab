@@ -43,6 +43,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96eab1adbc9496e44a1f57991fe03b17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listOfRecipes:
+  - {fileID: 11400000, guid: dfc7555c4b7abde46a4014c84428d338, type: 2}
+  - {fileID: 11400000, guid: f9ea829e60c261244aa1a27107aedc9e, type: 2}
+  - {fileID: 11400000, guid: ba15858a75359db4cb105a94b473afd5, type: 2}
+  - {fileID: 11400000, guid: 90284316ab6ff5d41b4006e9fa7572d3, type: 2}
+  - {fileID: 11400000, guid: 01a3dba8d13a6bc429dc9f39d2bfdc5d, type: 2}
+  - {fileID: 11400000, guid: bf935f93535ccc54cb9917050da8f82c, type: 2}
+  listOfSpices:
+  - {fileID: 11400000, guid: 8a3d3ee14b8dc17418a63c71cc448df8, type: 2}
+  - {fileID: 11400000, guid: e0d1f3b210ae307439ad8d4b081088f9, type: 2}
+  - {fileID: 11400000, guid: ee7fe7c23df043744a47f286da8c6531, type: 2}
+  - {fileID: 11400000, guid: 98f25fabc6ffb414eaaf9184c97bf524, type: 2}
+  - {fileID: 11400000, guid: 09c15bf69cffb624ca9eb8f7b8c2dd27, type: 2}
+  - {fileID: 11400000, guid: 61df0e4c06fd12a4695e872eac5cf53a, type: 2}
+  - {fileID: 11400000, guid: d94a44d59b5ba714b9134739ae05a24a, type: 2}
+  - {fileID: 11400000, guid: bbee74b6f474f274abb0336443fff206, type: 2}
+  - {fileID: 11400000, guid: 961bbbb4a1a124f44af059bf896c36dd, type: 2}
+  - {fileID: 11400000, guid: 60cf93fccc1c2ae41b2a55a4c91b125c, type: 2}
+  - {fileID: 11400000, guid: b4c7e65a54a3be64481619d5ee89a3ba, type: 2}
+  - {fileID: 11400000, guid: e3115765055cc084bb9959a39052441f, type: 2}
+  - {fileID: 11400000, guid: 22f5af1c2c1fff94aa1af37af8eff53a, type: 2}
+  - {fileID: 11400000, guid: 212bca95e19247142975aa0605b4c4db, type: 2}
+  - {fileID: 11400000, guid: f7efe2efa880f8c4eaf2e6e1fb99888e, type: 2}
   player: {fileID: 5030381926475723132, guid: 750b9699ba311f649b29e5779973249b, type: 3}
   save:
   - {fileID: 11400000, guid: 92350ab9a1d8c744db86157d4686e0fb, type: 2}

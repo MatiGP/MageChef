@@ -35,11 +35,12 @@ public class MenuManager : MonoBehaviour
     public void StartGame()
     {
         if(save[currentSaveIndex].level != 0)
-        {
+        {           
             SceneManager.LoadScene(save[currentSaveIndex].level);
         }
         else
         {
+            save[currentSaveIndex].SaveFile(currentSaveIndex);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }       
     }

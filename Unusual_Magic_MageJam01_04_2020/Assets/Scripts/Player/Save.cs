@@ -33,6 +33,16 @@ public class Save : ScriptableObject
         ownedSpices = tempDict;
     }
 
+    public void SetListOfSpiceAmmount()
+    {
+        listOfSpiceAmount = new List<int>();
+
+        foreach(Spice s in ownedSpices.Keys)
+        {
+            listOfSpiceAmount.Add(ownedSpices[s]);
+        }
+    }
+
     public void ResetSave()
     {
         level = 0;
@@ -57,19 +67,29 @@ public class Save : ScriptableObject
         file.craftedSpellIDs = new List<int>();
         foreach(Recipe r in craftedSpells)
         {
-            file.craftedSpellIDs.Add(r.ID);
+            if(r != null)
+            {
+                file.craftedSpellIDs.Add(r.ID);
+            }
+            
         }
 
         file.ownedRecipesIDs = new List<int>();
         foreach(Recipe r in ownedRecipes)
         {
-            file.ownedRecipesIDs.Add(r.ID);
+            if(r != null)
+            {
+                file.ownedRecipesIDs.Add(r.ID);
+            }           
         }
 
         file.listOfSpiceIDs = new List<int>();
         foreach(Spice s in ownedSpices.Keys)
         {
-            file.listOfSpiceIDs.Add(s.ID);
+            if(s != null)
+            {
+                file.listOfSpiceIDs.Add(s.ID);
+            }          
         }
 
         file.health = health;

@@ -34,6 +34,8 @@ public class SaveSystem : MonoBehaviour
         save[currentSaveIndex].craftedSpells = player.GetComponent<PlayerAbilitiesManager>().GetOwnedSpells();
         save[currentSaveIndex].level = SceneManager.GetActiveScene().buildIndex+1;
         save[currentSaveIndex].maxHealth = player.GetComponent<Health>().GetMaxHealth();
+        save[currentSaveIndex].SetListOfSpiceAmmount();
+
         save[currentSaveIndex].SaveFile(currentSaveIndex);       
     } 
 
