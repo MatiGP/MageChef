@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="NewSpice", menuName ="New Spice")]
 public class Spice : ScriptableObject, ISellable
 {
+    public int ID;
     public string spiceName;
     public Sprite spiceIcon;
 

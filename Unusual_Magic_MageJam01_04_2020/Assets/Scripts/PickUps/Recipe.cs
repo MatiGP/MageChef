@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Recipe", menuName = "New Recipe")]
 public class Recipe : ScriptableObject, ISellable
 {
+    public int ID;
     public Sprite recipeIcon;
     public Sprite spellbookRecipeIcon;
     public Ingredient[] ingredients = new Ingredient[3];

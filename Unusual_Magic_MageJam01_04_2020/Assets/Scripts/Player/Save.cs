@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 [CreateAssetMenu(fileName ="NewSave", menuName ="Create New Save")]
-[System.Serializable]
 public class Save : ScriptableObject
 {
     public int level;
     public int currentPoints = 0;
-    public Recipe[] ownedRecipes = new Recipe[8];
-    public Dictionary<Spice, int> ownedSpices = new Dictionary<Spice, int>();
     public int health = 4;
     public int maxHealth = 4;
+    public Recipe[] ownedRecipes = new Recipe[8];
     public Recipe[] craftedSpells = new Recipe[3];
 
-    public Vector3? checkPoint;
+    public Dictionary<Spice, int> ownedSpices = new Dictionary<Spice, int>();
 
-    public List<Spice> listOfSpices = new List<Spice>();
-    public List<int> listOfSpiceAmount = new List<int>();   
+    public List<Spice> listOfSpices;
+    public List<int> listOfSpiceAmount;
+
+    public Vector3? checkPoint;  
 
     public void CreateDictionary()
     {
@@ -33,16 +33,47 @@ public class Save : ScriptableObject
         ownedSpices = tempDict;
     }
 
+    public void ResetSave()
+    {
+        level = 0;
+        currentPoints = 0;
+        health = 4;
+        maxHealth = 4;
+        ownedRecipes = new Recipe[8];
+        craftedSpells = new Recipe[3];
+
+        ownedSpices = new Dictionary<Spice, int>();
+
+        listOfSpices = new List<Spice>();
+        listOfSpiceAmount = new List<int>();
+    }
+
     public void SaveFile(int num)
     {
         SaveFile file = new SaveFile();
         file.level = level;
         file.currentPoints = currentPoints;
-        file.ownedRecipes = ownedRecipes;
+
+        file.craftedSpellIDs = new List<int>();
+        foreach(Recipe r in craftedSpells)
+        {
+            file.craftedSpellIDs.Add(r.ID);
+        }
+
+        file.ownedRecipesIDs = new List<int>();
+        foreach(Recipe r in ownedRecipes)
+        {
+            file.ownedRecipesIDs.Add(r.ID);
+        }
+
+        file.listOfSpiceIDs = new List<int>();
+        foreach(Spice s in ownedSpices.Keys)
+        {
+            file.listOfSpiceIDs.Add(s.ID);
+        }
+
         file.health = health;
-        file.maxHealth = maxHealth;
-        file.craftedSpells = craftedSpells;
-        file.listOfSpices = listOfSpices;
+        file.maxHealth = maxHealth;       
         file.listOfSpiceAmount = listOfSpiceAmount;
 
         string jsonString = JsonUtility.ToJson(file, true);
@@ -52,17 +83,15 @@ public class Save : ScriptableObject
     }
 
 }
-
+[System.Serializable]
 public class SaveFile
 {
     public int level;
     public int currentPoints = 0;
-    public Recipe[] ownedRecipes = new Recipe[8];
-    public Dictionary<Spice, int> ownedSpices = new Dictionary<Spice, int>();
+    public List<int> ownedRecipesIDs;
     public int health = 4;
     public int maxHealth = 4;
-    public Recipe[] craftedSpells = new Recipe[3];
-
-    public List<Spice> listOfSpices = new List<Spice>();
-    public List<int> listOfSpiceAmount = new List<int>();
+    public List<int> craftedSpellIDs;
+    public List<int> listOfSpiceIDs;
+    public List<int> listOfSpiceAmount;
 }

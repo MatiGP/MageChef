@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8f46800db5f8f49be00f23383807cf, type: 3}
   m_Name: Croissaint
   m_EditorClassIdentifier: 
+  ID: 5
   recipeIcon: {fileID: -1485142140862583991, guid: 80dd7cfc3c8366747b58bf20d7b0bdc9,
     type: 3}
   spellbookRecipeIcon: {fileID: -7215383298962553948, guid: 80dd7cfc3c8366747b58bf20d7b0bdc9,

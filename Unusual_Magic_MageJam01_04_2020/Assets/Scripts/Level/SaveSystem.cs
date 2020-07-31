@@ -8,11 +8,13 @@ public class SaveSystem : MonoBehaviour
 {
     public static SaveSystem instance;
 
+    [SerializeField] List<Recipe> listOfRecipes;
+    [SerializeField] List<Spice> listOfSpices;
     [SerializeField] GameObject player;
 
     [SerializeField] Save[] save;
     int currentSaveIndex;
-
+    SaveFile currentSave;
     private void Awake()
     {
         instance = this;
@@ -37,21 +39,17 @@ public class SaveSystem : MonoBehaviour
 
     public void LoadState()
     {
-        SaveFile currentSave = new SaveFile();
-        //JsonUtility.FromJsonOverwrite(File.ReadAllText(Application.persistentDataPath + "/Save" + i + ".json"), currentSave);
+        currentSave = new SaveFile();        
         currentSave = JsonUtility.FromJson<SaveFile>(File.ReadAllText(Application.persistentDataPath + "/Save" + currentSaveIndex + ".json"));
 
-
+        save[currentSaveIndex].listOfSpices = GetSpicesFromID(currentSave.listOfSpiceIDs);
         save[currentSaveIndex].listOfSpiceAmount = currentSave.listOfSpiceAmount;
         save[currentSaveIndex].currentPoints = currentSave.currentPoints;
         save[currentSaveIndex].health = currentSave.health;
 
         save[currentSaveIndex].ownedRecipes = new Recipe[8];
-        save[currentSaveIndex].ownedRecipes = currentSave.ownedRecipes;
-        save[currentSaveIndex].ownedSpices = currentSave.ownedSpices;
-        save[currentSaveIndex].craftedSpells = currentSave.craftedSpells;
-        
-        save[currentSaveIndex].listOfSpices = currentSave.listOfSpices;
+        save[currentSaveIndex].ownedRecipes = GetRecipesFromID(currentSave.ownedRecipesIDs, 8);
+        save[currentSaveIndex].craftedSpells = GetRecipesFromID(currentSave.craftedSpellIDs, 3);
         save[currentSaveIndex].CreateDictionary();
      
         save[currentSaveIndex].level = currentSave.level;
@@ -108,4 +106,36 @@ public class SaveSystem : MonoBehaviour
     {
         save[currentSaveIndex].checkPoint = null;
     }
+
+    Recipe[] GetRecipesFromID(List<int> recipeIDs, int requiredLen)
+    {
+        Recipe[] tempRecipeArray = new Recipe[requiredLen];
+        int tempIndex = 0;
+
+        foreach(Recipe r in listOfRecipes)
+        {
+            if (recipeIDs.Contains(r.ID))
+            {
+                tempRecipeArray[tempIndex] = r;
+            }
+        }
+
+        return tempRecipeArray;
+    }
+
+    List<Spice> GetSpicesFromID(List<int> spiceIDs)
+    {
+        List<Spice> tempSpiceList = new List<Spice>();
+
+        foreach(Spice s in listOfSpices)
+        {
+            if (spiceIDs.Contains(s.ID))
+            {
+                tempSpiceList.Add(s);
+            }
+        }
+
+        return tempSpiceList;
+    }
+    
 }

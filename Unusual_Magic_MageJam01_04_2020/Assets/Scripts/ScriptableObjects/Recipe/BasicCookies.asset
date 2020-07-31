@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8f46800db5f8f49be00f23383807cf, type: 3}
   m_Name: BasicCookies
   m_EditorClassIdentifier: 
+  ID: 1
   recipeIcon: {fileID: 4971754101712542084, guid: d50b34af2126a2646b5d8278389aae08,
     type: 3}
   spellbookRecipeIcon: {fileID: -9107534847271234549, guid: 550dea58bef80974ba7ba6998ab3f2dc,

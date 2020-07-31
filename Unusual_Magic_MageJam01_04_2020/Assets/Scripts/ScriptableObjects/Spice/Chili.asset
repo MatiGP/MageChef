@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 113a5a1d5ead21248832d8a3231283b3, type: 3}
   m_Name: Chili
   m_EditorClassIdentifier: 
+  ID: 3
   spiceName: Chili
   spiceIcon: {fileID: 4578307246112262787, guid: 835c7aefbb432e840826d23c7d884799,
     type: 3}
