@@ -11,7 +11,8 @@ public class QuickTP : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            if(SceneManager.GetActiveScene().buildIndex + 1 > 11)
+            SaveSystem.instance.SaveState();
+            if (SceneManager.GetActiveScene().buildIndex + 1 > 15)
             {
                 SceneManager.LoadScene(0);
             }
