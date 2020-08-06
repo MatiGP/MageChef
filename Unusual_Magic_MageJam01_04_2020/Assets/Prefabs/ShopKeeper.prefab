@@ -1412,13 +1412,12 @@ PrefabInstance:
     - target: {fileID: 5044423080364748286, guid: 5477d03b0cbbb064dacef591f800feb8,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: "Witaj w moim sklepie! Rozejrzyj si\u0119, mo\u017Ce znajdziesz co\u015B
-        dla siebie."
+      value: Witaj w moim sklepie! Rozejrzyj sie, moze znajdziesz cos dla siebie.
       objectReference: {fileID: 0}
     - target: {fileID: 5044423080364748286, guid: 5477d03b0cbbb064dacef591f800feb8,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[2]
-      value: "Ale pami\u0119taj, \u017Ce zwrot\xF3w nie przyjmuj\u0119."
+      value: "Ale pami\u0119taj, ze zwrotow nie przyjmuje."
       objectReference: {fileID: 0}
     - target: {fileID: 5044423080364748286, guid: 5477d03b0cbbb064dacef591f800feb8,
         type: 3}

@@ -7,7 +7,7 @@ public class DeathMenu : MonoBehaviour
 {
     public void LoadCheckponit()
     {
-        SaveSystem.instance.LoadCheckpoint();
+        SaveSystem.instance.LoadState();
         gameObject.SetActive(false);
     }
 

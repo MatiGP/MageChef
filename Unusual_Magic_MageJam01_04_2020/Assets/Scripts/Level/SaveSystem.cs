@@ -32,7 +32,7 @@ public class SaveSystem : MonoBehaviour
 
         save[currentSaveIndex].ownedSpices = player.GetComponent<PlayerAbilities>().GetOwnedSpices();
         save[currentSaveIndex].craftedSpells = player.GetComponent<PlayerAbilitiesManager>().GetOwnedSpells();
-        save[currentSaveIndex].level = SceneManager.GetActiveScene().buildIndex+1;
+        save[currentSaveIndex].level = SceneManager.GetActiveScene().buildIndex;
         save[currentSaveIndex].maxHealth = player.GetComponent<Health>().GetMaxHealth();
         save[currentSaveIndex].SetListOfSpiceAmmount();
 
@@ -56,7 +56,14 @@ public class SaveSystem : MonoBehaviour
      
         save[currentSaveIndex].level = currentSave.level;
         save[currentSaveIndex].maxHealth = currentSave.maxHealth;
-
+        if(currentSave.lastPosition[0] != 0)
+        {
+            save[currentSaveIndex].checkPoint = new Vector3(currentSave.lastPosition[0], currentSave.lastPosition[1]);
+        }
+        else
+        {
+            save[currentSaveIndex].checkPoint = null;
+        }       
 
         player.gameObject.transform.parent = null;
         player.GetComponent<PlayerAbilities>().ResetRecipeCounter();
@@ -67,7 +74,7 @@ public class SaveSystem : MonoBehaviour
         player.GetComponent<PlayerAbilities>().SetDict(save[currentSaveIndex].ownedSpices);       
         player.GetComponent<PlayerAbilitiesManager>().SetSpells(save[currentSaveIndex].craftedSpells);
 
-
+        
 
         foreach (Recipe r in save[currentSaveIndex].ownedRecipes)
         {
@@ -79,14 +86,12 @@ public class SaveSystem : MonoBehaviour
         }
 
         player.GetComponentInChildren<UpdateSpellIcons>()?.SetSpellIcons();
-        
 
+        LoadCheckpoint();
     }
 
-    public void LoadCheckpoint()
-    {
-        LoadState();
-
+    void LoadCheckpoint()
+    {       
         if (save[currentSaveIndex].checkPoint.HasValue)
         {
             player.transform.position = (Vector3)save[currentSaveIndex].checkPoint;
@@ -97,6 +102,13 @@ public class SaveSystem : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+    }
+
+    public void FinishLevel()
+    {
+        save[currentSaveIndex].level += 1;
+        save[currentSaveIndex].checkPoint = null;
+        save[currentSaveIndex].SaveFile(currentSaveIndex);
     }
 
     public void SaveCheckpoint(Vector3 pos)

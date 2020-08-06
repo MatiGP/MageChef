@@ -95,6 +95,17 @@ public class Save : ScriptableObject
         file.health = health;
         file.maxHealth = maxHealth;       
         file.listOfSpiceAmount = listOfSpiceAmount;
+        if (checkPoint.HasValue)
+        {
+            file.lastPosition = new float[2];
+            file.lastPosition[0] = checkPoint.Value.x;
+            file.lastPosition[1] = checkPoint.Value.y;
+        }
+        else
+        {
+            file.lastPosition = new float[2];
+            file.lastPosition[0] = 0;
+        }
 
         string jsonString = JsonUtility.ToJson(file, true);
         File.WriteAllText(Application.persistentDataPath + "/Save" + num + ".json", jsonString);
@@ -114,4 +125,5 @@ public class SaveFile
     public List<int> craftedSpellIDs;
     public List<int> listOfSpiceIDs;
     public List<int> listOfSpiceAmount;
+    public float[] lastPosition = new float[2];
 }

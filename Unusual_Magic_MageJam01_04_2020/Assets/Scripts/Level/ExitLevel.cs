@@ -14,6 +14,8 @@ public class ExitLevel : MonoBehaviour
         {
             SaveSystem.instance.SaveState();
             SaveSystem.instance.ResetCheckpoint();
+            SaveSystem.instance.FinishLevel();
+            
             StartCoroutine(TransistionToNextLevel());           
         }
     }

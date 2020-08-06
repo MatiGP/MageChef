@@ -11,13 +11,16 @@ public class HealthPickUp : MonoBehaviour
         if(collision.tag == "Player")
         {
             Health playerHealth = collision.GetComponent<Health>();
-
+            
             if (playerHealth.GetHealthAmmount() < playerHealth.GetMaxHealth())
             {
                 playerHealth.RestoreHealth();
+                
                 hpPickUpSource.Play();
                 StartCoroutine(Disable());
             }
+
+            
             
         }
     }
