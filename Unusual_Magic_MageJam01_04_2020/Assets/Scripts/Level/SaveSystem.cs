@@ -56,15 +56,18 @@ public class SaveSystem : MonoBehaviour
      
         save[currentSaveIndex].level = currentSave.level;
         save[currentSaveIndex].maxHealth = currentSave.maxHealth;
-        if(currentSave.lastPosition[0] != 0)
+        
+        if (currentSave.lastPositionX != 0 && currentSave.lastPositionY != 0)
         {
-            save[currentSaveIndex].checkPoint = new Vector3(currentSave.lastPosition[0], currentSave.lastPosition[1]);
+            save[currentSaveIndex].checkPoint = new Vector3(currentSave.lastPositionX, currentSave.lastPositionY, 0f);
         }
         else
         {
             save[currentSaveIndex].checkPoint = null;
-        }       
+        }
 
+        
+        
         player.gameObject.transform.parent = null;
         player.GetComponent<PlayerAbilities>().ResetRecipeCounter();
         player.GetComponent<PlayerPoints>().ResetPoints();
@@ -87,22 +90,14 @@ public class SaveSystem : MonoBehaviour
 
         player.GetComponentInChildren<UpdateSpellIcons>()?.SetSpellIcons();
 
-        LoadCheckpoint();
-    }
-
-    void LoadCheckpoint()
-    {       
         if (save[currentSaveIndex].checkPoint.HasValue)
         {
             player.transform.position = (Vector3)save[currentSaveIndex].checkPoint;
             player.gameObject.SetActive(true);
-            
-        }
-        else
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
         }
     }
+
 
     public void FinishLevel()
     {
@@ -114,11 +109,13 @@ public class SaveSystem : MonoBehaviour
     public void SaveCheckpoint(Vector3 pos)
     {
         save[currentSaveIndex].checkPoint = pos;
+        save[currentSaveIndex].SaveFile(currentSaveIndex);
     }
 
     public void ResetCheckpoint()
     {
         save[currentSaveIndex].checkPoint = null;
+        save[currentSaveIndex].SaveFile(currentSaveIndex);
     }
 
     Recipe[] GetRecipesFromID(List<int> recipeIDs, int requiredLen)

@@ -96,9 +96,7 @@ public class ChainLink : MonoBehaviour
         if (isPlayerAttached)
         {
             rb2d.AddForce(new Vector2(swingForce * horizontal, swingForce));
-        }
-        
-        
+        }             
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -119,6 +117,7 @@ public class ChainLink : MonoBehaviour
         playerAttachedToChainLink.transform.parent = transform;
         playerAttachedToChainLink.SetSwing();
         playerAttachedToChainLink.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
+        SetAngularDrag(0.05f);
         isPlayerAttached = true;
        
     }
@@ -142,22 +141,18 @@ public class ChainLink : MonoBehaviour
     {
         playerAttachedToChainLink = null;
         isPlayerAttached = false;
-        StartCoroutine(SlowDown());
+        SetAngularDrag(600f);
         
     }
 
-    IEnumerator SlowDown()
+    void SetAngularDrag(float drag)
     {
         foreach (Collider2D c2d in collider2Ds)
         {
-            c2d.attachedRigidbody.angularDrag = 99999f;
-        }
-        yield return new WaitForSeconds(1.8f);
-
-        foreach (Collider2D c2d in collider2Ds)
-        {
-            c2d.attachedRigidbody.angularDrag = 0.05f;
-        }
+            c2d.attachedRigidbody.angularDrag = drag;
+        }        
     }
+
+    
 
 }
