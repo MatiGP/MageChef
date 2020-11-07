@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -467,6 +467,80 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 170a6e2e09a1f044faa848abc621821b, type: 3}
+--- !u!1001 &109175907
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1027812248100337160, guid: 330cc6cebcedc544885c5e981bdebec6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027812248100337160, guid: 330cc6cebcedc544885c5e981bdebec6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027812248100337160, guid: 330cc6cebcedc544885c5e981bdebec6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027812248100337160, guid: 330cc6cebcedc544885c5e981bdebec6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027812248100337160, guid: 330cc6cebcedc544885c5e981bdebec6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027812248100337160, guid: 330cc6cebcedc544885c5e981bdebec6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027812248100337160, guid: 330cc6cebcedc544885c5e981bdebec6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027812248100337160, guid: 330cc6cebcedc544885c5e981bdebec6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027812248100337160, guid: 330cc6cebcedc544885c5e981bdebec6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027812248100337160, guid: 330cc6cebcedc544885c5e981bdebec6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027812248100337160, guid: 330cc6cebcedc544885c5e981bdebec6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808122342466560447, guid: 330cc6cebcedc544885c5e981bdebec6,
+        type: 3}
+      propertyPath: m_Name
+      value: SaveSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 5398391539070659387, guid: 330cc6cebcedc544885c5e981bdebec6,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 592384974}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 330cc6cebcedc544885c5e981bdebec6, type: 3}
 --- !u!4 &119533104 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7414057769672113423, guid: 7648ac72c06e50b43a42cc632bedfd0d,
@@ -2658,6 +2732,12 @@ PrefabInstance:
 --- !u!4 &592384973 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5030381926475723129, guid: 750b9699ba311f649b29e5779973249b,
+    type: 3}
+  m_PrefabInstance: {fileID: 592384972}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &592384974 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5030381926475723132, guid: 750b9699ba311f649b29e5779973249b,
     type: 3}
   m_PrefabInstance: {fileID: 592384972}
   m_PrefabAsset: {fileID: 0}
@@ -6893,7 +6973,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 592384972}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 592384974}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b48133d270ff55d489f2c9d4e723fc2a, type: 3}
